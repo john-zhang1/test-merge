@@ -21,6 +21,15 @@
       <relativePath>..</relativePath>
    </parent>
 
+   <repositories>
+      <repository>
+           <id>sonatype-releases</id>
+           <name>Sonatype Releases Repository</name>
+           <url>https://oss.sonatype.org/content/repositories/releases/</url>
+       </repository>
+
+   </repositories>
+
    <properties>
        <!-- This is the path to the root [dspace-src] directory. -->
        <root.basedir>${basedir}/../../..</root.basedir>

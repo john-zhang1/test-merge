@@ -6,11 +6,10 @@
 # {3}  Reason for the rejection
 # {4}  Link to 'My DSpace' page
 #
-Subject: DSpace: Submission Rejected
+Subject: SHAREOK: Submission Rejected
 
-You submitted: {0}
-
-To collection: {1}
+Item: {0}
+Collection: {1}
 
 Your submission has been rejected by {2}
 with the following explanation:
@@ -20,4 +19,4 @@ with the following explanation:
 Your submission has not been deleted.  You can access it from your
 "My DSpace" page: {4}
 
-DSpace
+SHAREOK
