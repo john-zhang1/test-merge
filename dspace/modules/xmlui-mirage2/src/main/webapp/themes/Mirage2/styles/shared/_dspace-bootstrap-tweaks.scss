@@ -13,6 +13,12 @@ header .navbar-brand img{
     height: 130px;
 }
 
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max){
+  header .navbar-brand img {
+      display: block !important;
+  }
+}
+
 @media (max-width: $screen-xs-max) {
     table.ds-gloss-list{
 

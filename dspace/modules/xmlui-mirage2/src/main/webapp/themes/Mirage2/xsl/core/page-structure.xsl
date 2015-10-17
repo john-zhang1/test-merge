@@ -327,19 +327,18 @@
                 <div class="container">
                     <div class="navbar-header">
 
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                        <!-- <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
                             </span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
+                        </button> -->
 
                         <a href="{$context-path}/" class="navbar-brand">
-                          <img src="{$theme-path}/images/shareok_banner.jpg" />
+                            <img src="{$theme-path}/images/shareok_banner.jpg" />
                         </a>
-
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                         <ul class="nav nav-pills pull-left ">
@@ -377,7 +376,7 @@
 
                             <xsl:choose>
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <!-- <li class="dropdown">
+                                    <li class="dropdown">
                                         <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
                                             <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                         </button>
@@ -396,9 +395,9 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li> -->
+                                    </li>
                                 </xsl:when>
-                                <!--<xsl:otherwise>
+                                <xsl:otherwise>
                                     <li>
                                         <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
@@ -407,7 +406,7 @@
                                             </button>
                                         </form>
                                     </li>
-                                </xsl:otherwise>-->
+                                </xsl:otherwise>
                             </xsl:choose>
                         </ul>
                               </div>
@@ -417,7 +416,58 @@
                         <ul class="nav navbar-nav pull-left">
                               <xsl:call-template name="languageSelection"/>
                         </ul>
-                        
+                        <ul class="nav navbar-nav pull-left">
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                    <li class="dropdown">
+                                        <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                           data-toggle="dropdown">
+                                            <span class="hidden-xs">
+                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                <xsl:text> </xsl:text>
+                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                &#160;
+                                                <b class="caret"/>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right" role="menu"
+                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                                            <li>
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <!-- <li>
+                                        <a href="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                            <span class="hidden-xs">
+                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                            </span>
+                                        </a>
+                                    </li> -->
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </ul>
+
+                        <!-- <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -719,6 +769,7 @@
                         <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
+                    <xsl:call-template name="show-google-analytics" />
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
@@ -821,6 +872,52 @@
                 ga('send', 'pageview');
             </xsl:text></script>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="show-google-analytics">
+            <script><xsl:text>
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                  ga('create', 'UA-67205385-1', 'auto');
+                  ga('send', 'pageview');
+            </xsl:text></script>
+    </xsl:template>
+
+    <!--Google map for item Detail View -->
+    <xsl:template name="addJavascript-googlemap-api">
+        <xsl:param name = "spatial" />
+
+        <script><xsl:text>
+          var myCenter=new google.maps.LatLng(</xsl:text>
+          <xsl:value-of select = "$spatial" />
+          <xsl:text>);
+          function initialize() {
+            var mapProp = {
+              center:myCenter,
+              zoom:5,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var marker=new google.maps.Marker({
+                position:myCenter,
+              });
+
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+              content:"geo information"
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map,marker);
+            });
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </xsl:text></script>
     </xsl:template>
 
     <!--The Language Selection-->
