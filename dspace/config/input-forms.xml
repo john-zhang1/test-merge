@@ -19,6 +19,7 @@
    <name-map collection-handle="11244/7920" form-name="openaccess" />
    <name-map collection-handle="11244/7929" form-name="openaccess" />
    <name-map collection-handle="11244/10405" form-name="studentpub" />
+   <name-map collection-handle="11244/18519" form-name="citizensci" />
  </form-map>
 
 
@@ -718,6 +719,156 @@
 
  </form-definitions>
 
+ // NPDG citizen science
+ <form name="citizensci">
+   <page number="1">
+     <field>
+       <dc-schema>dc</dc-schema>
+       <dc-element>title</dc-element>
+       <dc-qualifier></dc-qualifier>
+       <repeatable>false</repeatable>
+       <label>GA8014</label>
+       <input-type>onebox</input-type>
+       <hint>Enter the GA8014 of the item.</hint>
+       <required>You must enter GA8014 for this item.</required>
+     </field>
+
+     <field>
+       <dc-schema>dc</dc-schema>
+       <dc-element>date</dc-element>
+       <dc-qualifier>issued</dc-qualifier>
+       <repeatable>false</repeatable>
+       <label>Date Collected</label>
+       <input-type>date</input-type>
+       <hint></hint>
+       <required>You must enter at least the year.</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>datereceived</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Received</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required></required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>sampleid</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Sample ID</label>
+         <input-type>onebox</input-type>
+         <hint>You can enter sample id.</hint>
+         <required>You must enter the sample id.</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>city</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>City</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required>You must select a City</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>state</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>State</label>
+         <input-type value-pairs-name="state_list">dropdown</input-type>
+         <hint></hint>
+         <required>You must select a State</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>zip</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Zip</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the zip.</hint>
+         <required>You must enter zipcode</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>screenstatus</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Screen Status</label>
+         <input-type>onebox</input-type>
+         <hint>Enter screen status.</hint>
+         <required>You must enter screen status</required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>isolatesRBM</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label># of isolates from RBM</label>
+         <input-type>onebox</input-type>
+         <hint>enter number of rbm.</hint>
+         <required></required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>isolatesTV8</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label># of isolates from TV8</label>
+         <input-type>onebox</input-type>
+         <hint>Select Number of TV8.</hint>
+         <required></required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>fungismallscale</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Fungi for Small Scale</label>
+         <input-type>onebox</input-type>
+         <hint>Select fungi.</hint>
+         <required></required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Collection Detail</label>
+         <input-type>textarea</input-type>
+         <hint></hint>
+         <required></required>
+     </field>
+
+     <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>npdg</dc-element>
+         <dc-qualifier>signature</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Signature</label>
+         <input-type value-pairs-name="signature_check">list</input-type>
+         <hint></hint>
+         <required></required>
+     </field>
+   </page>
+ </form>
+
+</form-definitions>
+
 
  <!-- form-value-pairs populate dropdown and qualdrop-value lists.          -->
  <!-- The form-value-pairs element holds child elements named 'value-pairs' -->
@@ -830,9 +981,61 @@
 <pair><displayed-value>Other</displayed-value> <stored-value>Other</stored-value></pair>
 </value-pairs>
 
-
-
-
+<!-- states with abbreviation-->
+<value-pairs value-pairs-name="state_list" dc-term="degree">
+    <pair><displayed-value> </displayed-value><stored-value></stored-value></pair>
+    <pair><displayed-value>AL - Alabama</displayed-value><stored-value>AL</stored-value></pair>
+    <pair><displayed-value>AK - Alaska</displayed-value><stored-value>AK</stored-value></pair>
+    <pair><displayed-value>AZ - Arizona</displayed-value><stored-value>AZ</stored-value></pair>
+    <pair><displayed-value>AR - Arkansas</displayed-value><stored-value>AR</stored-value></pair>
+    <pair><displayed-value>CA - California</displayed-value><stored-value>CA</stored-value></pair>
+    <pair><displayed-value>CO - Colorado</displayed-value><stored-value>CO</stored-value></pair>
+    <pair><displayed-value>CT - Connecticut</displayed-value><stored-value>CT</stored-value></pair>
+    <pair><displayed-value>DE - Delaware</displayed-value><stored-value>DE</stored-value></pair>
+    <pair><displayed-value>DC - District of Columbia</displayed-value><stored-value>DC</stored-value></pair>
+    <pair><displayed-value>FL - Florida</displayed-value><stored-value>FL</stored-value></pair>
+    <pair><displayed-value>GA - Georgia</displayed-value><stored-value>GA</stored-value></pair>
+    <pair><displayed-value>HI - Hawaii</displayed-value><stored-value>HI</stored-value></pair>
+    <pair><displayed-value>ID - Idaho</displayed-value><stored-value>ID</stored-value></pair>
+    <pair><displayed-value>IL - Illinois</displayed-value><stored-value>IL</stored-value></pair>
+    <pair><displayed-value>IN - Indiana</displayed-value><stored-value>IN</stored-value></pair>
+    <pair><displayed-value>IA - Iowa</displayed-value><stored-value>IA</stored-value></pair>
+    <pair><displayed-value>KS - Kansas</displayed-value><stored-value>KS</stored-value></pair>
+    <pair><displayed-value>KY - Kentucky</displayed-value><stored-value>KY</stored-value></pair>
+    <pair><displayed-value>LA - Louisiana</displayed-value><stored-value>LA</stored-value></pair>
+    <pair><displayed-value>ME - Maine</displayed-value><stored-value>ME</stored-value></pair>
+    <pair><displayed-value>MD - Maryland</displayed-value><stored-value>MD</stored-value></pair>
+    <pair><displayed-value>MA - Massachusetts</displayed-value><stored-value>MA</stored-value></pair>
+    <pair><displayed-value>MI - Michigan</displayed-value><stored-value>MI</stored-value></pair>
+    <pair><displayed-value>MN - Minnesota</displayed-value><stored-value>MN</stored-value></pair>
+    <pair><displayed-value>MS - Mississippi</displayed-value><stored-value>MS</stored-value></pair>
+    <pair><displayed-value>MO - Missouri</displayed-value><stored-value>MO</stored-value></pair>
+    <pair><displayed-value>MT - Montana</displayed-value><stored-value>MT</stored-value></pair>
+    <pair><displayed-value>NE - Nebraska</displayed-value><stored-value>NE</stored-value></pair>
+    <pair><displayed-value>NV - Nevada</displayed-value><stored-value>NV</stored-value></pair>
+    <pair><displayed-value>NH - New Hampshire</displayed-value><stored-value>NH</stored-value></pair>
+    <pair><displayed-value>NJ - New Jersey</displayed-value><stored-value>NJ</stored-value></pair>
+    <pair><displayed-value>NM - New Mexico</displayed-value><stored-value>NM</stored-value></pair>
+    <pair><displayed-value>NY - New York</displayed-value><stored-value>NY</stored-value></pair>
+    <pair><displayed-value>NC - North Carolina</displayed-value><stored-value>NC</stored-value></pair>
+    <pair><displayed-value>ND - North Dakota</displayed-value><stored-value>ND</stored-value></pair>
+    <pair><displayed-value>OH - Ohio</displayed-value><stored-value>OH</stored-value></pair>
+    <pair><displayed-value>OK - Oklahoma</displayed-value><stored-value>OK</stored-value></pair>
+    <pair><displayed-value>OR - Oregon</displayed-value><stored-value>OR</stored-value></pair>
+    <pair><displayed-value>PA - Pennsylvania</displayed-value><stored-value>PA</stored-value></pair>
+    <pair><displayed-value>RI - Rhode Island</displayed-value><stored-value>RI</stored-value></pair>
+    <pair><displayed-value>SC - South Carolina</displayed-value><stored-value>SC</stored-value></pair>
+    <pair><displayed-value>SD - South Dakota</displayed-value><stored-value>SD</stored-value></pair>
+    <pair><displayed-value>TN - Tennessee</displayed-value><stored-value>TN</stored-value></pair>
+    <pair><displayed-value>TX - Texas</displayed-value><stored-value>TX</stored-value></pair>
+    <pair><displayed-value>UT - Utah</displayed-value><stored-value>UT</stored-value></pair>
+    <pair><displayed-value>VT - Vermont</displayed-value><stored-value>VT</stored-value></pair>
+    <pair><displayed-value>VA - Virginia</displayed-value><stored-value>VA</stored-value></pair>
+    <pair><displayed-value>WA - Washington</displayed-value><stored-value>WA</stored-value></pair>
+    <pair><displayed-value>WV - West Virginia</displayed-value><stored-value>WV</stored-value></pair>
+    <pair><displayed-value>WI - Wisconsin</displayed-value><stored-value>WI</stored-value></pair>
+    <pair><displayed-value>WY - Wyoming</displayed-value><stored-value>WY</stored-value></pair>
+</value-pairs>
 
      <!--<value-pairs value-pairs-name="thesis_department" dc-term="department">-->
      <value-pairs value-pairs-name="subject_primary" dc-term="subject">

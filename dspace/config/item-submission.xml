@@ -19,6 +19,7 @@
  <submission-map>
    <name-map collection-handle="default" submission-name="traditional" />
    <name-map collection-handle="11244/10476" submission-name="ouetd" />
+   <name-map collection-handle="11244/18519" submission-name="citizensci" />
  </submission-map>
 
 
@@ -327,6 +328,70 @@
         <jspui-binding>org.dspace.app.webui.submit.step.JSPLicenseStep</jspui-binding>
 	<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.LicenseStep</xmlui-binding>
 	<workflow-editable>false</workflow-editable>
+      </step>
+
+   </submission-process>
+
+   <!-- OU NPDG submission process -->
+   <submission-process name="citizensci">
+
+     <!-- Disable the initial questions step you should insert the -->
+     <step>
+       <processing-class>org.dspace.submit.step.SkipInitialQuestionsStep</processing-class>
+     </step>
+
+
+      <!-- Describe the item.-->
+      <step>
+        <heading>submit.progressbar.describe</heading>
+        <processing-class>org.dspace.submit.step.DescribeStep</processing-class>
+        <jspui-binding>org.dspace.app.webui.submit.step.JSPDescribeStep</jspui-binding>
+	      <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.DescribeStep</xmlui-binding>
+        <workflow-editable>true</workflow-editable>
+      </step>
+
+      <!--Step will be to Upload the item-->
+      <!-- <step>
+        <heading>submit.progressbar.upload</heading>
+        <processing-class>org.dspace.submit.step.UploadStep</processing-class>
+        <jspui-binding>org.dspace.app.webui.submit.step.JSPUploadStep</jspui-binding>
+	      <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadStep</xmlui-binding>
+        <workflow-editable>true</workflow-editable>
+      </step> -->
+
+      <!--  Upload Item with Embargo Features -->
+      <step>
+        <heading>submit.progressbar.upload</heading>
+        <processing-class>org.dspace.submit.step.UploadWithEmbargoStep</processing-class>
+        <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadWithEmbargoStep</xmlui-binding>
+        <workflow-editable>true</workflow-editable>
+      </step>
+
+      <!-- Check for Duplicates -->
+      <!--<step>
+        <heading>duplicatecheck.submission.check</heading>
+        <processing-class>com.atmire.duplicate.submit.DuplicateCheckerStep</processing-class>
+        <jspui-binding>com.atmire.app.webui.submit.step.JSPDuplicateCheckerStep</jspui-binding>
+        <xmlui-binding>com.atmire.app.xmlui.aspect.duplicatechecker.submission.DuplicateCheckerStep</xmlui-binding>
+        <workflow-editable>true</workflow-editable>
+      </step> -->
+
+      <!-- Verify/Review everything -->
+      <step>
+        <heading>submit.progressbar.verify</heading>
+        <processing-class>org.dspace.submit.step.VerifyStep</processing-class>
+       	<jspui-binding>org.dspace.app.webui.submit.step.JSPVerifyStep</jspui-binding>
+      	<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.ReviewStep</xmlui-binding>
+      	<workflow-editable>true</workflow-editable>
+      </step>
+
+      <!-- Sign off on the License-->
+      <step>
+        <heading>submit.progressbar.license</heading>
+        <processing-class>org.dspace.submit.step.LicenseStep</processing-class>
+        <jspui-binding>org.dspace.app.webui.submit.step.JSPLicenseStep</jspui-binding>
+      	<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.LicenseStep</xmlui-binding>
+      	<workflow-editable>false</workflow-editable>
       </step>
 
    </submission-process>
