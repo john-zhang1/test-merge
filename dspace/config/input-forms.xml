@@ -717,155 +717,155 @@
      </page>
    </form>
 
- </form-definitions>
-
- // NPDG citizen science
- <form name="citizensci">
-   <page number="1">
-     <field>
-       <dc-schema>dc</dc-schema>
-       <dc-element>title</dc-element>
-       <dc-qualifier></dc-qualifier>
-       <repeatable>false</repeatable>
-       <label>GA8014</label>
-       <input-type>onebox</input-type>
-       <hint>Enter the GA8014 of the item.</hint>
-       <required>You must enter GA8014 for this item.</required>
-     </field>
-
-     <field>
-       <dc-schema>dc</dc-schema>
-       <dc-element>date</dc-element>
-       <dc-qualifier>issued</dc-qualifier>
-       <repeatable>false</repeatable>
-       <label>Date Collected</label>
-       <input-type>date</input-type>
-       <hint></hint>
-       <required>You must enter at least the year.</required>
-     </field>
-
-     <field>
+   // NPDG citizen science
+   <form name="citizensci">
+     <page number="1">
+       <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>datereceived</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Date Received</label>
-         <input-type>date</input-type>
-         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
-         <required></required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>sampleid</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Sample ID</label>
-         <input-type>onebox</input-type>
-         <hint>You can enter sample id.</hint>
-         <required>You must enter the sample id.</required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>city</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>City</label>
-         <input-type>onebox</input-type>
-         <hint></hint>
-         <required>You must select a City</required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>state</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>State</label>
-         <input-type value-pairs-name="state_list">dropdown</input-type>
-         <hint></hint>
-         <required>You must select a State</required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>zip</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Zip</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the zip.</hint>
-         <required>You must enter zipcode</required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>screenstatus</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Screen Status</label>
-         <input-type>onebox</input-type>
-         <hint>Enter screen status.</hint>
-         <required>You must enter screen status</required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>isolatesRBM</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label># of isolates from RBM</label>
-         <input-type>onebox</input-type>
-         <hint>enter number of rbm.</hint>
-         <required></required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>isolatesTV8</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label># of isolates from TV8</label>
-         <input-type>onebox</input-type>
-         <hint>Select Number of TV8.</hint>
-         <required></required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>fungismallscale</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Fungi for Small Scale</label>
-         <input-type>onebox</input-type>
-         <hint>Select fungi.</hint>
-         <required></required>
-     </field>
-
-     <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
+         <dc-element>title</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Collection Detail</label>
-         <input-type>textarea</input-type>
-         <hint></hint>
-         <required></required>
-     </field>
+         <label>GA8014</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the GA8014 of the item.</hint>
+         <required>You must enter GA8014 for this item.</required>
+       </field>
 
-     <field>
+       <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>npdg</dc-element>
-         <dc-qualifier>signature</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Signature</label>
-         <input-type value-pairs-name="signature_check">list</input-type>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Collected</label>
+         <input-type>date</input-type>
          <hint></hint>
-         <required></required>
-     </field>
-   </page>
- </form>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>datereceived</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Date Received</label>
+           <input-type>date</input-type>
+           <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+           <required></required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>sampleid</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Sample ID</label>
+           <input-type>onebox</input-type>
+           <hint>You can enter sample id.</hint>
+           <required>You must enter the sample id.</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>city</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>City</label>
+           <input-type>onebox</input-type>
+           <hint></hint>
+           <required>You must select a City</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>state</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>State</label>
+           <input-type value-pairs-name="state_list">dropdown</input-type>
+           <hint></hint>
+           <required>You must select a State</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>zip</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Zip</label>
+           <input-type>onebox</input-type>
+           <hint>Enter the zip.</hint>
+           <required>You must enter zipcode</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>screenstatus</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Screen Status</label>
+           <input-type>onebox</input-type>
+           <hint>Enter screen status.</hint>
+           <required>You must enter screen status</required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>isolatesRBM</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label># of isolates from RBM</label>
+           <input-type>onebox</input-type>
+           <hint>enter number of rbm.</hint>
+           <required></required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>isolatesTV8</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label># of isolates from TV8</label>
+           <input-type>onebox</input-type>
+           <hint>Select Number of TV8.</hint>
+           <required></required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>fungismallscale</dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Fungi for Small Scale</label>
+           <input-type>onebox</input-type>
+           <hint>Select fungi.</hint>
+           <required></required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>description</dc-element>
+           <dc-qualifier></dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Collection Detail</label>
+           <input-type>textarea</input-type>
+           <hint></hint>
+           <required></required>
+       </field>
+
+       <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>npdg</dc-element>
+           <dc-qualifier>signature</dc-qualifier>
+           <repeatable>true</repeatable>
+           <label>Signature</label>
+           <input-type value-pairs-name="signature_check">list</input-type>
+           <hint></hint>
+           <required></required>
+       </field>
+     </page>
+   </form>
+
+ </form-definitions>
 
 </form-definitions>
 
