@@ -33,10 +33,10 @@
     <xsl:template match="dri:list[@type='dsolist']" priority="2">
         <xsl:apply-templates select="dri:head"/>
         <!-- show google map -->
-          <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
+          <!-- <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
           <xsl:if test="contains($focusType, 'collection')">
               <xsl:call-template name="buildgooglemap-citizensci-search"/>
-          </xsl:if>
+          </xsl:if> -->
         <xsl:apply-templates select="*[not(name()='head')]" mode="dsoList"/>
     </xsl:template>
 

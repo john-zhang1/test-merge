@@ -98,11 +98,11 @@
         <xsl:template match="dri:referenceSet[@type = 'summaryList']" priority="2">
             <xsl:apply-templates select="dri:head"/>
             <!-- show google map -->
-                <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
+                <!-- <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
                 <xsl:if test="contains($focusType, 'collection')">
                     <div style="margin:5px 35px;" class="pull-right" id="togglemap-collection"><a href="#">Expand map</a></div>
                     <xsl:call-template name="buildgooglemap-citizensci"/>
-                </xsl:if>
+                </xsl:if> -->
             <!-- Here we decide whether we have a hierarchical list or a flat one -->
             <xsl:choose>
                 <xsl:when test="descendant-or-self::dri:referenceSet/@rend='hierarchy' or ancestor::dri:referenceSet/@rend='hierarchy'">

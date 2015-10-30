@@ -562,7 +562,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM">
-        <xsl:if test="not(contains(./@qualifier, 'provenance'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature'))">
             <tr>
               <xsl:attribute name="class">
                   <xsl:text>ds-table-row </xsl:text>
