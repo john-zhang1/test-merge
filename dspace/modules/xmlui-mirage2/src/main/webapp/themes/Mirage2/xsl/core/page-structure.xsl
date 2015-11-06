@@ -337,7 +337,7 @@
                         </button> -->
 
                         <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}/images/OUatio_banner_blank-3.png" />
+                            <img src="{$theme-path}/images/shareok_banner.jpg" />
                         </a>
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
