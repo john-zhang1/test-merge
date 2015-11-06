@@ -91,10 +91,11 @@
         <!-- <div class="ds-artifact-item "> -->
 
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
+            <div class="col-sm-7 hidden-xs">
             <!-- <div class="hidden-xs"> -->
 
-              <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+            <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                <!-- <xsl:call-template name="itemSummaryView-DIM-thumbnail-two"/> -->
               <!-- <xsl:variable name="collectionhandle" select="ancestor::mets:METS/@OBJID" />
               <xsl:value-of select="$collectionhandle" />
                 <xsl:choose> -->
@@ -107,7 +108,7 @@
                     </xsl:otherwise>
                 </xsl:choose> -->
             </div>
-            <div class="col-sm-9 artifact-description">
+            <div class="col-sm-5 artifact-description">
             <!-- <div class="artifact-description"> -->
                 <h4 class="artifact-title">
                     <xsl:element name="a">
@@ -139,7 +140,7 @@
                                   <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
                                   <xsl:value-of select="dim:field[@element='npdg'][@qualifier='city']/node()"/>
                                   <xsl:text>, </xsl:text>
-                                  <xsl:value-of select="dim:field[@element='npdg'][@qualifier='state']/node()"/>
+                                  <xsl:value-of select="substring(dim:field[@element='npdg'][@qualifier='state']/node(), 1, 2)"/>
                               </span>
                           </xsl:when>
                             <!-- <xsl:when test="dim:field[@element='contributor'][@qualifier='author']">

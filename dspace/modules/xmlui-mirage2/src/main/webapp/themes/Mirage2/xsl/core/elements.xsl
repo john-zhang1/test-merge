@@ -175,26 +175,22 @@
         and the item element under list are also rich text containers.
     -->
     <xsl:template match="dri:p">
-			<xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
-			<!-- <xsl:if test="contains($focusType, 'community')"> -->
-					<p>
-	            <xsl:call-template name="standardAttributes">
-	                <xsl:with-param name="class">ds-paragraph</xsl:with-param>
-	            </xsl:call-template>
-	            <xsl:choose>
-	                <!--  does this element have any children -->
-	                <xsl:when test="child::node()">
-	                    <xsl:apply-templates />
-	                </xsl:when>
-	                <!-- if no children are found we add a space to eliminate self closing tags -->
-	                <xsl:otherwise>
-	                    &#160;
-	                </xsl:otherwise>
-	            </xsl:choose>
+        <p>
+            <xsl:call-template name="standardAttributes">
+                <xsl:with-param name="class">ds-paragraph</xsl:with-param>
+            </xsl:call-template>
+            <xsl:choose>
+                <!--  does this element have any children -->
+                <xsl:when test="child::node()">
+                    <xsl:apply-templates />
+                </xsl:when>
+                <!-- if no children are found we add a space to eliminate self closing tags -->
+                <xsl:otherwise>
+                    &#160;
+                </xsl:otherwise>
+            </xsl:choose>
 
-	        </p>
-			<!-- </xsl:if> -->
-
+        </p>
     </xsl:template>
 
 
@@ -503,8 +499,8 @@
         </strong>
     </xsl:template>
 
-    <xsl:template match="dri:xref">
-			  <xsl:if test="not(contains(@target,'author') or contains(@target,'subject'))">
+		<xsl:template match="dri:xref">
+			  <xsl:if test="not(contains(@target,'city') or contains(@target,'state') or contains(@target,'zip'))">
 	        <a>
 	            <xsl:if test="@target">
 	                <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
@@ -554,6 +550,10 @@
             </img>
         </xsl:if>
     </xsl:template>
+
+
+
+
 
 
     <xsl:template match="dri:div[@interactive='yes']" priority="2">
@@ -643,12 +643,9 @@
 
 
     <xsl:template match="dri:div/dri:head" priority="3">
-				<xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
-				<!-- <xsl:if test="contains($focusType, 'community')"> -->
-						<xsl:call-template name="renderHead">
-		            <xsl:with-param name="class">ds-div-head</xsl:with-param>
-		        </xsl:call-template>
-				<!-- </xsl:if> -->
+        <xsl:call-template name="renderHead">
+            <xsl:with-param name="class">ds-div-head</xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
 
     <!-- The second case is the header on tables, which always creates an HTML h3 element -->

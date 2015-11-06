@@ -45,7 +45,7 @@
     <xsl:template match="dri:options">
         <div id="ds-options" class="word-break hidden-print">
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
-								<xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType'], 'collection'))">
+								<!-- <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType'], 'collection'))"> -->
 										<div id="ds-search-option" class="ds-option-set">
 		                    <!-- The form, complete with a text box and a button, all built from attributes referenced
 		                 from under pageMeta. -->
@@ -93,14 +93,7 @@
 		                            <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
 		                                <div class="radio">
 		                                    <label>
-		                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
-		                                               checked="checked"/>
-		                                        <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
-		                                    </label>
-		                                </div>
-		                                <div class="radio">
-		                                    <label>
-		                                        <input id="ds-search-form-scope-container" type="radio" name="scope">
+		                                        <input id="ds-search-form-scope-container" type="radio" name="scope" checked="checked">
 		                                            <xsl:attribute name="value">
 		                                                <xsl:value-of
 		                                                        select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
@@ -118,11 +111,17 @@
 		                                        </xsl:choose>
 		                                    </label>
 		                                </div>
+																		<div class="radio">
+		                                    <label>
+		                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""/>
+		                                        <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
+		                                    </label>
+		                                </div>
 		                            </xsl:if>
 		                        </fieldset>
 		                    </form>
 		                </div>
-								</xsl:if>
+								<!-- </xsl:if> -->
             </xsl:if>
             <xsl:apply-templates/>
             <!-- DS-984 Add RSS Links to Options Box -->
@@ -181,7 +180,8 @@
                 <xsl:with-param name="class">list-group</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="dri:item"/>
-            <xsl:apply-templates select="dri:list"/>
+            <xsl:apply-templates select="dri:list[2]"/>
+						<xsl:apply-templates select="dri:list[1]"/>
         </div>
     </xsl:template>
 
@@ -196,20 +196,22 @@
     </xsl:template>
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
+			<xsl:variable name="handleNode" select="dri:xref/node()"/>
+			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_author' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_subject')">
         <a href="{dri:xref/@target}">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
             </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="dri:xref/node()">
-                    <xsl:apply-templates select="dri:xref/node()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="dri:xref"/>
-                </xsl:otherwise>
-            </xsl:choose>
-
+		            <xsl:choose>
+		                <xsl:when test="$handleNode">
+		                    <xsl:apply-templates select="$handleNode"/>
+		                </xsl:when>
+		                <xsl:otherwise>
+		                    <xsl:value-of select="dri:xref"/>
+		                </xsl:otherwise>
+		            </xsl:choose>
         </a>
+			</xsl:if>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
