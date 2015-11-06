@@ -88,28 +88,12 @@
     <xsl:template match="dim:dim" mode="itemSummaryList-DIM-metadata">
         <xsl:param name="href"/>
         <div class="row ds-artifact-item ">
-        <!-- <div class="ds-artifact-item "> -->
-
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-7 hidden-xs">
-            <!-- <div class="hidden-xs"> -->
+            <div class="col-sm-3 hidden-xs">
 
             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
-                <!-- <xsl:call-template name="itemSummaryView-DIM-thumbnail-two"/> -->
-              <!-- <xsl:variable name="collectionhandle" select="ancestor::mets:METS/@OBJID" />
-              <xsl:value-of select="$collectionhandle" />
-                <xsl:choose> -->
-                    <!-- <xsl:when test="contains($collectionhandle, '/handle/123456789/')"> -->
-                    <!-- <xsl:when test="$collectionhandle='/handle/123456789/18513' or $collectionhandle='/handle/123456789/18514'">
-                        <xsl:call-template name="itemSummaryView-DIM-thumbnail-image"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
-                    </xsl:otherwise>
-                </xsl:choose> -->
             </div>
-            <div class="col-sm-5 artifact-description">
-            <!-- <div class="artifact-description"> -->
+            <div class="col-sm-6 artifact-description">
                 <h4 class="artifact-title">
                     <xsl:element name="a">
                         <xsl:attribute name="href">
@@ -143,35 +127,6 @@
                                   <xsl:value-of select="substring(dim:field[@element='npdg'][@qualifier='state']/node(), 1, 2)"/>
                               </span>
                           </xsl:when>
-                            <!-- <xsl:when test="dim:field[@element='contributor'][@qualifier='author']">
-                                <xsl:for-each select="dim:field[@element='contributor'][@qualifier='author']">
-                                    <span>
-                                      <xsl:if test="@authority">
-                                        <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
-                                      </xsl:if>
-                                      <xsl:copy-of select="node()"/>
-                                    </span>
-                                    <xsl:if test="count(following-sibling::dim:field[@element='contributor'][@qualifier='author']) != 0">
-                                        <xsl:text>; </xsl:text>
-                                    </xsl:if>
-                                </xsl:for-each>
-                            </xsl:when>
-                            <xsl:when test="dim:field[@element='creator']">
-                                <xsl:for-each select="dim:field[@element='creator']">
-                                    <xsl:copy-of select="node()"/>
-                                    <xsl:if test="count(following-sibling::dim:field[@element='creator']) != 0">
-                                        <xsl:text>; </xsl:text>
-                                    </xsl:if>
-                                </xsl:for-each>
-                            </xsl:when>
-                            <xsl:when test="dim:field[@element='contributor']">
-                                <xsl:for-each select="dim:field[@element='contributor']">
-                                    <xsl:copy-of select="node()"/>
-                                    <xsl:if test="count(following-sibling::dim:field[@element='contributor']) != 0">
-                                        <xsl:text>; </xsl:text>
-                                    </xsl:if>
-                                </xsl:for-each>
-                            </xsl:when> -->
                             <xsl:otherwise>
                                 <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
                             </xsl:otherwise>

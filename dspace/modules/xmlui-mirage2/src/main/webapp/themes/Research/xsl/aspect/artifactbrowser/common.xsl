@@ -100,7 +100,7 @@
             <!-- show google map -->
                 <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
                 <xsl:if test="contains($focusType, 'collection')">
-                    <div style="margin:5px 35px;" class="pull-right" id="togglemap-collection"><a href="#">Expand map</a></div>
+                    <div style="margin:5px 35px;" class="pull-right" id="togglemap-collection"></div>
                     <xsl:call-template name="buildgooglemap-citizensci"/>
                 </xsl:if>
             <!-- Here we decide whether we have a hierarchical list or a flat one -->
