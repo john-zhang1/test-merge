@@ -2612,5 +2612,5 @@
 
 	<!-- Citizen Science Fields -->
 	<message key="xmlui.mirage2.itemSummaryView.MetaData.header">Information</message>
-	<message key="xmlui.dri2xhtml.structural.head-subtitle-citizen">NPDG Citizen Science</message>
+	<message key="xmlui.dri2xhtml.structural.head-subtitle-citizen">Citizen Science Soil Collection Program</message>
 </catalogue>
