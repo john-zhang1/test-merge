@@ -556,7 +556,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -574,8 +574,8 @@
                       <xsl:if test="contains($headerQualifier, 'issued')">
                           <xsl:text>Date Collected</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'sampleid')">
-                          <xsl:text>Sample ID</xsl:text>
+                      <xsl:if test="contains($headerQualifier, 'internalcode')">
+                          <xsl:text>Internal Code</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'city')">
                           <xsl:text>City</xsl:text>
@@ -598,8 +598,8 @@
                       <xsl:if test="contains($headerQualifier, 'fungismallscale')">
                           <xsl:text>Fungi for Small Scale</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'datereceived')">
-                          <xsl:text>Date Received</xsl:text>
+                      <xsl:if test="contains($headerQualifier, 'spatial')">
+                          <xsl:text>Coordinator</xsl:text>
                       </xsl:if>
                   </xsl:if>
                   <xsl:if test="./@element">
@@ -607,7 +607,7 @@
                           <xsl:text>Collection Detail</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerElement, 'title')">
-                          <xsl:text>GA8014</xsl:text>
+                          <xsl:text>Sample ID</xsl:text>
                       </xsl:if>
                   </xsl:if>
               </td>
@@ -620,7 +620,6 @@
 												<xsl:copy-of select="./node()"/>
 										</xsl:otherwise>
 								</xsl:choose>
-
               </td>
             </tr>
         </xsl:if>
