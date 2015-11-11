@@ -1,18 +1,3 @@
-$('#togglemap-collection').click(function() {
-    var mapwrapper = $('#citizenscimap');
-    if(mapwrapper.hasClass('expanded')){
-	$('#citizenscimap').height(300);
-        $('#citizenscimap').removeClass('expanded');
-	$('#togglemap-collection').text('Expand map');
-    }
-    else{
-        $('#citizenscimap').height(800);
-        $('#citizenscimap').addClass('expanded');
-        $('#togglemap-collection').text('Collapse map');
-        map._onResize();
-    }
-});
-
 $("#aspect_submission_StepTransformer_field_dc_npdg_zip").blur(function() {
     var zipcode = $("#aspect_submission_StepTransformer_field_dc_npdg_zip").val();
     var value = $("#aspect_submission_StepTransformer_field_dc_coverage_spatial").val();

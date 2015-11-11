@@ -1071,44 +1071,10 @@
             </xsl:text></script>
     </xsl:template>
 
-    <!--For item Detail View -->
-      <xsl:template name="addJavascript-googlemap-api">
-          <xsl:param name = "spatial" />
-
-          <script><xsl:text>
-            var myCenter=new google.maps.LatLng(</xsl:text>
-            <xsl:value-of select = "$spatial" />
-            <xsl:text>);
-            function initialize() {
-              var mapProp = {
-                center:myCenter,
-                zoom:5,
-                mapTypeId:google.maps.MapTypeId.ROADMAP
-              };
-
-              var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-              var marker=new google.maps.Marker({
-                  position:myCenter,
-                });
-
-              marker.setMap(map);
-
-              var infowindow = new google.maps.InfoWindow({
-                content:"geo information"
-              });
-
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map,marker);
-              });
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-          </xsl:text></script>
-      </xsl:template>
-
-      <xsl:template name="buildgooglemap-citizensci">
+      <xsl:template name="buildgooglemap-citizensci-spatial">
           <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
           <script><xsl:text>
-              var ziplist = [], titlelist = [];
+              var spatiallist = [], titlelist = [], placelist = [];
           </xsl:text></script>
 
           <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
@@ -1119,50 +1085,45 @@
                   <xsl:text>?sections=dmdSec</xsl:text>
               </xsl:variable>
 
-              <xsl:variable name="handleZip">
-                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='zip']"/>
+              <xsl:variable name="handleSpatial">
+                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='coverage' and @qualifier='spatial']"/>
              </xsl:variable>
              <xsl:variable name="handleTitle">
                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='title'][not(@qualifier)]"/>
              </xsl:variable>
+             <xsl:variable name="handlePlace">
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='city']"/>
+                 <xsl:text>, </xsl:text>
+                 <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='state'], 1, 2)"/>
+             </xsl:variable>
 
              <script><xsl:text>
-               ziplist.push('</xsl:text><xsl:value-of select="$handleZip"/><xsl:text>');
+               spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
                titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
+               placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
              </xsl:text></script>
-
           </xsl:for-each>
 
           <script><xsl:text>
-              if(ziplist.length > 0){
-                getlocation(ziplist);
+              var locations = [];
+
+              if(spatiallist.length > 0){
+                for(var i=0; i!=spatiallist.length; i++){
+                  var loc = [];
+                  var latlng = spatiallist[i].split(",");
+                  loc.push(placelist[i]);
+                  loc.push(parseFloat(latlng[0].trim()));
+                  loc.push(parseFloat(latlng[1].trim()));
+                  locations.push(loc);
+                }
+
+                makemap(locations, titlelist);
               }
               else{
                 var scimap = document.getElementById('citizenscimap');
                 scimap.setAttribute("style", "height: 0px");
               }
 
-              function getlocation(ziplist){
-
-                  var locations = [];
-
-                  geocoder = new google.maps.Geocoder();
-                  for(var i=0; i!=ziplist.length; i++){
-                      geocoder.geocode({ 'address': ziplist[i] }, function (results, status) {
-                          if (status == google.maps.GeocoderStatus.OK) {
-                              var geo=results[0].geometry.location;
-                              var loc = [];
-                              loc.push(results[0].formatted_address);
-                              loc.push(geo.lat());
-                              loc.push(geo.lng());
-                              locations.push(loc);
-                              if(ziplist.length == locations.length){
-                                makemap(locations, titlelist);
-                              }
-                          }
-                      });
-                  }
-              }
 
               var map;
               function makemap(points, titles){
@@ -1276,96 +1237,6 @@
                }
            </xsl:text></script>
        </xsl:template>
-
-       <xsl:template name="buildgooglemap-citizensci-search-copy">
-           <div id="citizenscimap-search" style="width: 100%; height: 300px;"></div>
-           <script><xsl:text>
-               var ziplist = [];
-           </xsl:text></script>
-
-           <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:list/dri:list/dri:list/dri:list">
-               <xsl:variable name="itemType">
-                   <xsl:value-of select="@n"/>
-               </xsl:variable>
-
-               <xsl:variable name="handleZip">
-                 <xsl:choose>
-                         <xsl:when test="contains($itemType, 'npdg.zip')">
-                                 <xsl:value-of select="."/>
-                         </xsl:when>
-                         <xsl:otherwise>
-                                 <xsl:text> </xsl:text>
-                         </xsl:otherwise>
-                 </xsl:choose>
-               </xsl:variable>
-
-              <xsl:if test="$handleZip!=' '">
-                   <script><xsl:text>
-                       ziplist.push('</xsl:text><xsl:value-of select="$handleZip"/><xsl:text>');
-                   </xsl:text></script>
-              </xsl:if>
-            </xsl:for-each>
-
-            <script><xsl:text>
-                if(ziplist.length > 0){
-                  getlocation(ziplist);
-                }
-                else{
-                  var scimap = document.getElementById('citizenscimap-search');
-                  scimap.setAttribute("style", "height: 0px");
-                }
-
-                function getlocation(ziplist){
-
-                    var locations = [];
-
-                    geocoder = new google.maps.Geocoder();
-                    for(var i=0; i!=ziplist.length; i++){
-                        geocoder.geocode({ 'address': ziplist[i] }, function (results, status) {
-                            if (status == google.maps.GeocoderStatus.OK) {
-                                var geo=results[0].geometry.location;
-                                var loc = [];
-                                loc.push(results[0].formatted_address);
-                                loc.push(geo.lat());
-                                loc.push(geo.lng());
-                                locations.push(loc);
-                                if(ziplist.length == locations.length){
-                                  makemap(locations);
-                                }
-                            }
-                        });
-                    }
-                }
-                function makemap(locations){
-
-                  var map = new google.maps.Map(document.getElementById('citizenscimap-search'), {
-                      zoom: 5,
-                      center: new google.maps.LatLng(35.1879507, -97.44219190000001),
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  });
-
-                  var infowindow = new google.maps.InfoWindow();
-
-                  var marker, i;
-
-                  for (i = 0; i != locations.length; i++) {
-                      marker = new google.maps.Marker({
-                          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                          map: map
-                      });
-
-                      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                          return function() {
-                              infowindow.setContent(locations[i][0]);
-                              infowindow.open(map, marker);
-                          }
-                      })(marker, i));
-                  }
-              }
-            </xsl:text></script>
-
-        </xsl:template>
-
 
     <!--The Language Selection-->
     <xsl:template name="languageSelection">

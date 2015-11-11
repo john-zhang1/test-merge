@@ -504,7 +504,7 @@
     </xsl:template>
 
     <xsl:template match="dri:xref">
-			  <xsl:if test="not(contains(@target,'author') or contains(@target,'subject'))">
+				<xsl:if test="not(contains(@target,'author') or contains(@target,'subject') or contains(@target, 'dateissued'))">
 	        <a>
 	            <xsl:if test="@target">
 	                <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>

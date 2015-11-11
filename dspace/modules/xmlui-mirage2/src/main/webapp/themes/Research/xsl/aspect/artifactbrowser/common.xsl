@@ -88,37 +88,17 @@
         <xsl:apply-templates select="*[not(name()='head')]" mode="detailView"/>
     </xsl:template>
 
-
-
-
     <!-- Summarylist case. This template used to apply templates to the "pioneer" object (the first object
         in the set) and let it figure out what to do. This is no longer the case, as everything has been
         moved to the list model. A special theme, called TableTheme, has beeen created for the purpose of
         preserving the pioneer model. -->
         <xsl:template match="dri:referenceSet[@type = 'summaryList']" priority="2">
             <xsl:apply-templates select="dri:head"/>
-            <!-- Here we decide whether we have a hierarchical list or a flat one -->
-            <xsl:choose>
-                <xsl:when test="descendant-or-self::dri:referenceSet/@rend='hierarchy' or ancestor::dri:referenceSet/@rend='hierarchy'">
-                    <ul class="ds-artifact-list list-unstyled">
-                        <xsl:apply-templates select="*[not(name()='head')]" mode="summaryList"/>
-                    </ul>
-                </xsl:when>
-                <xsl:otherwise>
-                    <ul class="ds-artifact-list list-unstyled">
-                        <xsl:apply-templates select="*[not(name()='head')]" mode="summaryList"/>
-                    </ul>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:template>
-
-        <xsl:template name="imagegallery-backup">
-        <!-- <xsl:template match="dri:referenceSet[@type = 'summaryList']" priority="2"> -->
-            <xsl:apply-templates select="dri:head"/>
             <!-- show google map -->
                 <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
                 <xsl:if test="contains($focusType, 'collection')">
-                    <xsl:call-template name="buildgooglemap-citizensci"/>
+                    <div style="margin:5px 35px;" class="pull-right" id="togglemap-collection"><a href="#">Expand map</a></div>
+                    <xsl:call-template name="buildgooglemap-citizensci-spatial"/>
                 </xsl:if>
             <!-- Here we decide whether we have a hierarchical list or a flat one -->
             <xsl:choose>
@@ -128,18 +108,9 @@
                     </ul>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:choose>
-                        <xsl:when test="contains($focusType, 'collection')">
-                            <ul id="og-grid" class="og-grid">
-                                <xsl:apply-templates select="*[not(name()='head')]" mode="summaryList"/>
-                            </ul>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <ul class="ds-artifact-list list-unstyled">
-                                <xsl:apply-templates select="*[not(name()='head')]" mode="summaryList"/>
-                            </ul>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <ul class="ds-artifact-list list-unstyled">
+                        <xsl:apply-templates select="*[not(name()='head')]" mode="summaryList"/>
+                    </ul>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:template>
@@ -153,7 +124,6 @@
             </img>
         </div>
     </xsl:template>
-
 
     <xsl:template match="dri:referenceSet[@id='aspect.artifactbrowser.ItemViewer.referenceSet.collection-viewer']/dri:reference" mode="summaryView">
         <!-- simplified check to verify whether access rights are available in METS -->

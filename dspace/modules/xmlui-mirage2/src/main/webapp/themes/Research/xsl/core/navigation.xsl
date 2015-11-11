@@ -197,7 +197,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
 			<xsl:variable name="handleNode" select="dri:xref/node()"/>
-			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_author' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_subject')">
+			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_author' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_subject' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_dateissued')">
         <a href="{dri:xref/@target}">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>

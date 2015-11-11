@@ -61,8 +61,8 @@
             </xsl:when>
             <xsl:otherwise>
 								<xsl:choose>
-										<xsl:when test="contains($text,'browse_dateissued')">
-												<xsl:text>By Date Collected</xsl:text>
+										<xsl:when test="contains($text,'browse_title')">
+												<xsl:text>By Sample ID</xsl:text>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="$text"/>
