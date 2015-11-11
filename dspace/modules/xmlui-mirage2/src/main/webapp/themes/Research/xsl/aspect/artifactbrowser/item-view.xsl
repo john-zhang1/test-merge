@@ -116,16 +116,10 @@
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div>
-                    <xsl:call-template name="itemSummaryView-DIM-date"/>
-                    <xsl:call-template name="itemSummaryView-DIM-authors"/>
-                    <!-- <xsl:if test="$ds_item_view_toggle_url != ''">
-                        <xsl:call-template name="itemSummaryView-show-full"/>
-                    </xsl:if> -->
+                    <xsl:call-template name="buildgooglemap-citizensci-spatial-item"/>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
-                    <!-- <xsl:call-template name="itemSummaryView-DIM-URI"/> -->
-                    <!-- <xsl:call-template name="itemSummaryView-collections"/> -->
                     <xsl:apply-templates select="ancestor::mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
                              mode="itemDetailView-DIM"/>
                 </div>
@@ -345,6 +339,66 @@
                 </span>
             </div>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="buildgooglemap-citizensci-spatial-item">
+        <div id="citizenitemmap" style="width: 100%; height: 300px; width:300px;"></div>
+        <script><xsl:text>
+            var spatiallist = [], titlelist = [], placelist = [];
+        </xsl:text></script>
+
+        <xsl:variable name="handleSpatial">
+            <xsl:value-of select="dim:field[@element='coverage' and @qualifier='spatial']"/>
+        </xsl:variable>
+        <xsl:variable name="handleTitle">
+           <xsl:value-of select="dim:field[@element='title'][not(@qualifier)]"/>
+        </xsl:variable>
+        <xsl:variable name="handlePlace">
+           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='city']"/>
+           <xsl:text>, </xsl:text>
+           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='state'], 1, 2)"/>
+        </xsl:variable>
+
+        <script><xsl:text>
+         spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
+         titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
+         placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
+        </xsl:text></script>
+
+        <script><xsl:text>
+            var locations = [];
+
+            if(spatiallist.length > 0){
+              for(var i=0; i!=spatiallist.length; i++){
+                var loc = [];
+                var latlng = spatiallist[i].split(",");
+                loc.push(placelist[i]);
+                loc.push(parseFloat(latlng[0].trim()));
+                loc.push(parseFloat(latlng[1].trim()));
+                locations.push(loc);
+              }
+
+              makemap(locations, titlelist);
+            }
+            else{
+              var scimap = document.getElementById('citizenscimap');
+              scimap.setAttribute("style", "height: 0px");
+            }
+
+            var map;
+            function makemap(points, titles){
+                map = L.map('citizenitemmap').setView([points[0][1], points[0][2]], 5);
+
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                    maxZoom: 18,
+                    id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
+                    accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
+                }).addTo(map);
+
+                L.marker([points[0][1], points[0][2]]).addTo(map)
+                  .bindPopup(titles[0] + '&lt;br/&gt;' + points[0][0] );
+            }
+        </xsl:text></script>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-date">
