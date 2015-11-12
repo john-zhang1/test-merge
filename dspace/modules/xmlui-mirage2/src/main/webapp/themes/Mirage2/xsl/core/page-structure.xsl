@@ -101,7 +101,7 @@
 
                                 <div class="row row-offcanvas row-offcanvas-right">
                                     <div class="horizontal-slider clearfix">
-                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content">
+                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content pull-right">
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
                                             <div class="visible-xs visible-sm">
@@ -268,7 +268,7 @@
             <!-- Modernizr enables HTML5 elements & feature detects -->
             <script src="{concat($theme-path, 'vendor/modernizr/modernizr.js')}">&#160;</script>
             <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-            
+
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>

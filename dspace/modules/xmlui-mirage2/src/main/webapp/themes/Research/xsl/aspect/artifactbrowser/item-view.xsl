@@ -342,7 +342,7 @@
     </xsl:template>
 
     <xsl:template name="buildgooglemap-citizensci-spatial-item">
-        <div id="citizenitemmap" style="width: 100%; height: 300px; width:300px;"></div>
+        <div id="citizenitemmap" style="height: 225x; width:225px;"></div>
         <script><xsl:text>
             var spatiallist = [], titlelist = [], placelist = [];
         </xsl:text></script>

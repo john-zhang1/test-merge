@@ -180,11 +180,18 @@
                 <xsl:with-param name="class">list-group</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="dri:item"/>
-            <xsl:apply-templates select="dri:list[2]"/>
-						<xsl:apply-templates select="dri:list[1]"/>
+						<xsl:choose>
+								<xsl:when test="@n='browse'">
+										<xsl:apply-templates select="dri:list[2]"/>
+										<xsl:apply-templates select="dri:list[1]"/>
+										<xsl:apply-templates select="dri:list[position()>2]"/>
+								</xsl:when>
+								<xsl:otherwise>
+										<xsl:apply-templates select="dri:list"/>
+								</xsl:otherwise>
+						</xsl:choose>
         </div>
     </xsl:template>
-
 
     <xsl:template match="dri:options//dri:item">
         <div>

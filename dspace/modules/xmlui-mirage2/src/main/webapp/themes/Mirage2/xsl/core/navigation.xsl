@@ -90,33 +90,31 @@
                             </div>
 
                             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
-                                <div class="radio">
-                                    <label>
-                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
-                                               checked="checked"/>
-                                        <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input id="ds-search-form-scope-container" type="radio" name="scope">
-                                            <xsl:attribute name="value">
-                                                <xsl:value-of
-                                                        select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
-                                            </xsl:attribute>
-                                        </input>
-                                        <xsl:choose>
-                                            <xsl:when
-                                                    test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:community'">
-                                                <i18n:text>xmlui.dri2xhtml.structural.search-in-community</i18n:text>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <i18n:text>xmlui.dri2xhtml.structural.search-in-collection</i18n:text>
-                                            </xsl:otherwise>
-
-                                        </xsl:choose>
-                                    </label>
-                                </div>
+															<div class="radio">
+																	<label>
+																			<input id="ds-search-form-scope-container" type="radio" name="scope" checked="checked">
+																					<xsl:attribute name="value">
+																							<xsl:value-of
+																											select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
+																					</xsl:attribute>
+																			</input>
+																			<xsl:choose>
+																					<xsl:when
+																									test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:community'">
+																							<i18n:text>xmlui.dri2xhtml.structural.search-in-community</i18n:text>
+																					</xsl:when>
+																					<xsl:otherwise>
+																							<i18n:text>xmlui.dri2xhtml.structural.search-in-collection</i18n:text>
+																					</xsl:otherwise>
+																			</xsl:choose>
+																	</label>
+															</div>
+															<div class="radio">
+																	<label>
+																			<input id="ds-search-form-scope-all" type="radio" name="scope" value=""/>
+																			<i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
+																	</label>
+															</div>
                             </xsl:if>
                         </fieldset>
                     </form>
@@ -179,7 +177,16 @@
                 <xsl:with-param name="class">list-group</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="dri:item"/>
-            <xsl:apply-templates select="dri:list"/>
+						<xsl:choose>
+								<xsl:when test="@n='browse'">
+										<xsl:apply-templates select="dri:list[2]"/>
+										<xsl:apply-templates select="dri:list[1]"/>
+										<xsl:apply-templates select="dri:list[position()>2]"/>
+								</xsl:when>
+								<xsl:otherwise>
+										<xsl:apply-templates select="dri:list"/>
+								</xsl:otherwise>
+						</xsl:choose>
         </div>
     </xsl:template>
 
