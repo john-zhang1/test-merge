@@ -343,9 +343,6 @@
                         </button> -->
 
                         <h1>
-                          <!-- <a href="{$context-path}/" class="navbar-brand">
-                              <img src="{$theme-path}/images/apple-touch-icon.png" />
-                          </a> -->
                           <span id="ds-header-logo-text">
                              <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-citizen</i18n:text>
                           </span>
