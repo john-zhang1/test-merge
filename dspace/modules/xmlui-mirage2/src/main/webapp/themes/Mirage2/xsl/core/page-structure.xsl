@@ -328,7 +328,7 @@
                 <div class="container">
                     <div class="navbar-header">
                       <h1>
-                           <i18n:text>xmlui.dri2xhtml.structural.head-subtitle2</i18n:text>:
+                           <i18n:text>xmlui.dri2xhtml.structural.head-subtitle2</i18n:text>
                       </h1>
                       <h4>
                            <i18n:text>xmlui.dri2xhtml.structural.head-subtitle3</i18n:text>
