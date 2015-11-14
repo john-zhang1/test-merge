@@ -327,12 +327,24 @@
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
+		      <a href="{$context-path}/" class="navbar-brand">
                       <h1>
                            <i18n:text>xmlui.dri2xhtml.structural.head-subtitle2</i18n:text>
                       </h1>
                       <h4>
                            <i18n:text>xmlui.dri2xhtml.structural.head-subtitle3</i18n:text>
                       </h4>
+		      </a>
+
+                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                            <span class="sr-only">
+                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                            </span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                         <ul class="nav nav-pills pull-left ">
 
@@ -455,12 +467,12 @@
                             </xsl:choose>
                         </ul>
 
-                        <!-- <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
                             <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button> -->
+                        </button>
                     </div>
                 </div>
             </div>
