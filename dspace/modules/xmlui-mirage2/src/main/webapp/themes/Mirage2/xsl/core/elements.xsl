@@ -500,7 +500,7 @@
     </xsl:template>
 
 		<xsl:template match="dri:xref">
-			  <xsl:if test="not(contains(@target,'city') or contains(@target,'state') or contains(@target,'zip'))">
+			  <xsl:if test="not(contains(@target,'homecity') or contains(@target,'homestate') or contains(@target,'homezip'))">
 	        <a>
 	            <xsl:if test="@target">
 	                <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
