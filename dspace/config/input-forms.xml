@@ -767,7 +767,7 @@
         <field>
             <dc-schema>dc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>city</dc-qualifier>
+            <dc-qualifier>homecity</dc-qualifier>
             <repeatable>false</repeatable>
             <label>City</label>
             <input-type>onebox</input-type>
@@ -778,7 +778,7 @@
         <field>
             <dc-schema>dc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>state</dc-qualifier>
+            <dc-qualifier>homestate</dc-qualifier>
             <repeatable>false</repeatable>
             <label>State</label>
             <input-type value-pairs-name="state_list">dropdown</input-type>
@@ -789,7 +789,7 @@
         <field>
             <dc-schema>dc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>zip</dc-qualifier>
+            <dc-qualifier>homezip</dc-qualifier>
             <repeatable>false</repeatable>
             <label>Zip</label>
             <input-type>onebox</input-type>

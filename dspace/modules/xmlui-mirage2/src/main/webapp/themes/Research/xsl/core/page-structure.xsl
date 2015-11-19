@@ -1089,9 +1089,9 @@
                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='title'][not(@qualifier)]"/>
              </xsl:variable>
              <xsl:variable name="handlePlace">
-                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='city']"/>
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homecity']"/>
                  <xsl:text>, </xsl:text>
-                 <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='state'], 1, 2)"/>
+                 <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
              </xsl:variable>
 
              <script><xsl:text>
@@ -1154,7 +1154,7 @@
 
               <xsl:variable name="handleZip">
                 <xsl:choose>
-                    <xsl:when test="contains($itemType, 'npdg.zip')">
+                    <xsl:when test="contains($itemType, 'npdg.homezip')">
                             <xsl:value-of select="."/>
                     </xsl:when>
                     <xsl:otherwise>
