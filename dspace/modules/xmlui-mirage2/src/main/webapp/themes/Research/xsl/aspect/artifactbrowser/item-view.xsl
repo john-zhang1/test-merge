@@ -653,7 +653,7 @@
                           <xsl:text>Fungi for Small Scale</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'spatial')">
-                          <xsl:text>Coordinator</xsl:text>
+                          <xsl:text>Coordinate</xsl:text>
                       </xsl:if>
                   </xsl:if>
                   <xsl:if test="./@element">

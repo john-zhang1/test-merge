@@ -13,8 +13,8 @@ $('#togglemap-collection').click(function() {
     }
 });
 
-$("#aspect_submission_StepTransformer_field_dc_npdg_zip").blur(function() {
-    var zipcode = $("#aspect_submission_StepTransformer_field_dc_npdg_zip").val();
+$("#aspect_submission_StepTransformer_field_dc_npdg_homezip").blur(function() {
+    var zipcode = $("#aspect_submission_StepTransformer_field_dc_npdg_homezip").val();
     var value = $("#aspect_submission_StepTransformer_field_dc_coverage_spatial").val();
     if(value.trim()=='')
         getCoordinate(zipcode);
