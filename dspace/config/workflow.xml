@@ -69,24 +69,12 @@
       </step>
     </workflow>
 
-        <!-- Single step workflow for default -->
-    <workflow start="def-editstep" id="ouishf">
-        <roles>
-            <role id="editor" name="Editor" scope="collection" description="The people responsible for this step complete the entire submission workflow."/>
-        </roles>
-
-        <step id="def-editstep" role="editor" userSelectionMethod="claimaction">
-          	<actions>
-          	  <action id="editaction"/>
-          	</actions>
-        </step>
-    </workflow>
 
 
     <!-- Single step workflow for default -->
     <workflow start="def-editstep" id="default">
         <roles>
-            <role id="editor" name="Editor" scope="repository" description="The people responsible for this step complete the entire submission workflow."/>
+            <role id="editor" name="EDITOR" scope="collection" description="The people responsible for this step complete the entire submission workflow."/>
         </roles>
 
         <step id="def-editstep" role="editor" userSelectionMethod="claimaction">
