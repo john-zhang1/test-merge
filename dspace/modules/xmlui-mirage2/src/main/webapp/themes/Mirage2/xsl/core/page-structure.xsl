@@ -322,19 +322,11 @@
         placeholders for header images -->
     <xsl:template name="buildHeader">
 
-
+        <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']"/>
         <header>
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-		      <a href="{$context-path}/" class="navbar-brand">
-                      <h1>
-                           <i18n:text>xmlui.dri2xhtml.structural.head-subtitle2</i18n:text>
-                      </h1>
-                      <h4>
-                           <i18n:text>xmlui.dri2xhtml.structural.head-subtitle3</i18n:text>
-                      </h4>
-		      </a>
 
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
@@ -344,6 +336,22 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+
+                        <a href="{$context-path}/" class="navbar-brand">
+                        <xsl:choose>
+                            <xsl:when test="contains($focusType, '11244/18515') or count(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target='/handle/11244/18515'])=1">
+                                <img src="{$theme-path}/images/flourishing_banner.jpg" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <h1>
+                                     <i18n:text>xmlui.dri2xhtml.structural.head-subtitle2</i18n:text>:
+                                </h1>
+                                <h4>
+                                     <i18n:text>xmlui.dri2xhtml.structural.head-subtitle3</i18n:text>
+                                </h4>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        </a>
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                         <ul class="nav nav-pills pull-left ">
