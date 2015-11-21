@@ -268,6 +268,7 @@
             <!-- Modernizr enables HTML5 elements & feature detects -->
             <script src="{concat($theme-path, 'vendor/modernizr/modernizr.js')}">&#160;</script>
             <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
@@ -340,6 +341,10 @@
                         <a href="{$context-path}/" class="navbar-brand">
                         <xsl:choose>
                             <xsl:when test="contains($focusType, '11244/18515') or count(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target='/handle/11244/18515'])=1">
+                                <script><xsl:text>
+                                    $('.navbar.navbar-default.navbar-static-top').addClass('navbar-flour');
+                                    $('.navbar.navbar-default.navbar-static-top').removeClass('navbar-default');
+                                </xsl:text></script>
                                 <img src="{$theme-path}/images/flourishing_banner.jpg" />
                             </xsl:when>
                             <xsl:otherwise>
