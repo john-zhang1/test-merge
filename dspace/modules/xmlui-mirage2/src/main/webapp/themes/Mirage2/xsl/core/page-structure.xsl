@@ -342,10 +342,10 @@
                         <xsl:choose>
                             <xsl:when test="contains($focusType, '11244/18515') or count(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target='/handle/11244/18515'])=1">
                                 <script><xsl:text>
-                                    $('.navbar.navbar-default.navbar-static-top').addClass('navbar-flour');
+                                    $('header').addClass('navbar-flour');
                                     $('.navbar.navbar-default.navbar-static-top').removeClass('navbar-default');
                                 </xsl:text></script>
-                                <img src="{$theme-path}/images/flourishing_banner.jpg" />
+                                <img src="{$theme-path}/images/flourishing_banner.jpg" class="topbanner"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <h1>
