@@ -610,7 +610,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived') or contains(./@qualifier, 'screenstatus') or contains(./@qualifier, 'fungismallscale'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>

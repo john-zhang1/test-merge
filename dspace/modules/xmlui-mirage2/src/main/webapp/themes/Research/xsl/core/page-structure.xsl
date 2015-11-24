@@ -1071,7 +1071,7 @@
       <xsl:template name="buildgooglemap-citizensci-spatial">
           <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
           <script><xsl:text>
-              var spatiallist = [], titlelist = [], placelist = [];
+              var spatiallist = [], titlelist = [], placelist = [], urllist = [];
           </xsl:text></script>
 
           <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
@@ -1093,11 +1093,15 @@
                  <xsl:text>, </xsl:text>
                  <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
              </xsl:variable>
+             <xsl:variable name="handleObjid">
+                 <xsl:value-of select="document($externalMetadataURL)//@OBJID"/>
+             </xsl:variable>
 
              <script><xsl:text>
                spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
                titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
                placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
+               urllist.push('</xsl:text><xsl:value-of select="$handleObjid"/><xsl:text>');
              </xsl:text></script>
           </xsl:for-each>
 
@@ -1114,7 +1118,7 @@
                   locations.push(loc);
                 }
 
-                makemap(locations, titlelist);
+                makemap(locations, titlelist, urllist);
               }
               else{
                 var scimap = document.getElementById('citizenscimap');
@@ -1123,7 +1127,7 @@
 
 
               var map;
-              function makemap(points, titles){
+              function makemap(points, titles, urls){
                   map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
 
                   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -1135,7 +1139,7 @@
 
                   for(var i=0;i!=points.length;i++){
                       L.marker([points[i][1], points[i][2]]).addTo(map)
-                        .bindPopup(titles[i] + '&lt;br/&gt;' + points[i][0] );
+                        .bindPopup('&lt;a href=' + urls[i] + '&gt;' + titles[i] + '&lt;br/&gt;' + points[i][0] + '&lt;/a&gt;' );
                   }
               }
           </xsl:text></script>
