@@ -110,7 +110,7 @@
                 <div class="col-sm-3">
                     <div class="row">
                         <div class="col-xs-6 col-sm-12">
-                            <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                            <xsl:call-template name="itemSummaryView-DIM-thumbnail-item"/>
                         </div>
                         <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
@@ -178,11 +178,59 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <img alt="Thumbnail" style="margin: 5px;display: inline;">
+                        <img alt="Thumbnail" class="thumbnail-inline">
                             <xsl:attribute name="src">
                                 <xsl:value-of select="$src"/>
                             </xsl:attribute>
                         </img>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <img alt="Thumbnail">
+                        <xsl:attribute name="data-src">
+                            <xsl:text>holder.js/100%x</xsl:text>
+                            <xsl:value-of select="$thumbnail.maxheight"/>
+                            <xsl:text>/text:No Thumbnail</xsl:text>
+                        </xsl:attribute>
+                    </img>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-thumbnail-item">
+        <div class="thumbnail">
+            <xsl:choose>
+                <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                    <xsl:for-each select="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file">
+                        <xsl:variable name="src">
+                            <xsl:choose>
+                                <xsl:when test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                                    <xsl:value-of
+                                            select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of
+                                            select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <xsl:variable name="counter">
+                            <xsl:value-of select="position()"/>
+                        </xsl:variable>
+                        <xsl:variable name="href">
+                            <xsl:value-of select="//mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[number($counter)]/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
+                        </xsl:variable>
+                        <xsl:element name="a">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="$href"/>
+                            </xsl:attribute>
+                            <img alt="Thumbnail" class="thumbnail-inline">
+                                <xsl:attribute name="src">
+                                    <xsl:value-of select="$src"/>
+                                </xsl:attribute>
+                            </img>
+                        </xsl:element>
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
@@ -653,7 +701,7 @@
                           <xsl:text>Fungi for Small Scale</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'spatial')">
-                          <xsl:text>Coordinate</xsl:text>
+                          <xsl:text>Coordinates</xsl:text>
                       </xsl:if>
                   </xsl:if>
                   <xsl:if test="./@element">

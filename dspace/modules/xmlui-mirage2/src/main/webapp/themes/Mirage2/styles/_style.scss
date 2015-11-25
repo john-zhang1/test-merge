@@ -17,10 +17,10 @@
     ::selection { @content; }
 }
 
-@include selection {
-    color: white;
-    background: hotpink;
-}
+// @include selection {
+//     color: white;
+//     background: hotpink;
+// }
 
 .topbanner {
   width:100%;
@@ -28,5 +28,5 @@
 }
 
 .navbar-flour {
-    background-color: #FDF9D8;
+    background-color: white;
 }
