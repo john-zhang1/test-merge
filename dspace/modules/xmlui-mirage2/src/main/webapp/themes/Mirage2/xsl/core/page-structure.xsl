@@ -350,7 +350,7 @@
                                      <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-2</i18n:text>
                                 </h1>
                                 <h4>
-                                     <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-3</i18n:text>
+                                     <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-4</i18n:text>
                                 </h4>
                             </a>
 
