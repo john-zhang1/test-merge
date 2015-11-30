@@ -509,7 +509,7 @@
                                 <h1>
                                      <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-2</i18n:text>
                                 </h1>
-                                <h4>
+                                <h4 class="subtitle-italic">
                                      <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-3</i18n:text>
                                 </h4>
                             </a>
@@ -587,7 +587,7 @@
                         </div>
 
                         <div class="navbar-header">
-                            <a href="{$context-path}/" class="navbar-brand">
+                            <a href="{$context-path}/" class="navbar-brand navbar-unit">
                                 <img src="{$theme-path}/images/flourishing_banner.jpg" class="topbanner"/>
                             </a>
                         </div>

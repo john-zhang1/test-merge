@@ -802,7 +802,7 @@
             <dc-element>coverage</dc-element>
             <dc-qualifier>spatial</dc-qualifier>
             <repeatable>false</repeatable>
-            <label>Coordinate</label>
+            <label>Coordinates</label>
             <input-type>onebox</input-type>
             <required></required>
         </field>
