@@ -20,3 +20,15 @@ function getCoordinate(zip){
 }
 
 $('#aspect_submission_StepTransformer_field_dc_coverage_spatial').attr('placeholder', 'latitude, longitude');
+
+$( window ).resize(function() {
+    var brandwidth = $('.navbar-brand-default').width();
+    var brandwrapper = $('#ds-options');
+    var brandpos = brandwrapper.position();
+    var brandloc = brandpos.left + brandwrapper.width() + 1;
+    var sidebarvisible = $('#sidebar').is(":visible");
+
+    if(brandwidth != brandloc & sidebarvisible){
+        $('.navbar-brand-default').css('width', brandloc);
+    }
+});

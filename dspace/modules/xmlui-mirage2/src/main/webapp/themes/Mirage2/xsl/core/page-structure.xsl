@@ -588,7 +588,7 @@
 
                         <div class="navbar-header">
                             <a href="{$context-path}/" class="navbar-brand navbar-unit">
-                                <img src="{$theme-path}/images/flourishing_banner.jpg" class="topbanner"/>
+                                <img src="{$theme-path}/images/ishf-website-logo-wht.png" class="topbanner"/>
                             </a>
                         </div>
 
