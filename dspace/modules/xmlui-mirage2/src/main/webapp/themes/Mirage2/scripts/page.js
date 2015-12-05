@@ -1,6 +1,6 @@
-$("#aspect_submission_StepTransformer_field_dc_npdg_homezip").blur(function() {
-    var zipcode = $("#aspect_submission_StepTransformer_field_dc_npdg_homezip").val();
-    var value = $("#aspect_submission_StepTransformer_field_dc_coverage_spatial").val();
+$("#aspect_submission_StepTransformer_field_dwc_npdg_homezip").blur(function() {
+    var zipcode = $("#aspect_submission_StepTransformer_field_dwc_npdg_homezip").val();
+    var value = $("#aspect_submission_StepTransformer_field_dwc_npdg_spatial").val();
     if(value.trim()=='')
         getCoordinate(zipcode);
 });
@@ -14,12 +14,12 @@ function getCoordinate(zip){
           var loc = [];
           loc.push(results[0].formatted_address);
           var text = geo.lat() + ', ' + geo.lng()
-          $("#aspect_submission_StepTransformer_field_dc_coverage_spatial").val(text);
+          $("#aspect_submission_StepTransformer_field_dwc_npdg_spatial").val(text);
       }
   });
 }
 
-$('#aspect_submission_StepTransformer_field_dc_coverage_spatial').attr('placeholder', 'latitude, longitude');
+$('#aspect_submission_StepTransformer_field_dwc_npdg_spatial').attr('placeholder', 'latitude, longitude');
 
 $( window ).resize(function() {
     var brandwidth = $('.navbar-brand-default').width();

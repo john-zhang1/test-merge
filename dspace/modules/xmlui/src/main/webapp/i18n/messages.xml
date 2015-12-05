@@ -2614,6 +2614,16 @@
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.group">College/Department</message>
 
 	<!-- Citizen Science Fields -->
+	<!-- Citizen Science Fields -->
 	<message key="xmlui.mirage2.itemSummaryView.MetaData.header">Information</message>
 	<message key="xmlui.dri2xhtml.structural.head-subtitle-citizen">Citizen Science Soil Collection Program</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_city">City</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_city">City</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.city">City</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_sampleid">Sample ID</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_sampleid">Sample ID</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.sampleid">Sample ID</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_state">State</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_state">State</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.state">State</message>
 </catalogue>

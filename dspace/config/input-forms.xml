@@ -717,13 +717,13 @@
      </page>
    </form>
 
-    // citizen science
+    <!-- citizen science -->
     <form name="citizensci">
       <page number="1">
         <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-schema>dwc</dc-schema>
+          <dc-element>npdg</dc-element>
+          <dc-qualifier>sampleid</dc-qualifier>
           <repeatable>false</repeatable>
           <label>Sample ID</label>
           <input-type>onebox</input-type>
@@ -732,7 +732,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>internalcode</dc-qualifier>
             <repeatable>false</repeatable>
@@ -743,9 +743,9 @@
         </field>
 
         <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
+          <dc-schema>dwc</dc-schema>
+          <dc-element>npdg</dc-element>
+          <dc-qualifier>datecollected</dc-qualifier>
           <repeatable>false</repeatable>
           <label>Date Collected</label>
           <input-type>date</input-type>
@@ -754,7 +754,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>datereceived</dc-qualifier>
             <repeatable>false</repeatable>
@@ -765,7 +765,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>homecity</dc-qualifier>
             <repeatable>false</repeatable>
@@ -776,7 +776,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>homestate</dc-qualifier>
             <repeatable>false</repeatable>
@@ -787,7 +787,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>homezip</dc-qualifier>
             <repeatable>false</repeatable>
@@ -798,8 +798,8 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
-            <dc-element>coverage</dc-element>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
             <dc-qualifier>spatial</dc-qualifier>
             <repeatable>false</repeatable>
             <label>Coordinates</label>
@@ -808,7 +808,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>screenstatus</dc-qualifier>
             <repeatable>false</repeatable>
@@ -819,7 +819,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>isolatesRBM</dc-qualifier>
             <repeatable>false</repeatable>
@@ -830,7 +830,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>isolatesTV8</dc-qualifier>
             <repeatable>false</repeatable>
@@ -841,7 +841,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>fungismallscale</dc-qualifier>
             <repeatable>false</repeatable>
@@ -852,9 +852,9 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
-            <dc-element>description</dc-element>
-            <dc-qualifier></dc-qualifier>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>detail</dc-qualifier>
             <repeatable>false</repeatable>
             <label>Collection Detail</label>
             <input-type>textarea</input-type>
@@ -863,7 +863,7 @@
         </field>
 
         <field>
-            <dc-schema>dc</dc-schema>
+            <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
             <dc-qualifier>signature</dc-qualifier>
             <repeatable>true</repeatable>

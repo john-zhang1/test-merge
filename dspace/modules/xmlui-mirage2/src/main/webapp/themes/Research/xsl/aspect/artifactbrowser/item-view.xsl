@@ -129,16 +129,16 @@
 
     <xsl:template name="itemSummaryView-DIM-title">
         <xsl:choose>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
+            <xsl:when test="count(dim:field[@element='npdg' and @qualifier='sampleid']) &gt; 1">
                 <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid'][1]/node()"/>
                 </h2>
                 <div class="simple-item-view-other">
                     <p class="lead">
-                        <xsl:for-each select="dim:field[@element='title'][not(@qualifier)]">
+                        <xsl:for-each select="dim:field[@element='npdg' and @qualifier='sampleid']">
                             <xsl:if test="not(position() = 1)">
                                 <xsl:value-of select="./node()"/>
-                                <xsl:if test="count(following-sibling::dim:field[@element='title'][not(@qualifier)]) != 0">
+                                <xsl:if test="count(following-sibling::dim:field[@element='npdg' and @qualifier='sampleid']) != 0">
                                     <xsl:text>; </xsl:text>
                                     <br/>
                                 </xsl:if>
@@ -148,9 +148,9 @@
                     </p>
                 </div>
             </xsl:when>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
+            <xsl:when test="count(dim:field[@element='npdg' and @qualifier='sampleid']) = 1">
                 <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid'][1]/node()"/>
                 </h2>
             </xsl:when>
             <xsl:otherwise>
@@ -396,15 +396,15 @@
         </xsl:text></script>
 
         <xsl:variable name="handleSpatial">
-            <xsl:value-of select="dim:field[@element='coverage' and @qualifier='spatial']"/>
+            <xsl:value-of select="dim:field[@element='npdg' and @qualifier='spatial']"/>
         </xsl:variable>
         <xsl:variable name="handleTitle">
-           <xsl:value-of select="dim:field[@element='title'][not(@qualifier)]"/>
+           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid']"/>
         </xsl:variable>
         <xsl:variable name="handlePlace">
-           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='city']"/>
+           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='homecity']"/>
            <xsl:text>, </xsl:text>
-           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='state'], 1, 2)"/>
+           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
         </xsl:variable>
 
         <script><xsl:text>
@@ -673,19 +673,19 @@
               </xsl:attribute>
               <td class="label-cell">
                   <xsl:if test="./@qualifier">
-                      <xsl:if test="contains($headerQualifier, 'issued')">
+                      <xsl:if test="contains($headerQualifier, 'datecollected')">
                           <xsl:text>Date Collected</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'internalcode')">
                           <xsl:text>Internal Code</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'city')">
+                      <xsl:if test="contains($headerQualifier, 'homecity')">
                           <xsl:text>City</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'state')">
+                      <xsl:if test="contains($headerQualifier, 'homestate')">
                           <xsl:text>State</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'zip')">
+                      <xsl:if test="contains($headerQualifier, 'homezip')">
                           <xsl:text>Zip</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'screenstatus')">
@@ -703,25 +703,24 @@
                       <xsl:if test="contains($headerQualifier, 'spatial')">
                           <xsl:text>Coordinates</xsl:text>
                       </xsl:if>
-                  </xsl:if>
-                  <xsl:if test="./@element">
-                      <xsl:if test="contains($headerElement, 'description')">
+                      <xsl:if test="contains($headerQualifier, 'detail')">
                           <xsl:text>Collection Detail</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerElement, 'title')">
+                      <xsl:if test="contains($headerQualifier, 'sampleid')">
                           <xsl:text>Sample ID</xsl:text>
                       </xsl:if>
                   </xsl:if>
               </td>
               <td class="word-break">
                 <xsl:choose>
-										<xsl:when test="contains($headerQualifier, 'state')">
+										<xsl:when test="contains($headerQualifier, 'homestate')">
                         <xsl:copy-of select="substring(./node(), 5)"/>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="./node()"/>
 										</xsl:otherwise>
 								</xsl:choose>
+
               </td>
             </tr>
         </xsl:if>
