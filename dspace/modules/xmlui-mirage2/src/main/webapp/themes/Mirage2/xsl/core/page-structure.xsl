@@ -346,6 +346,7 @@
                             </button>
 
                             <a href="{$context-path}/" class="navbar-brand">
+                                <img src="{$theme-path}/images/shareok_cap_logo_x.png" class="toplogo-default" />
                                 <h1>
                                      <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-2</i18n:text>
                                 </h1>
@@ -506,6 +507,7 @@
                             </button>
 
                             <a href="{$context-path}/" class="navbar-brand navbar-brand-default">
+                                <img src="{$theme-path}/images/shareok_cap_logo_x.png" class="toplogo" />
                                 <h1>
                                      <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-2</i18n:text>
                                 </h1>

@@ -58,6 +58,17 @@
       margin-left:5px !important;
   }
 
+  .toplogo {
+       float:left !important;
+       height:55px !important;
+       margin:10px 3px 0 0;
+   }
+
+   .toplogo-default {
+       float:left !important;
+       margin-top:10px;
+   }
+
 // @include selection {
 //     color: white;
 //     background: hotpink;
