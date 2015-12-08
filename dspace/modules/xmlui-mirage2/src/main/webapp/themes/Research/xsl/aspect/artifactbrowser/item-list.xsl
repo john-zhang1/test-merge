@@ -170,25 +170,38 @@
         <xsl:param name="href"/>
         <div class="thumbnail artifact-preview">
             <a class="image-link" href="{$href}">
-                <xsl:choose>
-                    <xsl:when test="mets:fileGrp[@USE='CONTENT']">
-                        <img class="img-responsive img-thumbnail" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
-                            <xsl:attribute name="src">
-                                <xsl:value-of
-                                        select="mets:fileGrp[@USE='CONTENT']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
-                            </xsl:attribute>
-                        </img>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <img alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
-                            <xsl:attribute name="data-src">
-                                <xsl:text>holder.js/100%x</xsl:text>
-                                <xsl:value-of select="$thumbnail.maxheight"/>
-                                <xsl:text>/text:No Thumbnail</xsl:text>
-                            </xsl:attribute>
-                        </img>
-                    </xsl:otherwise>
-                </xsl:choose>
+              <xsl:choose>
+                  <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                      <xsl:for-each select="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file">
+                          <xsl:variable name="src">
+                              <xsl:choose>
+                                  <xsl:when test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                                      <xsl:value-of
+                                              select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                  </xsl:when>
+                                  <xsl:otherwise>
+                                      <xsl:value-of
+                                              select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                  </xsl:otherwise>
+                              </xsl:choose>
+                          </xsl:variable>
+                          <img alt="Thumbnail" class="thumbnail-inline">
+                              <xsl:attribute name="src">
+                                  <xsl:value-of select="$src"/>
+                              </xsl:attribute>
+                          </img>
+                      </xsl:for-each>
+                  </xsl:when>
+                  <xsl:otherwise>
+                      <img alt="Thumbnail">
+                          <xsl:attribute name="data-src">
+                              <xsl:text>holder.js/100%x</xsl:text>
+                              <xsl:value-of select="$thumbnail.maxheight"/>
+                              <xsl:text>/text:No Thumbnail</xsl:text>
+                          </xsl:attribute>
+                      </img>
+                  </xsl:otherwise>
+              </xsl:choose>
             </a>
         </div>
     </xsl:template>

@@ -241,6 +241,14 @@
                                     </xsl:if>
                                 </xsl:for-each>
                             </xsl:when>
+                            <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homecity']">
+                                <span>
+                                    <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
+                                    <xsl:value-of select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homecity']/node()"/>
+                                    <xsl:text>, </xsl:text>
+                                    <xsl:value-of select="substring($metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homestate']/node(), 1, 2)"/>
+                                </span>
+                            </xsl:when>                            
                             <xsl:otherwise>
                                 <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
                             </xsl:otherwise>
