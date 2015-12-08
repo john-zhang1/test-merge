@@ -1068,82 +1068,78 @@
             </xsl:text></script>
     </xsl:template>
 
-    <xsl:template name="buildgooglemap-citizensci-spatial">
-        <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
-        <script><xsl:text>
-            var spatiallist = [], titlelist = [], placelist = [], urllist = [];
-        </xsl:text></script>
+      <xsl:template name="buildgooglemap-citizensci-spatial">
+          <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
+          <script><xsl:text>
+              var spatiallist = [], titlelist = [], placelist = [];
+          </xsl:text></script>
 
-        <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
+          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
 
-            <xsl:variable name="externalMetadataURL">
-                <xsl:text>cocoon:/</xsl:text>
-                <xsl:value-of select="@url"/>
-                <xsl:text>?sections=dmdSec</xsl:text>
-            </xsl:variable>
+              <xsl:variable name="externalMetadataURL">
+                  <xsl:text>cocoon:/</xsl:text>
+                  <xsl:value-of select="@url"/>
+                  <xsl:text>?sections=dmdSec</xsl:text>
+              </xsl:variable>
 
-            <xsl:variable name="handleSpatial">
-                <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='spatial']"/>
-           </xsl:variable>
-           <xsl:variable name="handleTitle">
-               <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='sampleid']"/>
-           </xsl:variable>
-           <xsl:variable name="handlePlace">
-               <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homecity']"/>
-               <xsl:text>, </xsl:text>
-               <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
-           </xsl:variable>
-           <xsl:variable name="handleObjid">
-               <xsl:value-of select="document($externalMetadataURL)//@OBJID"/>
-           </xsl:variable>
+              <xsl:variable name="handleSpatial">
+                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='coverage' and @qualifier='spatial']"/>
+             </xsl:variable>
+             <xsl:variable name="handleTitle">
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='title'][not(@qualifier)]"/>
+             </xsl:variable>
+             <xsl:variable name="handlePlace">
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homecity']"/>
+                 <xsl:text>, </xsl:text>
+                 <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
+             </xsl:variable>
 
-           <script><xsl:text>
-             spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
-             titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
-             placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
-             urllist.push('</xsl:text><xsl:value-of select="$handleObjid"/><xsl:text>');
-           </xsl:text></script>
-        </xsl:for-each>
+             <script><xsl:text>
+               spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
+               titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
+               placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
+             </xsl:text></script>
+          </xsl:for-each>
 
-        <script><xsl:text>
-            var locations = [];
+          <script><xsl:text>
+              var locations = [];
 
-            if(spatiallist.length > 0){
-              for(var i=0; i!=spatiallist.length; i++){
-                var loc = [];
-                var latlng = spatiallist[i].split(",");
-                loc.push(placelist[i]);
-                loc.push(parseFloat(latlng[0].trim()));
-                loc.push(parseFloat(latlng[1].trim()));
-                locations.push(loc);
+              if(spatiallist.length > 0){
+                for(var i=0; i!=spatiallist.length; i++){
+                  var loc = [];
+                  var latlng = spatiallist[i].split(",");
+                  loc.push(placelist[i]);
+                  loc.push(parseFloat(latlng[0].trim()));
+                  loc.push(parseFloat(latlng[1].trim()));
+                  locations.push(loc);
+                }
+
+                makemap(locations, titlelist);
+              }
+              else{
+                var scimap = document.getElementById('citizenscimap');
+                scimap.setAttribute("style", "height: 0px");
               }
 
-              makemap(locations, titlelist, urllist);
-            }
-            else{
-              var scimap = document.getElementById('citizenscimap');
-              scimap.setAttribute("style", "height: 0px");
-            }
 
+              var map;
+              function makemap(points, titles){
+                  map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
 
-            var map;
-            function makemap(points, titles, urls){
-                map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
+                  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                      attribution: 'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;  contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;',
+                      maxZoom: 18,
+                      id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
+                      accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
+                  }).addTo(map);
 
-                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                    attribution: 'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;  contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;',
-                    maxZoom: 18,
-                    id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
-                    accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
-                }).addTo(map);
-
-                for(var i=0;i!=points.length;i++){
-                    L.marker([points[i][1], points[i][2]]).addTo(map)
-                      .bindPopup('&lt;a href=' + urls[i] + '&gt;' + titles[i] + '&lt;br/&gt;' + points[i][0] + '&lt;/a&gt;' );
-                }
-            }
-        </xsl:text></script>
-    </xsl:template>
+                  for(var i=0;i!=points.length;i++){
+                      L.marker([points[i][1], points[i][2]]).addTo(map)
+                        .bindPopup(titles[i] + '&lt;br/&gt;' + points[i][0] );
+                  }
+              }
+          </xsl:text></script>
+      </xsl:template>
 
       <xsl:template name="buildgooglemap-citizensci-search">
           <div id="citizenscimap-search" style="width: 100%; height: 300px;"></div>

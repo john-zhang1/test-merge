@@ -17,12 +17,7 @@
     ::selection { @content; }
 }
 
-// @include selection {
-//     color: white;
-//     background: hotpink;
-// }
-
-.thumbnail-inline {
-    margin: 5px;
-    display: inline !important;
+@include selection {
+    color: white;
+    background: hotpink;
 }
