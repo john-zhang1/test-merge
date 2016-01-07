@@ -2537,7 +2537,7 @@
 
 	<!-- End Versioning -->
 
-	<!-- MQM -->
+	<!-- Metadata Quality Module -->
 	<message key="xmlui.metadataquality.batch-edit.field.label.dc.date.manuscript">Manuscript (dc.date.manuscript)</message>
 	<message key="xmlui.metadataquality.batch-edit.field.label.dc.thesis.degree">Degree (dc.thesis.degree)</message>
 	<message key="xmlui.metadataquality.batch-edit.field.label.dc.thesis.degreeDiscipline">Discipline (dc.thesis.degreeDiscipline)</message>
