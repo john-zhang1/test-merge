@@ -19,6 +19,7 @@
  <submission-map>
    <name-map collection-handle="default" submission-name="traditional" />
    <name-map collection-handle="11244/10476" submission-name="ouetd" />
+   <name-map collection-handle="11244/21723" submission-name="ouetd" /> <!-- dev only thesis collection -->
    <name-map collection-handle="11244/18519" submission-name="citizensci" />
  </submission-map>
 
