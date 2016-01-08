@@ -16,7 +16,7 @@
  <form-map>
    <name-map collection-handle="default" form-name="openaccess" />
    <name-map collection-handle="11244/10476" form-name="oudissertation" />
-   <name-map collection-handle="11244/21723" form-name="outhesis"/> <!-- dev only collection -->
+   <name-map collection-handle="11244/23528" form-name="outhesis"/>
    <name-map collection-handle="11244/7920" form-name="openaccess" />
    <name-map collection-handle="11244/7929" form-name="openaccess" />
    <name-map collection-handle="11244/10405" form-name="studentpub" />
