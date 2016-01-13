@@ -15,11 +15,13 @@
 
  <form-map>
    <name-map collection-handle="default" form-name="openaccess" />
-   <name-map collection-handle="11244/10476" form-name="ouetd" />
+   <name-map collection-handle="11244/10476" form-name="oudissertation" />
+   <name-map collection-handle="11244/23528" form-name="outhesis"/>
    <name-map collection-handle="11244/7920" form-name="openaccess" />
    <name-map collection-handle="11244/7929" form-name="openaccess" />
    <name-map collection-handle="11244/10405" form-name="studentpub" />
    <name-map collection-handle="11244/18519" form-name="citizensci" />
+
  </form-map>
 
 
@@ -240,7 +242,7 @@
      </page>
    </form>
 
-   <form name="ouetd">
+   <form name="oudissertation">
      <page number="1">
 
        <field>
@@ -404,6 +406,172 @@
 
      </page>
    </form>
+
+   <form name="outhesis">
+     <page number="1">
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>manuscript</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Manuscript Completed</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date degree awarded</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>thesis</dc-element>
+         <dc-qualifier>degree</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Degree Awarded</label>
+         <input-type value-pairs-name="ou_thesis_degree">dropdown</input-type>
+         <hint></hint>
+         <required>You must select a degree.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+         <required>You must enter an author</required>
+       </field>
+
+       <field>
+         <dc-schema>shareok</dc-schema>
+         <dc-element>orcid</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Author ORCID ID</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the ORCID ID corresponding to the primary author of this work.</hint>
+         <required></required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>advisor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Advisor/Supervisor/Committee Chair</label>
+         <input-type>name</input-type>
+         <hint>Enter your primary advisor(s), not your entire committee. Do not include degrees as part of the name.</hint>
+         <required>You must enter an advisor</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>committeeMember</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Committee Members</label>
+         <input-type>name</input-type>
+         <hint>Include up to 10 names. Do not include degrees as part of the name.</hint>
+         <required></required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Category</label>
+         <input-type>onebox</input-type>
+         <hint>Choose 3-4 clear, accurate, descriptive subect
+             terms. Think about the keywords that you would use to
+             find material related to your dissertation topic, and
+             include the closest subject terms.</hint>
+         <required>You must enter a subject</required>
+         <vocabulary closed="false">subjects</vocabulary>
+       </field>
+
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>group</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department/College</label>
+         <input-type value-pairs-name="ou_group">dropdown</input-type>
+         <hint>Select the name of your academic unit.</hint>
+         <required>You must select an option.</required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the abstract of the item below. Within your
+         abstract, repeat keywords or phrases from your dissertation
+         title, reuse relevant keywords, and include other keywords or
+         phrases you would use to find material related to your
+         dissertation topic.</hint>
+         <required>You must enter an abstract</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Primary Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list below, please select 'Other'.</hint>
+         <required></required>
+       </field>
+
+         <field>
+             <dc-schema>shareok</dc-schema>
+             <dc-element>nativefileaccess</dc-element>
+             <dc-qualifier></dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Access to Original Documents</label>
+             <input-type value-pairs-name="nativefile_check">list</input-type>
+             <hint>Should access to original document files (non-PDF) be restricted?</hint>
+             <required></required>
+         </field>
+
+
+
+
+     </page>
+   </form>
+
 
    <form name="studentpub">
      <page number="1">
@@ -942,6 +1110,40 @@
            <stored-value>Dr.P.H</stored-value>
        </pair>
    </value-pairs>
+
+<value-pairs value-pairs-name="ou_thesis_degree" dc-term="degree">
+  <pair>x<displayed-value></displayed-value><stored-value></stored-value></pair>
+  <pair><displayed-value>Master of Architecture</displayed-value><stored-value>Master of Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Arts</displayed-value><stored-value>Master of Arts</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Administrative Leadership</displayed-value><stored-value>Master of Arts in Administrative Leadership</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Applied Linguistic Anthropology</displayed-value><stored-value>Master of Arts in Applied Linguistic Anthropology</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Art History</displayed-value><stored-value>Master of Arts in Art History</stored-value></pair>
+  <pair><displayed-value>Master of Arts in History of Science, Technology and Medicine</displayed-value><stored-value>Master of Arts in History of Science, Technology and Medicine</stored-value></pair>
+  <pair><displayed-value>Master of Arts in International Studies</displayed-value><stored-value>Master of Arts in International Studies</stored-value></pair>
+  <pair><displayed-value>Master of Education</displayed-value><stored-value>Master of Education</stored-value></pair>
+  <pair><displayed-value>Master of Environmental Science</displayed-value><stored-value>Master of Environmental Science</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Art</displayed-value><stored-value>Master of Fine Arts in Art</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Dance</displayed-value><stored-value>Master of Fine Arts in Dance</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Drama</displayed-value><stored-value>Master of Fine Arts in Drama</stored-value></pair>
+  <pair><displayed-value>Master of Human Relations</displayed-value><stored-value>Master of Human Relations</stored-value></pair>
+  <pair><displayed-value>Master of Landscape Architecture</displayed-value><stored-value>Master of Landscape Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Library &amp; Information Studies</displayed-value><stored-value>Master of Library &amp; Information Studies</stored-value></pair>
+  <pair><displayed-value>Master of Music</displayed-value><stored-value>Master of Music</stored-value></pair>
+  <pair><displayed-value>Master of Music Education</displayed-value><stored-value>Master of Music Education</stored-value></pair>
+  <pair><displayed-value>Master of Regional &amp; City Planning</displayed-value><stored-value>Master of Regional &amp; City Planning</stored-value></pair>
+  <pair><displayed-value>Master of Science</displayed-value><stored-value>Master of Science</stored-value></pair>
+  <pair><displayed-value>Master of Science in Architectural Urban Studies</displayed-value><stored-value>Master of Science in Architectural Urban Studies</stored-value></pair>
+  <pair><displayed-value>Master of Science in Architecture</displayed-value><stored-value>Master of Science in Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Science in Construction Management</displayed-value><stored-value>Master of Science in Construction Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Environmental Engineering</displayed-value><stored-value>Master of Science in Environmental Engineering</stored-value></pair>
+  <pair><displayed-value>Master of Science in Environmental Sustainability</displayed-value><stored-value>Master of Science in Environmental Sustainability</stored-value></pair>
+  <pair><displayed-value>Master of Science in Interior Design</displayed-value><stored-value>Master of Science in Interior Design</stored-value></pair>
+  <pair><displayed-value>Master of Science in Knowledge Management</displayed-value><stored-value>Master of Science in Knowledge Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Meteorology</displayed-value><stored-value>Master of Science in Meteorology</stored-value></pair>
+  <pair><displayed-value>Master of Science in Natural Gas Engineering and Management</displayed-value><stored-value>Master of Science in Natural Gas Engineering and Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Telecommunications Engineering</displayed-value><stored-value>Master of Science in Telecommunications Engineering</stored-value></pair>
+  <pair><displayed-value>Master of Social Work</displayed-value><stored-value>Master of Social Work</stored-value></pair>
+</value-pairs>
 
 
 <value-pairs value-pairs-name="ou_group" dc-term="group">
