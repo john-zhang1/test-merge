@@ -32,11 +32,6 @@
 
     <xsl:template match="dri:list[@type='dsolist']" priority="2">
         <xsl:apply-templates select="dri:head"/>
-        <!-- show google map -->
-          <!-- <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
-          <xsl:if test="contains($focusType, 'collection')">
-              <xsl:call-template name="buildgooglemap-citizensci-search"/>
-          </xsl:if> -->
         <xsl:apply-templates select="*[not(name()='head')]" mode="dsoList"/>
     </xsl:template>
 
@@ -183,8 +178,8 @@
                     </xsl:attribute>
                     <h4>
                         <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
+                            <xsl:when test="dri:list[@n=(concat($handle, ':dwc.npdg.sampleid'))]">
+                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dwc.npdg.sampleid'))]/dri:item"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
@@ -203,7 +198,8 @@
                     </h4>
                 </xsl:element>
                 <div class="artifact-info">
-                    <span class="author h4">    <small>
+                    <span class="author h4">
+                      <small>
                         <xsl:choose>
                             <xsl:when test="dri:list[@n=(concat($handle, ':dc.contributor.author'))]">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.contributor.author'))]/dri:item">
@@ -240,6 +236,14 @@
                                         <xsl:text>; </xsl:text>
                                     </xsl:if>
                                 </xsl:for-each>
+                            </xsl:when>
+                            <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homecity']">
+                                <span>
+                                    <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
+                                    <xsl:value-of select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homecity']/node()"/>
+                                    <xsl:text>, </xsl:text>
+                                    <xsl:value-of select="substring($metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homestate']/node(), 1, 2)"/>
+                                </span>
                             </xsl:when>
                             <xsl:otherwise>
                                 <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
@@ -345,7 +349,8 @@
                     </h4>
                 </xsl:element>
                 <div class="artifact-info">
-                    <span class="author h4">    <small>
+                    <span class="author h4">
+                      <small>
                         <xsl:choose>
                             <xsl:when test="dri:list[@n=(concat($handle, ':dc.contributor.author'))]">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.contributor.author'))]/dri:item">
