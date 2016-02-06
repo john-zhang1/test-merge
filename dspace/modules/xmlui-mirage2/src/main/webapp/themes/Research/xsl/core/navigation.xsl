@@ -107,7 +107,6 @@
 		                                            <xsl:otherwise>
 		                                                <i18n:text>xmlui.dri2xhtml.structural.search-in-collection</i18n:text>
 		                                            </xsl:otherwise>
-
 		                                        </xsl:choose>
 		                                    </label>
 		                                </div>
@@ -204,7 +203,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
 			<xsl:variable name="handleNode" select="dri:xref/node()"/>
-			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_author' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_subject' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_dateissued')">
+			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_author' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_subject' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_degree' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_dateissued' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_title')">
         <a href="{dri:xref/@target}">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
