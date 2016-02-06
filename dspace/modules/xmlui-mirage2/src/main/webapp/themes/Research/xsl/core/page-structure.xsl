@@ -104,9 +104,6 @@
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content pull-right">
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
-                                            <!--<div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>-->
                                         </div>
                                         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                                             <xsl:apply-templates select="dri:options"/>
@@ -273,6 +270,7 @@
             <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="{concat($theme-path, 'scripts/leaflet.js')}">&#160;</script>
+            <!-- <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script> -->
 
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
@@ -332,15 +330,6 @@
             <div class="jumbotron" role="navigation" style="padding: 20px 0">
                 <div class="container">
                     <div class="navbar-header">
-
-                        <!--<button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                            <span class="sr-only">
-                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                            </span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> -->
 
                         <h1>
                           <span id="ds-header-logo-text">
@@ -458,24 +447,9 @@
                                     </li>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <!--<li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
-                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
-                                            </span>
-                                        </a>
-                                    </li> -->
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
-
-                        <!-- <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> -->
                     </div>
                 </div>
             </div>
@@ -489,19 +463,7 @@
             <div class="jumbotron" role="navigation" style="padding: 20px 0">
                 <div class="container">
                     <div class="navbar-header">
-
-                        <!--<button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                            <span class="sr-only">
-                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                            </span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> -->
                       <h1>
-                        <!-- <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}/images/apple-touch-icon.png" />
-                        </a> -->
                         <span id="ds-header-logo-text">
                            <i18n:text>xmlui.dri2xhtml.structural.head-subtitle-citizen</i18n:text>
                         </span>
@@ -617,24 +579,9 @@
                                     </li>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <!--<li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
-                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
-                                            </span>
-                                        </a>
-                                    </li> -->
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
-
-                        <!-- <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> -->
                     </div>
                 </div>
             </div>
@@ -1025,6 +972,7 @@
 
         <xsl:call-template name="addJavascript-google-analytics" />
         <xsl:call-template name="add-expander-js" />
+        <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script>
     </xsl:template>
 
     <xsl:template name="addJavascript-google-analytics">
@@ -1055,9 +1003,8 @@
     </xsl:template>
 
     <xsl:template name="add-expander-js">
-      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
       <script src="{concat($theme-path, 'scripts/grid.js')}">&#160;</script>
-      <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script>
+      <!-- <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script> -->
 
             <script><xsl:text>
 
@@ -1068,10 +1015,122 @@
             </xsl:text></script>
     </xsl:template>
 
+    <!--For item Detail View -->
+      <xsl:template name="addJavascript-googlemap-api">
+          <xsl:param name = "spatial" />
+
+          <script><xsl:text>
+            var myCenter=new google.maps.LatLng(</xsl:text>
+            <xsl:value-of select = "$spatial" />
+            <xsl:text>);
+            function initialize() {
+              var mapProp = {
+                center:myCenter,
+                zoom:5,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+              };
+
+              var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+              var marker=new google.maps.Marker({
+                  position:myCenter,
+                });
+
+              marker.setMap(map);
+
+              var infowindow = new google.maps.InfoWindow({
+                content:"geo information"
+              });
+
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+              });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+          </xsl:text></script>
+      </xsl:template>
+
+      <xsl:template name="buildgooglemap-citizensci">
+          <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
+          <script><xsl:text>
+              var ziplist = [], titlelist = [];
+          </xsl:text></script>
+
+          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
+
+              <xsl:variable name="externalMetadataURL">
+                  <xsl:text>cocoon:/</xsl:text>
+                  <xsl:value-of select="@url"/>
+                  <xsl:text>?sections=dmdSec</xsl:text>
+              </xsl:variable>
+
+              <xsl:variable name="handleZip">
+                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homezip']"/>
+             </xsl:variable>
+             <xsl:variable name="handleTitle">
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='title'][not(@qualifier)]"/>
+             </xsl:variable>
+
+             <script><xsl:text>
+               ziplist.push('</xsl:text><xsl:value-of select="$handleZip"/><xsl:text>');
+               titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
+             </xsl:text></script>
+
+          </xsl:for-each>
+
+          <script><xsl:text>
+              if(ziplist.length > 0){
+                getlocation(ziplist);
+              }
+              else{
+                var scimap = document.getElementById('citizenscimap');
+                scimap.setAttribute("style", "height: 0px");
+              }
+
+              function getlocation(ziplist){
+
+                  var locations = [];
+
+                  geocoder = new google.maps.Geocoder();
+                  for(var i=0; i!=ziplist.length; i++){
+                      geocoder.geocode({ 'address': ziplist[i] }, function (results, status) {
+                          if (status == google.maps.GeocoderStatus.OK) {
+                              var geo=results[0].geometry.location;
+                              var loc = [];
+                              loc.push(results[0].formatted_address);
+                              loc.push(geo.lat());
+                              loc.push(geo.lng());
+                              locations.push(loc);
+                              if(ziplist.length == locations.length){
+                                makemap(locations, titlelist);
+                              }
+                          }
+                      });
+                  }
+              }
+
+              var map;
+              function makemap(points, titles){
+                  map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
+
+                  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                      attribution: 'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;  contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;',
+                      maxZoom: 18,
+                      id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
+                      accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
+                  }).addTo(map);
+
+                  for(var i=0;i!=points.length;i++){
+                      L.marker([points[i][1], points[i][2]]).addTo(map)
+                        .bindPopup(titles[i] + '&lt;br/&gt;' + points[i][0] );
+                  }
+              }
+          </xsl:text></script>
+      </xsl:template>
+
       <xsl:template name="buildgooglemap-citizensci-spatial">
           <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
           <script><xsl:text>
-              var spatiallist = [], titlelist = [], placelist = [];
+              var spatiallist = [], titlelist = [], placelist = [], urllist = [];
           </xsl:text></script>
 
           <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
@@ -1083,21 +1142,25 @@
               </xsl:variable>
 
               <xsl:variable name="handleSpatial">
-                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='coverage' and @qualifier='spatial']"/>
+                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='spatial']"/>
              </xsl:variable>
              <xsl:variable name="handleTitle">
-                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='title'][not(@qualifier)]"/>
+                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='sampleid']"/>
              </xsl:variable>
              <xsl:variable name="handlePlace">
                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homecity']"/>
                  <xsl:text>, </xsl:text>
                  <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
              </xsl:variable>
+             <xsl:variable name="handleObjid">
+                 <xsl:value-of select="document($externalMetadataURL)//@OBJID"/>
+             </xsl:variable>
 
              <script><xsl:text>
                spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
                titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
                placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
+               urllist.push('</xsl:text><xsl:value-of select="$handleObjid"/><xsl:text>');
              </xsl:text></script>
           </xsl:for-each>
 
@@ -1114,7 +1177,7 @@
                   locations.push(loc);
                 }
 
-                makemap(locations, titlelist);
+                makemap(locations, titlelist, urllist);
               }
               else{
                 var scimap = document.getElementById('citizenscimap');
@@ -1123,7 +1186,7 @@
 
 
               var map;
-              function makemap(points, titles){
+              function makemap(points, titles, urls){
                   map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
 
                   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -1135,7 +1198,7 @@
 
                   for(var i=0;i!=points.length;i++){
                       L.marker([points[i][1], points[i][2]]).addTo(map)
-                        .bindPopup(titles[i] + '&lt;br/&gt;' + points[i][0] );
+                        .bindPopup('&lt;a href=' + urls[i] + '&gt;' + titles[i] + '&lt;br/&gt;' + points[i][0] + '&lt;/a&gt;' );
                   }
               }
           </xsl:text></script>
