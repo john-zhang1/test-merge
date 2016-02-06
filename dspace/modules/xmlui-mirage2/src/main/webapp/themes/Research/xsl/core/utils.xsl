@@ -60,14 +60,7 @@
                 </ul>
             </xsl:when>
             <xsl:otherwise>
-								<xsl:choose>
-										<xsl:when test="contains($text,'browse_title')">
-												<xsl:text>By Sample ID</xsl:text>
-										</xsl:when>
-										<xsl:otherwise>
-												<xsl:copy-of select="$text"/>
-										</xsl:otherwise>
-								</xsl:choose>
+								<xsl:copy-of select="$text"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -147,5 +140,6 @@
             <xsl:attribute name="i18n:attr">placeholder</xsl:attribute>
         </xsl:if>
     </xsl:template>
+
 
 </xsl:stylesheet>
