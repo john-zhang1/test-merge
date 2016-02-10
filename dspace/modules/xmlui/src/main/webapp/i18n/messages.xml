@@ -2215,9 +2215,8 @@
 	<message key="xmlui.dri2xhtml.structural.feedback-link">Send Feedback</message>
 
 	<message key="xmlui.dri2xhtml.structural.head-subtitle">SHAREOK Repository</message>
-	<message key="xmlui.dri2xhtml.structural.head-subtitle-2">SHAREOK</message>
-	<message key="xmlui.dri2xhtml.structural.head-subtitle-3">advancing Oklahoma scholarship, <br/>research and institutional memory</message>
-	<message key="xmlui.dri2xhtml.structural.head-subtitle-4">advancing Oklahoma scholarship, research and institutional memory</message>
+	<message key="xmlui.dri2xhtml.structural.head-subtitle2">SHAREOK</message>
+	<message key="xmlui.dri2xhtml.structural.head-subtitle3">advancing Oklahoma scholarship,  research and institutional memory</message>
 
 	<message key="xmlui.dri2xhtml.structural.profile">Profile: </message>
 	<message key="xmlui.dri2xhtml.structural.logout">Logout</message>
