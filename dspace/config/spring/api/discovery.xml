@@ -47,7 +47,7 @@
                <entry key="site" value-ref="homepageConfiguration" />
                <!--<entry key="123456789/7621" value-ref="defaultConfiguration"/>-->
                <entry key="11244/10476" value-ref="ouETDConfiguration" />
-               <entry key="11244/18519" value-ref="citizenscience" />
+               <entry key="11244/28096" value-ref="citizenscience" />
             </map>
         </property>
         <property name="toIgnoreMetadataFields">
