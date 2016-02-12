@@ -110,35 +110,44 @@
                 <div class="col-sm-3">
                     <div class="row">
                         <div class="col-xs-6 col-sm-12">
-                            <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                            <xsl:call-template name="itemSummaryView-DIM-thumbnail-item"/>
                         </div>
                         <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div>
                     <xsl:call-template name="buildgooglemap-citizensci-spatial-item"/>
+                    <!-- <xsl:call-template name="itemSummaryView-DIM-date"/>
+                    <xsl:call-template name="itemSummaryView-DIM-authors"/> -->
+                    <xsl:if test="$ds_item_view_toggle_url != ''">
+                        <xsl:call-template name="itemSummaryView-show-full"/>
+                    </xsl:if>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
+                    <!-- <xsl:call-template name="itemSummaryView-DIM-URI"/> -->
+                    <!-- <xsl:call-template name="itemSummaryView-collections"/> -->
                     <xsl:apply-templates select="ancestor::mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
                              mode="itemDetailView-DIM"/>
                 </div>
             </div>
+            <div class="col-sm-12"><xsl:text>&#160;</xsl:text></div>
+            <xsl:call-template name="citizen-Item-LegendandNotes" />
         </div>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-title">
         <xsl:choose>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
+            <xsl:when test="count(dim:field[@element='npdg' and @qualifier='sampleid']) &gt; 1">
                 <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid'][1]/node()"/>
                 </h2>
                 <div class="simple-item-view-other">
                     <p class="lead">
-                        <xsl:for-each select="dim:field[@element='title'][not(@qualifier)]">
+                        <xsl:for-each select="dim:field[@element='npdg' and @qualifier='sampleid']">
                             <xsl:if test="not(position() = 1)">
                                 <xsl:value-of select="./node()"/>
-                                <xsl:if test="count(following-sibling::dim:field[@element='title'][not(@qualifier)]) != 0">
+                                <xsl:if test="count(following-sibling::dim:field[@element='npdg' and @qualifier='sampleid']) != 0">
                                     <xsl:text>; </xsl:text>
                                     <br/>
                                 </xsl:if>
@@ -148,9 +157,10 @@
                     </p>
                 </div>
             </xsl:when>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
+            <xsl:when test="count(dim:field[@element='npdg' and @qualifier='sampleid']) = 1">
                 <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    <xsl:text>Sample ID </xsl:text>
+                    <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid'][1]/node()"/>
                 </h2>
             </xsl:when>
             <xsl:otherwise>
@@ -159,6 +169,84 @@
                 </h2>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="citizen-Item-LegendandNotes">
+        <h4 class="page-header first-page-header">Legend and Notes</h4>
+        <div class="ds-table-responsive">
+            <table class="ds-includeSet-table detailtable table table-striped table-hover">
+                <xsl:call-template name="citizen-Item-LegendandNotes-fields" />
+            </table>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="citizen-Item-LegendandNotes-fields">
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row even</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.coordinates</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.coordinates</i18n:text>
+          </td>
+        </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row odd</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.collectiondetail</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.collectiondetail</i18n:text>
+          </td>
+        </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row even</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.internalcode</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.internalcode</i18n:text>
+          </td>
+        </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row odd</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.isolatesfromrbm</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.isolatesfromrbm</i18n:text>
+          </td>
+        </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row even</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.isolatesfromtv8</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.isolatesfromtv8</i18n:text>
+          </td>
+        </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row odd</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.photos</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.photos</i18n:text>
+          </td>
+        </tr>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
@@ -178,11 +266,59 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <img alt="Thumbnail" style="margin: 5px;display: inline;">
+                        <img alt="Thumbnail" class="thumbnail-inline">
                             <xsl:attribute name="src">
                                 <xsl:value-of select="$src"/>
                             </xsl:attribute>
                         </img>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <img alt="Thumbnail">
+                        <xsl:attribute name="data-src">
+                            <xsl:text>holder.js/100%x</xsl:text>
+                            <xsl:value-of select="$thumbnail.maxheight"/>
+                            <xsl:text>/text:No Thumbnail</xsl:text>
+                        </xsl:attribute>
+                    </img>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-thumbnail-item">
+        <div class="thumbnail">
+            <xsl:choose>
+                <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                    <xsl:for-each select="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file">
+                        <xsl:variable name="src">
+                            <xsl:choose>
+                                <xsl:when test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                                    <xsl:value-of
+                                            select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of
+                                            select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <xsl:variable name="counter">
+                            <xsl:value-of select="position()"/>
+                        </xsl:variable>
+                        <xsl:variable name="href">
+                            <xsl:value-of select="//mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[number($counter)]/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
+                        </xsl:variable>
+                        <xsl:element name="a">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="$href"/>
+                            </xsl:attribute>
+                            <img alt="Thumbnail" class="thumbnail-inline">
+                                <xsl:attribute name="src">
+                                    <xsl:value-of select="$src"/>
+                                </xsl:attribute>
+                            </img>
+                        </xsl:element>
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
@@ -348,15 +484,15 @@
         </xsl:text></script>
 
         <xsl:variable name="handleSpatial">
-            <xsl:value-of select="dim:field[@element='coverage' and @qualifier='spatial']"/>
+            <xsl:value-of select="dim:field[@element='npdg' and @qualifier='spatial']"/>
         </xsl:variable>
         <xsl:variable name="handleTitle">
-           <xsl:value-of select="dim:field[@element='title'][not(@qualifier)]"/>
+           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='sampleid']"/>
         </xsl:variable>
         <xsl:variable name="handlePlace">
-           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='city']"/>
+           <xsl:value-of select="dim:field[@element='npdg' and @qualifier='homecity']"/>
            <xsl:text>, </xsl:text>
-           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='state'], 1, 2)"/>
+           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
         </xsl:variable>
 
         <script><xsl:text>
@@ -565,13 +701,21 @@
     </xsl:template>
 
     <xsl:template match="dim:dim" mode="itemDetailView-DIM">
+        <xsl:variable name="pagetype" select="$document//dri:metadata[@qualifier='queryString' and @element='request']"/>
         <!-- <xsl:call-template name="itemSummaryView-DIM-title"/> -->
         <h3 class="page-header first-page-header">
-            <i18n:text>xmlui.mirage2.itemSummaryView.MetaData.header</i18n:text>
+                <i18n:text>xmlui.mirage2.itemSummaryView.MetaData.header</i18n:text>
         </h3>
         <div class="ds-table-responsive">
             <table class="ds-includeSet-table detailtable table table-striped table-hover">
-                <xsl:apply-templates mode="itemDetailView-DIM-citizen"/>
+                <xsl:choose>
+                    <xsl:when test="$pagetype='show=full'">
+                        <xsl:apply-templates mode="itemDetailView-DIM"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates mode="itemDetailView-DIM-citizen"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </table>
         </div>
 
@@ -585,7 +729,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature'))">
+        <!-- <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature'))"> -->
             <tr>
               <xsl:attribute name="class">
                   <xsl:text>ds-table-row </xsl:text>
@@ -606,11 +750,11 @@
               </td>
               <td><xsl:value-of select="./@language"/></td>
             </tr>
-        </xsl:if>
+        <!-- </xsl:if> -->
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived') or contains(./@qualifier, 'screenstatus') or contains(./@qualifier, 'fungismallscale') or contains(./@qualifier, 'datecollected'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -625,55 +769,54 @@
               </xsl:attribute>
               <td class="label-cell">
                   <xsl:if test="./@qualifier">
-                      <xsl:if test="contains($headerQualifier, 'issued')">
+                      <xsl:if test="contains($headerQualifier, 'datecollected')">
                           <xsl:text>Date Collected</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'internalcode')">
                           <xsl:text>Internal Code</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'city')">
+                      <xsl:if test="contains($headerQualifier, 'homecity')">
                           <xsl:text>City</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'state')">
+                      <xsl:if test="contains($headerQualifier, 'homestate')">
                           <xsl:text>State</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'zip')">
+                      <xsl:if test="contains($headerQualifier, 'homezip')">
                           <xsl:text>Zip</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'screenstatus')">
                           <xsl:text>Screen Status</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'isolatesRBM')">
-                          <xsl:text># of isolates from RBM</xsl:text>
+                          <xsl:text># of Isolates from RBM</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'isolatesTV8')">
-                          <xsl:text># of isolates from TV8</xsl:text>
+                          <xsl:text># of Isolates from TV8</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'fungismallscale')">
                           <xsl:text>Fungi for Small Scale</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'spatial')">
-                          <xsl:text>Coordinate</xsl:text>
+                          <xsl:text>Coordinates</xsl:text>
                       </xsl:if>
-                  </xsl:if>
-                  <xsl:if test="./@element">
-                      <xsl:if test="contains($headerElement, 'description')">
+                      <xsl:if test="contains($headerQualifier, 'detail')">
                           <xsl:text>Collection Detail</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerElement, 'title')">
+                      <xsl:if test="contains($headerQualifier, 'sampleid')">
                           <xsl:text>Sample ID</xsl:text>
                       </xsl:if>
                   </xsl:if>
               </td>
               <td class="word-break">
                 <xsl:choose>
-										<xsl:when test="contains($headerQualifier, 'state')">
+										<xsl:when test="contains($headerQualifier, 'homestate')">
                         <xsl:copy-of select="substring(./node(), 5)"/>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="./node()"/>
 										</xsl:otherwise>
 								</xsl:choose>
+
               </td>
             </tr>
         </xsl:if>

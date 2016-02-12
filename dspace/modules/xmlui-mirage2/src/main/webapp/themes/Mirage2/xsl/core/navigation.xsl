@@ -190,7 +190,6 @@
         </div>
     </xsl:template>
 
-
     <xsl:template match="dri:options//dri:item">
         <div>
             <xsl:call-template name="standardAttributes">
@@ -202,7 +201,7 @@
 
 		<xsl:template match="dri:options//dri:item[dri:xref]">
 			<xsl:variable name="handleNode" select="dri:xref/node()"/>
-			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_city' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_state' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_zip')">
+			<xsl:if test="not($handleNode='xmlui.ArtifactBrowser.Navigation.browse_city' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_state' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_zip' or $handleNode='xmlui.ArtifactBrowser.Navigation.browse_sampleid')">
         <a href="{dri:xref/@target}">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
