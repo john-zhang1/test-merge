@@ -645,7 +645,7 @@
 
     <xsl:template match="dri:div/dri:head" priority="3">
 				<xsl:variable name="pagecontainer" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']"/>
-				<xsl:if test="not($pagecontainer='hdl:11244/18515' or $pagecontainer='hdl:11244/28096' or $pagecontainer='')">
+				<xsl:if test="not($pagecontainer='hdl:11244/18515' or $pagecontainer='hdl:11244/23530' or $pagecontainer='')">
 						<xsl:call-template name="renderHead">
 								<xsl:with-param name="class">ds-div-head</xsl:with-param>
 						</xsl:call-template>

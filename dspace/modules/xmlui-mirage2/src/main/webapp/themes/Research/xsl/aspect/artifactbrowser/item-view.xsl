@@ -526,7 +526,8 @@
                 map = L.map('citizenitemmap').setView([points[0][1], points[0][2]], 5);
 
                 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                    maxZoom: 18,
+                    maxZoom: 11,
+                    minZoom: 3,
                     id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
                     accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
                 }).addTo(map);
