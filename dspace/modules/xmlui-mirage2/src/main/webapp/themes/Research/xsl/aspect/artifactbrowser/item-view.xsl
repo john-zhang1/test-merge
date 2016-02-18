@@ -183,17 +183,6 @@
     <xsl:template name="citizen-Item-LegendandNotes-fields">
         <tr>
           <xsl:attribute name="class">
-              <xsl:text>ds-table-row even</xsl:text>
-          </xsl:attribute>
-          <td class="label-cell">
-              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.coordinates</i18n:text>
-          </td>
-          <td class="word-break">
-              <i18n:text>xmlui.mirage2.itemSummaryView.Note.coordinates</i18n:text>
-          </td>
-        </tr>
-        <tr>
-          <xsl:attribute name="class">
               <xsl:text>ds-table-row odd</xsl:text>
           </xsl:attribute>
           <td class="label-cell">
@@ -278,7 +267,7 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:No Thumbnail</xsl:text>
+                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
@@ -326,7 +315,7 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:No Thumbnail</xsl:text>
+                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
@@ -385,7 +374,7 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:No Thumbnail</xsl:text>
+                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
@@ -526,7 +515,8 @@
                 map = L.map('citizenitemmap').setView([points[0][1], points[0][2]], 5);
 
                 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                    maxZoom: 18,
+                    maxZoom: 11,
+                    minZoom: 3,
                     id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
                     accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
                 }).addTo(map);
@@ -754,7 +744,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived') or contains(./@qualifier, 'screenstatus') or contains(./@qualifier, 'fungismallscale') or contains(./@qualifier, 'datecollected'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived') or contains(./@qualifier, 'screenstatus') or contains(./@qualifier, 'fungismallscale') or contains(./@qualifier, 'datecollected') or contains(./@qualifier, 'spatial'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -795,9 +785,6 @@
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'fungismallscale')">
                           <xsl:text>Fungi for Small Scale</xsl:text>
-                      </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'spatial')">
-                          <xsl:text>Coordinates</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'detail')">
                           <xsl:text>Collection Detail</xsl:text>
@@ -883,7 +870,7 @@
                                     <xsl:attribute name="data-src">
                                         <xsl:text>holder.js/100%x</xsl:text>
                                         <xsl:value-of select="$thumbnail.maxheight"/>
-                                        <xsl:text>/text:No Thumbnail</xsl:text>
+                                        <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                                     </xsl:attribute>
                                 </img>
                             </xsl:otherwise>

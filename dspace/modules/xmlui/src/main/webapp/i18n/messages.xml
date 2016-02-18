@@ -2634,8 +2634,6 @@
 		<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_state">State</message>
 		<message key="xmlui.Discovery.AbstractSearch.type_state">State</message>
 		<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.state">State</message>
-		<message key="xmlui.mirage2.itemSummaryView.Legend.coordinates">Coordinates</message>
-		<message key="xmlui.mirage2.itemSummaryView.Note.coordinates">refers to the center of the zip code from which the sample was provided</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.collectiondetail">Collection Detail</message>
 		<message key="xmlui.mirage2.itemSummaryView.Note.collectiondetail">additional information provided by the citizen scientist; specific details that could be used to determine the identity of an individual citizen scientist (such as a street address) have been removed from publically accessible version of the dataset</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.internalcode">Internal Code</message>
