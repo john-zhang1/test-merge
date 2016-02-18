@@ -232,7 +232,7 @@
                             <xsl:attribute name="data-src">
                                 <xsl:text>holder.js/100%x</xsl:text>
                                 <xsl:value-of select="$thumbnail.maxheight"/>
-                                <xsl:text>/text:Photo Unavailable Processed Prior to May 2015</xsl:text>
+                                <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                             </xsl:attribute>
                         </img>
                     </xsl:otherwise>
