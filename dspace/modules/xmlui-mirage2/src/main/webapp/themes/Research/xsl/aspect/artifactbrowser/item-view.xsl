@@ -744,7 +744,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datereceived') or contains(./@qualifier, 'screenstatus') or contains(./@qualifier, 'fungismallscale') or contains(./@qualifier, 'datecollected') or contains(./@qualifier, 'spatial'))">
+        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datecollected')or contains(./@qualifier, 'spatial'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -774,17 +774,11 @@
                       <xsl:if test="contains($headerQualifier, 'homezip')">
                           <xsl:text>Zip</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'screenstatus')">
-                          <xsl:text>Screen Status</xsl:text>
-                      </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'isolatesRBM')">
                           <xsl:text># of Isolates from RBM</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'isolatesTV8')">
                           <xsl:text># of Isolates from TV8</xsl:text>
-                      </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'fungismallscale')">
-                          <xsl:text>Fungi for Small Scale</xsl:text>
                       </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'detail')">
                           <xsl:text>Collection Detail</xsl:text>

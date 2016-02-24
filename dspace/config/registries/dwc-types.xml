@@ -37,20 +37,6 @@
   <dc-type>
     <schema>dwc</schema>
     <element>npdg</element>
-    <qualifier>datereceived</qualifier>
-    <scope_note></scope_note>
-  </dc-type>
-
-  <dc-type>
-    <schema>dwc</schema>
-    <element>npdg</element>
-    <qualifier>fungismallscale</qualifier>
-    <scope_note></scope_note>
-  </dc-type>
-
-  <dc-type>
-    <schema>dwc</schema>
-    <element>npdg</element>
     <qualifier>isolatesRBM</qualifier>
     <scope_note></scope_note>
   </dc-type>
@@ -59,20 +45,6 @@
     <schema>dwc</schema>
     <element>npdg</element>
     <qualifier>isolatesTV8</qualifier>
-    <scope_note></scope_note>
-  </dc-type>
-
-  <dc-type>
-    <schema>dwc</schema>
-    <element>npdg</element>
-    <qualifier>screenstatus</qualifier>
-    <scope_note></scope_note>
-  </dc-type>
-
-  <dc-type>
-    <schema>dwc</schema>
-    <element>npdg</element>
-    <qualifier>signature</qualifier>
     <scope_note></scope_note>
   </dc-type>
 
