@@ -192,6 +192,9 @@
             <link rel="stylesheet" href="{concat($theme-path, 'styles/component.css')}"/>
             <link rel="stylesheet" href="{concat($theme-path, 'styles/default.css')}"/>
             <link rel="stylesheet" href="{concat($theme-path, 'styles/leaflet.css')}"/>
+            <link rel="stylesheet" href="{concat($theme-path, 'styles/MarkerCluster.Default.css')}"/>
+            <link rel="stylesheet" href="{concat($theme-path, 'styles/MarkerCluster.css')}"/>
+            <link rel="stylesheet" href="{concat($theme-path, 'styles/screen.css')}"/>
 
             <!-- Add syndication feeds -->
             <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
@@ -270,7 +273,7 @@
             <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="{concat($theme-path, 'scripts/leaflet.js')}">&#160;</script>
-            <!-- <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script> -->
+             <script src="{concat($theme-path, 'scripts/leaflet.markercluster-src.js')}">&#160;</script>
 
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
@@ -1055,7 +1058,7 @@
               var ziplist = [], titlelist = [];
           </xsl:text></script>
 
-          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
+          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionAllSubmissions.referenceSet.collection-all-submitted']/dri:reference">
 
               <xsl:variable name="externalMetadataURL">
                   <xsl:text>cocoon:/</xsl:text>
@@ -1134,7 +1137,7 @@
               var spatiallist = [], titlelist = [], placelist = [], urllist = [];
           </xsl:text></script>
 
-          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionRecentSubmissions.referenceSet.collection-last-submitted']/dri:reference">
+          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionAllSubmissions.referenceSet.collection-all-submitted']/dri:reference">
 
               <xsl:variable name="externalMetadataURL">
                   <xsl:text>cocoon:/</xsl:text>
@@ -1188,20 +1191,25 @@
 
               var map;
               function makemap(points, titles, urls){
-                  map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 5);
+                  map = L.map('citizenscimap').setView([35.1879507, -97.4421919], 4);
 
                   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                       attribution: 'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;  contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;',
-                      maxZoom: 11,
+                      maxZoom: 14,
                       minZoom: 3,
                       id: 'lib-zzd.cig7yktpl0489unlx2e5ielz9',
                       accessToken: 'pk.eyJ1IjoibGliLXp6ZCIsImEiOiJjaWc3eWt2MWEwNDZ6dXprb2Z6dzk5cTJrIn0.MGKAAmkhNF35HHG-yEjh5Q'
                   }).addTo(map);
 
+                  var markers = L.markerClusterGroup();
+
                   for(var i=0;i!=points.length;i++){
-                      L.marker([points[i][1], points[i][2]]).addTo(map)
-                        .bindPopup('&lt;a href=' + urls[i] + '&gt;' + titles[i] + '&lt;br/&gt;' + points[i][0] + '&lt;/a&gt;' );
+                      var marker = L.marker([points[i][1], points[i][2]]);
+                      marker.bindPopup('&lt;a href=' + urls[i] + '&gt;' + titles[i] + '&lt;br/&gt;' + points[i][0] + '&lt;/a&gt;' );
+                      markers.addLayer(marker);
                   }
+
+                  map.addLayer(markers);
               }
           </xsl:text></script>
       </xsl:template>
