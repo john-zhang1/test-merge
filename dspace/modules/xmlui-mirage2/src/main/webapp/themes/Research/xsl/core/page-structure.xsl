@@ -273,7 +273,8 @@
             <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="{concat($theme-path, 'scripts/leaflet.js')}">&#160;</script>
-             <script src="{concat($theme-path, 'scripts/leaflet.markercluster-src.js')}">&#160;</script>
+            <script src="{concat($theme-path, 'scripts/leaflet.markercluster-src.js')}">&#160;</script>
+            <script src="{concat($theme-path, 'scripts/points.js')}">&#160;</script>
 
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
@@ -1133,40 +1134,6 @@
 
       <xsl:template name="buildgooglemap-citizensci-spatial">
           <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
-          <script><xsl:text>
-              var spatiallist = [], titlelist = [], placelist = [], urllist = [];
-          </xsl:text></script>
-
-          <xsl:for-each select="/dri:document/dri:body/dri:div/dri:div/dri:referenceSet[@id='aspect.discovery.CollectionAllSubmissions.referenceSet.collection-all-submitted']/dri:reference">
-
-              <xsl:variable name="externalMetadataURL">
-                  <xsl:text>cocoon:/</xsl:text>
-                  <xsl:value-of select="@url"/>
-                  <xsl:text>?sections=dmdSec</xsl:text>
-              </xsl:variable>
-
-              <xsl:variable name="handleSpatial">
-                  <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='spatial']"/>
-             </xsl:variable>
-             <xsl:variable name="handleTitle">
-                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='sampleid']"/>
-             </xsl:variable>
-             <xsl:variable name="handlePlace">
-                 <xsl:value-of select="document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homecity']"/>
-                 <xsl:text>, </xsl:text>
-                 <xsl:value-of select="substring(document($externalMetadataURL)//dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
-             </xsl:variable>
-             <xsl:variable name="handleObjid">
-                 <xsl:value-of select="document($externalMetadataURL)//@OBJID"/>
-             </xsl:variable>
-
-             <script><xsl:text>
-               spatiallist.push('</xsl:text><xsl:value-of select="$handleSpatial"/><xsl:text>');
-               titlelist.push('</xsl:text><xsl:value-of select="$handleTitle"/><xsl:text>');
-               placelist.push('</xsl:text><xsl:value-of select="$handlePlace"/><xsl:text>');
-               urllist.push('</xsl:text><xsl:value-of select="$handleObjid"/><xsl:text>');
-             </xsl:text></script>
-          </xsl:for-each>
 
           <script><xsl:text>
               var locations = [];
