@@ -996,6 +996,17 @@
             <required></required>
         </field>
 
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>imageunavailable</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Image Unavailable</label>
+            <input-type value-pairs-name="imageunavailable_check">list</input-type>
+            <hint></hint>
+            <required></required>
+        </field>
+
       </page>
     </form>
 
@@ -1036,13 +1047,12 @@
      </pair>
    </value-pairs>
 
-   <value-pairs value-pairs-name="signature_check" dc-term="science.signature">
+   <value-pairs value-pairs-name="imageunavailable_check" dc-term="science.imageunavailable">
      <pair>
        <displayed-value>Yes</displayed-value>
        <stored-value>yes</stored-value>
      </pair>
     </value-pairs>
-
 
    <value-pairs value-pairs-name="thesis_degree" dc-term="degree">
        <pair>
