@@ -918,18 +918,6 @@
           <label>Date Collected</label>
           <input-type>date</input-type>
           <hint></hint>
-          <required>You must enter at least the year.</required>
-        </field>
-
-        <field>
-            <dc-schema>dwc</dc-schema>
-            <dc-element>npdg</dc-element>
-            <dc-qualifier>datereceived</dc-qualifier>
-            <repeatable>false</repeatable>
-            <label>Date Received</label>
-            <input-type>date</input-type>
-            <hint>You can leave out the day and/or month if they aren't applicable.</hint>
-            <required></required>
         </field>
 
         <field>
@@ -962,7 +950,7 @@
             <label>Zip</label>
             <input-type>onebox</input-type>
             <hint>Enter the zip.</hint>
-            <required></required>
+            <required>Enter zip code</required>
         </field>
 
         <field>
@@ -973,17 +961,6 @@
             <label>Coordinates</label>
             <input-type>onebox</input-type>
             <required></required>
-        </field>
-
-        <field>
-            <dc-schema>dwc</dc-schema>
-            <dc-element>npdg</dc-element>
-            <dc-qualifier>screenstatus</dc-qualifier>
-            <repeatable>false</repeatable>
-            <label>Screen Status</label>
-            <input-type>onebox</input-type>
-            <hint>Enter screen status.</hint>
-            <required>You must enter screen status</required>
         </field>
 
         <field>
@@ -1011,17 +988,6 @@
         <field>
             <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>fungismallscale</dc-qualifier>
-            <repeatable>false</repeatable>
-            <label>Fungi for Small Scale</label>
-            <input-type>onebox</input-type>
-            <hint>Enter Fungi for Small Scale</hint>
-            <required></required>
-        </field>
-
-        <field>
-            <dc-schema>dwc</dc-schema>
-            <dc-element>npdg</dc-element>
             <dc-qualifier>detail</dc-qualifier>
             <repeatable>false</repeatable>
             <label>Collection Detail</label>
@@ -1033,13 +999,14 @@
         <field>
             <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>signature</dc-qualifier>
+            <dc-qualifier>imageunavailable</dc-qualifier>
             <repeatable>true</repeatable>
-            <label>Signature</label>
-            <input-type value-pairs-name="signature_check">list</input-type>
+            <label>Image Unavailable</label>
+            <input-type value-pairs-name="imageunavailable_check">list</input-type>
             <hint></hint>
             <required></required>
         </field>
+
       </page>
     </form>
 
@@ -1080,13 +1047,12 @@
      </pair>
    </value-pairs>
 
-   <value-pairs value-pairs-name="signature_check" dc-term="science.signature">
+   <value-pairs value-pairs-name="imageunavailable_check" dc-term="science.imageunavailable">
      <pair>
        <displayed-value>Yes</displayed-value>
        <stored-value>yes</stored-value>
      </pair>
     </value-pairs>
-
 
    <value-pairs value-pairs-name="thesis_degree" dc-term="degree">
        <pair>
