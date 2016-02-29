@@ -40,6 +40,7 @@ import java.util.logging.Logger;
  * @author Kevin Van de Velde (kevin at atmire dot com)
  * @author Mark Diggory (markd at atmire dot com)
  * @author Ben Bosman (ben at atmire dot com)
+ * @author Zhongda Zhang (zhongda at ou dot edu)
  */
 public class CollectionAllSubmissions extends AbstractRecentSubmissionTransformer {
 
@@ -72,6 +73,9 @@ public class CollectionAllSubmissions extends AbstractRecentSubmissionTransforme
         }
     }
 
+    /**
+     * Processing all collection metadata value and save into 4 lists
+     */
     private void getMetadataValue(DiscoverResult queryResults) throws UnsupportedEncodingException {
         List<String> titles = new ArrayList<String>();
         List<String> handles = new ArrayList<String>();
@@ -106,6 +110,9 @@ public class CollectionAllSubmissions extends AbstractRecentSubmissionTransforme
         WriteFile(titles, handles, coordinates, cities, filename);
     }
 
+    /**
+     * Write a file to host all data which will be used by map
+     */
     private void WriteFile(List<String> titlelist, List<String> urllist, List<String> spatiallist, List<String> placelist, String filename) {
 
         try {

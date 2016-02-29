@@ -159,6 +159,12 @@ public abstract class AbstractRecentSubmissionTransformer extends AbstractDSpace
         }
     }
 
+    /**
+     * Retrieves the all submitted items of the given scope
+     *
+     * @param dso the DSpace object can either be null (indicating home page), a collection or a community
+     */
+
     protected void getSubmittedAllItems(DSpaceObject dso) {
 
         if(queryResults != null)
