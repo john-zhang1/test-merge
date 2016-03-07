@@ -75,6 +75,13 @@ public class CollectionRecentSubmissions extends AbstractRecentSubmissionTransfo
                     lastSubmitted.addReference(resultObj);
                 }
             }
+
+            if (collection.countItems() > maxRecentSubmissions) {
+                String handle = dso.getHandle();
+                if (!handle.equals("11244/28096")) {
+                    addViewMoreLink(lastSubmittedDiv, collection);
+                }
+            }
         }
     }
 }
