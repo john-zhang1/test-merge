@@ -75,7 +75,9 @@ public class CollectionRecentSubmissions extends AbstractRecentSubmissionTransfo
                     lastSubmitted.addReference(resultObj);
                 }
             }
-
+            /**
+             * Remove the ViewMore button for the citizen science collection
+             */
             if (collection.countItems() > maxRecentSubmissions) {
                 String handle = dso.getHandle();
                 if (!handle.equals("11244/28096")) {
