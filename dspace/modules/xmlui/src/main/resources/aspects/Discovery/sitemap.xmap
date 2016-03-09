@@ -37,7 +37,7 @@ and searching the repository.
 
             <map:transformer name="CollectionSearch" src="org.dspace.app.xmlui.aspect.discovery.CollectionSearch"/>
             <map:transformer name="CollectionRecentSubmissions" src="org.dspace.app.xmlui.aspect.discovery.CollectionRecentSubmissions"/>
-
+            <map:transformer name="CollectionAllSubmissions" src="org.dspace.app.xmlui.aspect.discovery.CollectionAllSubmissions"/>
 
             <map:transformer name="RelatedItems" src="org.dspace.app.xmlui.aspect.discovery.RelatedItems"/>
 
@@ -197,6 +197,7 @@ and searching the repository.
                             <map:transform type="SidebarFacetsTransformer"/>
                             <map:transform type="CollectionSearch"/>
                             <map:transform type="CollectionRecentSubmissions"/>
+                            <map:transform type="CollectionAllSubmissions"/>
                             <map:serialize type="xml"/>
                         </map:match>
                         <map:match type="HandleTypeMatcher" pattern="item">

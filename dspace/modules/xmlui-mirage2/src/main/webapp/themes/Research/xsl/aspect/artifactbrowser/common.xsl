@@ -228,7 +228,6 @@
                     <xsl:otherwise>odd</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
-            <xsl:apply-templates select="document($externalMetadataURL)" mode="summaryList"/>
             <xsl:apply-templates />
         </li>
     </xsl:template>
