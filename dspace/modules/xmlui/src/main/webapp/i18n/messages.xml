@@ -2635,7 +2635,7 @@
 		<message key="xmlui.Discovery.AbstractSearch.type_state">State</message>
 		<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.state">State</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.collectiondetail">Collection Detail</message>
-		<message key="xmlui.mirage2.itemSummaryView.Note.collectiondetail">additional information provided by the citizen scientist; specific details that could be used to determine the identity of an individual citizen scientist (such as a street address) have been removed from the publically accessible version of the dataset</message>
+		<message key="xmlui.mirage2.itemSummaryView.Note.collectiondetail">additional information provided by the citizen scientist; specific details that could be used to determine the identity of an individual citizen scientist (such as a street address) have been removed from the publicly accessible version of the dataset</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.internalcode">Internal Code</message>
 		<message key="xmlui.mirage2.itemSummaryView.Note.internalcode">this is a number that is created and used by researchers to track samples in the laboratory for testing</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.isolatesfromrbm"># of Isolates from RBM</message>
