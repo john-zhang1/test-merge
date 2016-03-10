@@ -152,7 +152,7 @@
                                 <xsl:text>, </xsl:text>
                                 <xsl:value-of select="substring(dim:field[@element='npdg'][@qualifier='homestate']/node(), 1, 2)"/>
                             </span>
-                        </xsl:when>                        
+                        </xsl:when>
                         <xsl:otherwise>
                             <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
                         </xsl:otherwise>
@@ -192,6 +192,7 @@
 
     <xsl:template match="mets:fileSec" mode="artifact-preview">
         <xsl:param name="href"/>
+        <xsl:variable name="imgqualifier" select="ancestor::mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@qualifier='imagestatus']/node()"/>
         <div class="thumbnail artifact-preview">
             <a class="image-link" href="{$href}">
                 <xsl:choose>
@@ -208,7 +209,14 @@
                             <xsl:attribute name="data-src">
                                 <xsl:text>holder.js/100%x</xsl:text>
                                 <xsl:value-of select="$thumbnail.maxheight"/>
-                                <xsl:text>/text:No Thumbnail</xsl:text>
+                                <xsl:choose>
+                                    <xsl:when test="$imgqualifier='Unavailable'">
+                                        <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:text>/text:No Thumbnail</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </xsl:attribute>
                         </img>
                     </xsl:otherwise>
