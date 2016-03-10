@@ -898,8 +898,9 @@ public class XmlWorkflowManager {
             Collection coll = wi.getCollection();
 
             String handle = coll.getHandle();
-            if(null == handle || "".equals(handle) || !"11244/10476".equals(handle))
+	    if(null == handle || "".equals(handle) || (!"11244/10476".equals(handle) && !"11244/23528".equals(handle))){
                 return;
+ 	    }
 
             // Get the item title
             String title = wi.getItem().getName();
