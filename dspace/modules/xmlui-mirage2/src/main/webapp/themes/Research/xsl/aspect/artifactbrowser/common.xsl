@@ -219,7 +219,7 @@
                 <xsl:text>&amp;dmdTypes=DC</xsl:text>
             </xsl:if>-->
         </xsl:variable>
-        <xsl:variable name="focusType" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']"/>
+        <xsl:variable name="focusType" select="/dri:document/dri:body/dri:div/@n"/>
         <xsl:comment> External Metadata URL: <xsl:value-of select="$externalMetadataURL"/> </xsl:comment>
         <li>
             <xsl:attribute name="class">
@@ -230,7 +230,7 @@
                 </xsl:choose>
             </xsl:attribute>
             <!-- not for collection home page -->
-            <xsl:if test="not($focusType='type:collection')">
+            <xsl:if test="not($focusType='collection-home')">
                 <xsl:apply-templates select="document($externalMetadataURL)" mode="summaryList"/>
             </xsl:if>
             <xsl:apply-templates />
