@@ -239,6 +239,9 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
+        <xsl:variable name="imgqualifier">
+           <xsl:value-of select="dim:field[@qualifier='imagestatus']/node()" />
+        </xsl:variable>
         <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
@@ -255,9 +258,6 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <xsl:variable name="imgqualifier">
-                            <xsl:value-of select="ancestor::mets:dmdSec/mets:mdWrap/mets:xmlData/dim:field[@qualifier='imagestatus']" />
-                        </xsl:variable>
                         <img alt="Thumbnail" class="thumbnail-inline">
                             <xsl:attribute name="src">
                                 <xsl:value-of select="$src"/>
@@ -270,7 +270,14 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                            <xsl:choose>
+                                <xsl:when test="$imgqualifier='Unavailable'">
+                                    <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>/text:No Thumbnail</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
