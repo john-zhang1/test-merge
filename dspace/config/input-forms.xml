@@ -999,9 +999,9 @@
         <field>
             <dc-schema>dwc</dc-schema>
             <dc-element>npdg</dc-element>
-            <dc-qualifier>imageunavailable</dc-qualifier>
+            <dc-qualifier>imagestatus</dc-qualifier>
             <repeatable>true</repeatable>
-            <label>Image Unavailable</label>
+            <label>Image Status</label>
             <input-type value-pairs-name="imageunavailable_check">list</input-type>
             <hint></hint>
             <required></required>

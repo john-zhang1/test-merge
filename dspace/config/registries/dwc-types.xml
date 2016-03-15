@@ -86,7 +86,7 @@
   <dc-type>
     <schema>dwc</schema>
     <element>npdg</element>
-    <qualifier>imageunavailable</qualifier>
+    <qualifier>imagestatus</qualifier>
     <scope_note></scope_note>
   </dc-type>
 
