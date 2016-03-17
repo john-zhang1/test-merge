@@ -243,7 +243,7 @@
                                 <xsl:value-of select="dri:list[@n=(concat($handle, ':dwc.npdg.homecity'))]/dri:item"/>
                                 <xsl:if test="dri:list[@n=(concat($handle, ':dwc.npdg.homestate'))]">
                                     <xsl:text>, </xsl:text>
-                                    <xsl:value-of select="substring(dri:list[@n=(concat($handle, ':dwc.npdg.homestate'))]/dri:item, 1, 2)"/>
+                                    <xsl:value-of select="substring-after(dri:list[@n=(concat($handle, ':dwc.npdg.homestate'))]/dri:item, '- ')"/>
                                 </xsl:if>
                                 <xsl:if test="dri:list[@n=(concat($handle, ':dwc.npdg.datecollected'))]">
                                     <xsl:text> (</xsl:text>

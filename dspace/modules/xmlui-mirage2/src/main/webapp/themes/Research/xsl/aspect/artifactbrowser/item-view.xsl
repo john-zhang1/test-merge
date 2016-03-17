@@ -501,7 +501,7 @@
         <xsl:variable name="handlePlace">
            <xsl:value-of select="dim:field[@element='npdg' and @qualifier='homecity']"/>
            <xsl:text>, </xsl:text>
-           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
+           <xsl:value-of select="substring-after(dim:field[@element='npdg' and @qualifier='homestate'], '- ')"/>
         </xsl:variable>
 
         <script><xsl:text>
@@ -809,7 +809,7 @@
               <td class="word-break">
                 <xsl:choose>
 										<xsl:when test="contains($headerQualifier, 'homestate')">
-                        <xsl:copy-of select="substring(./node(), 5)"/>
+                        <xsl:copy-of select="substring-before(./node(), ' -')"/>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="./node()"/>

@@ -150,7 +150,7 @@
                                 <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
                                 <xsl:value-of select="dim:field[@element='npdg'][@qualifier='homecity']/node()"/>
                                 <xsl:text>, </xsl:text>
-                                <xsl:value-of select="substring(dim:field[@element='npdg'][@qualifier='homestate']/node(), 1, 2)"/>
+                                <xsl:value-of select="substring-after(dim:field[@element='npdg'][@qualifier='homestate']/node(), '- ')"/>
                             </span>
                         </xsl:when>
                         <xsl:otherwise>
