@@ -1176,59 +1176,58 @@
 <!-- states with abbreviation-->
 <value-pairs value-pairs-name="state_list" dc-term="degree">
   <pair><displayed-value> </displayed-value><stored-value></stored-value></pair>
-  <pair><displayed-value>AL - Alabama</displayed-value><stored-value>AL - Alabama</stored-value></pair>
-  <pair><displayed-value>AK - Alaska</displayed-value><stored-value>AK - Alaska</stored-value></pair>
-  <pair><displayed-value>AZ - Arizona</displayed-value><stored-value>AZ - Arizona</stored-value></pair>
-  <pair><displayed-value>AR - Arkansas</displayed-value><stored-value>AR - Arkansas</stored-value></pair>
-  <pair><displayed-value>CA - California</displayed-value><stored-value>CA - California</stored-value></pair>
-  <pair><displayed-value>CO - Colorado</displayed-value><stored-value>CO - Colorado</stored-value></pair>
-  <pair><displayed-value>CT - Connecticut</displayed-value><stored-value>CT - Connecticut</stored-value></pair>
-  <pair><displayed-value>DE - Delaware</displayed-value><stored-value>DE - Delaware</stored-value></pair>
-  <pair><displayed-value>DC - District of Columbia</displayed-value><stored-value>DC - District of Columbia</stored-value></pair>
-  <pair><displayed-value>FL - Florida</displayed-value><stored-value>FL - Florida</stored-value></pair>
-  <pair><displayed-value>GA - Georgia</displayed-value><stored-value>GA - Georgia</stored-value></pair>
-  <pair><displayed-value>HI - Hawaii</displayed-value><stored-value>HI - Hawaii</stored-value></pair>
-  <pair><displayed-value>ID - Idaho</displayed-value><stored-value>ID - Idaho</stored-value></pair>
-  <pair><displayed-value>IL - Illinois</displayed-value><stored-value>IL - Illinois</stored-value></pair>
-  <pair><displayed-value>IN - Indiana</displayed-value><stored-value>IN - Indiana</stored-value></pair>
-  <pair><displayed-value>IA - Iowa</displayed-value><stored-value>IA - Iowa</stored-value></pair>
-  <pair><displayed-value>KS - Kansas</displayed-value><stored-value>KS - Kansas</stored-value></pair>
-  <pair><displayed-value>KY - Kentucky</displayed-value><stored-value>KY - Kentucky</stored-value></pair>
-  <pair><displayed-value>LA - Louisiana</displayed-value><stored-value>LA - Louisiana</stored-value></pair>
-  <pair><displayed-value>ME - Maine</displayed-value><stored-value>ME - Maine</stored-value></pair>
-  <pair><displayed-value>MD - Maryland</displayed-value><stored-value>MD - Maryland</stored-value></pair>
-  <pair><displayed-value>MA - Massachusetts</displayed-value><stored-value>MA - Massachusetts</stored-value></pair>
-  <pair><displayed-value>MI - Michigan</displayed-value><stored-value>MI - Michigan</stored-value></pair>
-  <pair><displayed-value>MN - Minnesota</displayed-value><stored-value>MN - Minnesota</stored-value></pair>
-  <pair><displayed-value>MS - Mississippi</displayed-value><stored-value>MS - Mississippi</stored-value></pair>
-  <pair><displayed-value>MO - Missouri</displayed-value><stored-value>MO - Missouri</stored-value></pair>
-  <pair><displayed-value>MT - Montana</displayed-value><stored-value>MT - Montana</stored-value></pair>
-  <pair><displayed-value>NE - Nebraska</displayed-value><stored-value>NE - Nebraska</stored-value></pair>
-  <pair><displayed-value>NV - Nevada</displayed-value><stored-value>NV - Nevada</stored-value></pair>
-  <pair><displayed-value>NH - New Hampshire</displayed-value><stored-value>NH - New Hampshire</stored-value></pair>
-  <pair><displayed-value>NJ - New Jersey</displayed-value><stored-value>NJ - New Jersey</stored-value></pair>
-  <pair><displayed-value>NM - New Mexico</displayed-value><stored-value>NM - New Mexico</stored-value></pair>
-  <pair><displayed-value>NY - New York</displayed-value><stored-value>NY - New York</stored-value></pair>
-  <pair><displayed-value>NC - North Carolina</displayed-value><stored-value>NC - North Carolina</stored-value></pair>
-  <pair><displayed-value>ND - North Dakota</displayed-value><stored-value>ND - North Dakota</stored-value></pair>
-  <pair><displayed-value>OH - Ohio</displayed-value><stored-value>OH - Ohio</stored-value></pair>
-  <pair><displayed-value>OK - Oklahoma</displayed-value><stored-value>OK - Oklahoma</stored-value></pair>
-  <pair><displayed-value>OR - Oregon</displayed-value><stored-value>OR - Oregon</stored-value></pair>
-  <pair><displayed-value>PA - Pennsylvania</displayed-value><stored-value>PA - Pennsylvania</stored-value></pair>
-  <pair><displayed-value>RI - Rhode Island</displayed-value><stored-value>RI - Rhode Island</stored-value></pair>
-  <pair><displayed-value>SC - South Carolina</displayed-value><stored-value>SC - South Carolina</stored-value></pair>
-  <pair><displayed-value>SD - South Dakota</displayed-value><stored-value>SD - South Dakota</stored-value></pair>
-  <pair><displayed-value>TN - Tennessee</displayed-value><stored-value>TN - Tennessee</stored-value></pair>
-  <pair><displayed-value>TX - Texas</displayed-value><stored-value>TX - Texas</stored-value></pair>
-  <pair><displayed-value>UT - Utah</displayed-value><stored-value>UT - Utah</stored-value></pair>
-  <pair><displayed-value>VT - Vermont</displayed-value><stored-value>VT - Vermont</stored-value></pair>
-  <pair><displayed-value>VA - Virginia</displayed-value><stored-value>VA - Virginia</stored-value></pair>
-  <pair><displayed-value>WA - Washington</displayed-value><stored-value>WA - Washington</stored-value></pair>
-  <pair><displayed-value>WV - West Virginia</displayed-value><stored-value>WV - West Virginia</stored-value></pair>
-  <pair><displayed-value>WI - Wisconsin</displayed-value><stored-value>WI - Wisconsin</stored-value></pair>
-  <pair><displayed-value>WY - Wyoming</displayed-value><stored-value>WY - Wyoming</stored-value></pair>
+  <pair><displayed-value>Alabama - AL</displayed-value><stored-value>Alabama - AL</stored-value></pair>
+  <pair><displayed-value>Alaska - AK</displayed-value><stored-value>Alaska - AK</stored-value></pair>
+  <pair><displayed-value>Arizona - AZ</displayed-value><stored-value>Arizona - AZ</stored-value></pair>
+  <pair><displayed-value>Arkansas - AR</displayed-value><stored-value>Arkansas - AR</stored-value></pair>
+  <pair><displayed-value>California - CA</displayed-value><stored-value>California - CA</stored-value></pair>
+  <pair><displayed-value>Colorado - CO</displayed-value><stored-value>Colorado - CO</stored-value></pair>
+  <pair><displayed-value>Connecticut - CT</displayed-value><stored-value>Connecticut - CT</stored-value></pair>
+  <pair><displayed-value>Delaware - DE</displayed-value><stored-value>Delaware - DE</stored-value></pair>
+  <pair><displayed-value>District of Columbia - DC</displayed-value><stored-value>District of Columbia - DC</stored-value></pair>
+  <pair><displayed-value>Florida - FL</displayed-value><stored-value>Florida - FL</stored-value></pair>
+  <pair><displayed-value>Georgia - GA</displayed-value><stored-value>Georgia - GA</stored-value></pair>
+  <pair><displayed-value>Hawaii - HI</displayed-value><stored-value>Hawaii - HI</stored-value></pair>
+  <pair><displayed-value>Idaho - ID</displayed-value><stored-value>Idaho - ID</stored-value></pair>
+  <pair><displayed-value>Illinois - IL</displayed-value><stored-value>Illinois - IL</stored-value></pair>
+  <pair><displayed-value>Indiana - IN</displayed-value><stored-value>Indiana - IN</stored-value></pair>
+  <pair><displayed-value>Iowa - IA</displayed-value><stored-value>Iowa - IA</stored-value></pair>
+  <pair><displayed-value>Kansas - KS</displayed-value><stored-value>Kansas - KS</stored-value></pair>
+  <pair><displayed-value>Kentucky - KY</displayed-value><stored-value>Kentucky - KY</stored-value></pair>
+  <pair><displayed-value>Louisiana - LA</displayed-value><stored-value>Louisiana - LA</stored-value></pair>
+  <pair><displayed-value>Maine - ME</displayed-value><stored-value>Maine - ME</stored-value></pair>
+  <pair><displayed-value>Maryland - MD</displayed-value><stored-value>Maryland - MD</stored-value></pair>
+  <pair><displayed-value>Massachusetts - MA</displayed-value><stored-value>Massachusetts - MA</stored-value></pair>
+  <pair><displayed-value>Michigan - MI</displayed-value><stored-value>Michigan - MI</stored-value></pair>
+  <pair><displayed-value>Minnesota - MN</displayed-value><stored-value>Minnesota - MN</stored-value></pair>
+  <pair><displayed-value>Mississippi - MS</displayed-value><stored-value>Mississippi - MS</stored-value></pair>
+  <pair><displayed-value>Missouri - MO</displayed-value><stored-value>Missouri - MO</stored-value></pair>
+  <pair><displayed-value>Montana - MT</displayed-value><stored-value>Montana - MT</stored-value></pair>
+  <pair><displayed-value>Nebraska - NE</displayed-value><stored-value>Nebraska - NE</stored-value></pair>
+  <pair><displayed-value>Nevada - NV</displayed-value><stored-value>Nevada - NV</stored-value></pair>
+  <pair><displayed-value>New Hampshire - NH</displayed-value><stored-value>New Hampshire - NH</stored-value></pair>
+  <pair><displayed-value>New Jersey - NJ</displayed-value><stored-value>New Jersey - NJ</stored-value></pair>
+  <pair><displayed-value>New Mexico - NM</displayed-value><stored-value>New Mexico - NM</stored-value></pair>
+  <pair><displayed-value>New York - NY</displayed-value><stored-value>New York - NY</stored-value></pair>
+  <pair><displayed-value>North Carolina - NC</displayed-value><stored-value>North Carolina - NC</stored-value></pair>
+  <pair><displayed-value>North Dakota - ND</displayed-value><stored-value>North Dakota - ND</stored-value></pair>
+  <pair><displayed-value>Ohio - OH</displayed-value><stored-value>Ohio - OH</stored-value></pair>
+  <pair><displayed-value>Oklahoma - OK</displayed-value><stored-value>Oklahoma - OK</stored-value></pair>
+  <pair><displayed-value>Oregon - OR</displayed-value><stored-value>Oregon - OR</stored-value></pair>
+  <pair><displayed-value>Pennsylvania - PA</displayed-value><stored-value>Pennsylvania - PA</stored-value></pair>
+  <pair><displayed-value>Rhode Island - RI</displayed-value><stored-value>Rhode Island - RI</stored-value></pair>
+  <pair><displayed-value>South Carolina - SC</displayed-value><stored-value>South Carolina - SC</stored-value></pair>
+  <pair><displayed-value>South Dakota - SD</displayed-value><stored-value>South Dakota - SD</stored-value></pair>
+  <pair><displayed-value>Tennessee - TN</displayed-value><stored-value>Tennessee - TN</stored-value></pair>
+  <pair><displayed-value>Texas - TX</displayed-value><stored-value>Texas - TX</stored-value></pair>
+  <pair><displayed-value>Utah - UT</displayed-value><stored-value>Utah - UT</stored-value></pair>
+  <pair><displayed-value>Vermont - VT</displayed-value><stored-value>Vermont - VT</stored-value></pair>
+  <pair><displayed-value>Virginia - VA</displayed-value><stored-value>Virginia - VA</stored-value></pair>
+  <pair><displayed-value>Washington - WA</displayed-value><stored-value>Washington - WA</stored-value></pair>
+  <pair><displayed-value>West Virginia - WV</displayed-value><stored-value>West Virginia - WV</stored-value></pair>
+  <pair><displayed-value>Wisconsin - WI</displayed-value><stored-value>Wisconsin - WI</stored-value></pair>
+  <pair><displayed-value>Wyoming - WY</displayed-value><stored-value>Wyoming - WY</stored-value></pair>
 </value-pairs>
-
 
      <!--<value-pairs value-pairs-name="thesis_department" dc-term="department">-->
      <value-pairs value-pairs-name="subject_primary" dc-term="subject">

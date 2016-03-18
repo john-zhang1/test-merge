@@ -242,7 +242,7 @@
                                     <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
                                     <xsl:value-of select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homecity']/node()"/>
                                     <xsl:text>, </xsl:text>
-                                    <xsl:value-of select="substring($metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homestate']/node(), 1, 2)"/>
+                                    <xsl:value-of select="substring-after($metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='npdg'][@qualifier='homestate']/node(), '- ')"/>
                                 </span>
                             </xsl:when>
                             <xsl:otherwise>
