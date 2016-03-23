@@ -210,7 +210,7 @@
                                 <xsl:text>holder.js/100%x</xsl:text>
                                 <xsl:value-of select="$thumbnail.maxheight"/>
                                 <xsl:choose>
-                                    <xsl:when test="$imgqualifier='Unavailable'">
+                                    <xsl:when test="$imgqualifier='N'">
                                         <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                                     </xsl:when>
                                     <xsl:otherwise>

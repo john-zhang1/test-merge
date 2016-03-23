@@ -271,7 +271,7 @@
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
                             <xsl:choose>
-                                <xsl:when test="$imgqualifier='Unavailable'">
+                                <xsl:when test="$imgqualifier='N'">
                                     <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -329,7 +329,7 @@
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
                             <xsl:choose>
-                                <xsl:when test="$imgqualifier='Unavailable'">
+                                <xsl:when test="$imgqualifier='N'">
                                     <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -810,6 +810,20 @@
                 <xsl:choose>
 										<xsl:when test="contains($headerQualifier, 'homestate')">
                         <xsl:copy-of select="substring-before(./node(), ' -')"/>
+										</xsl:when>
+                    <xsl:when test="contains($headerQualifier, 'imagestatus')">
+                        <xsl:variable name="imgstatus" select="./node()"/>
+                        <xsl:choose>
+                            <xsl:when test="$imgstatus='N'">
+                                <xsl:text>Unavailable</xsl:text>
+                            </xsl:when>
+                            <xsl:when test="$imgstatus='P'">
+                                <xsl:text>Pending</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>Available</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="./node()"/>
