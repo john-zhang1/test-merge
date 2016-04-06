@@ -104,7 +104,7 @@
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.sampleid">sample id</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.city">city</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.state">state</message>
-	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.state">zip</message>
+	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.zip">zip</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.dateaccessioned">submit date</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.relevance">relevance</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by">Sort items by</message>
@@ -112,6 +112,8 @@
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.order.asc">ascending</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.order.desc">descending</message>
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.rpp">Results/page</message>
+
+	<message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.ispartofseries">OER series</message>
 
     <!-- org.dspace.app.xmlui.artifactbrowser.AdvancedSearch.java -->
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.title">Advanced Search</message>
@@ -206,6 +208,11 @@
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.zip">Browsing {0} by zip {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.zip">Browsing {0} by zip </message>
 
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.ispartofseries">OER series</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.ispartofseries.column_heading">OER series</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.ispartofseries">Browsing {0} by series {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.ispartofseries">Browsing {0} by series </message>
+
 	<!-- org.dspace.app.xmlui.administrative.WithdrawnItems.java -->
 	<message key="xmlui.Administrative.WithdrawnItems.title.item.title">Withdrawn Items by Title</message>
 	<message key="xmlui.Administrative.WithdrawnItems.trail.item.title">Withdrawn Items by Title</message>
@@ -224,6 +231,10 @@
 	<message key="xmlui.Administrative.WithdrawnItems.title.item.dateaccessioned">Withdrawn Items by Submit Date</message>
 	<message key="xmlui.Administrative.WithdrawnItems.trail.item.dateaccessioned">Withdrawn Items by Submit Date</message>
 
+	<message key="xmlui.Administrative.WithdrawnItems.title.item.ispartofseries">Withdrawn Items by series</message>
+	<message key="xmlui.Administrative.WithdrawnItems.trail.item.ispartofseries">Withdrawn Items by series</message>
+
+
 	<!-- org.dspace.app.xmlui.administrative.PrivateItems.java -->
 	<message key="xmlui.Administrative.PrivateItems.title.item.title">Private Items by Title</message>
 	<message key="xmlui.Administrative.PrivateItems.trail.item.title">Private Items by Title</message>
@@ -241,6 +252,9 @@
 
 	<message key="xmlui.Administrative.PrivateItems.title.item.dateaccessioned">Private Items by Submit Date</message>
 	<message key="xmlui.Administrative.PrivateItems.trail.item.dateaccessioned">Private Items by Submit Date</message>
+
+	<message key="xmlui.Administrative.PrivateItems.title.item.dateaccessioned">Private Items by Series</message>
+	<message key="xmlui.Administrative.PrivateItems.trail.item.dateaccessioned">Private Items by Series</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.CollectionViewer.java -->
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.search_scope">Search Scope</message>
@@ -320,6 +334,8 @@
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_state">State</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_zip">Zip Code</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_sampleid">Sample ID</message>
+
+	<message key="xmlui.ArtifactBrowser.Navigation.browse_ispartofseries">By Series</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.SimpleSearch.java -->
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.title">Search</message>
@@ -2644,4 +2660,8 @@
 		<message key="xmlui.mirage2.itemSummaryView.Note.isolatesfromtv8">soil samples were applied to Petri plates containing food called TV8 (V8 + Triton X-100 Agar) that enables fungi to grow (visit http://npdgcitizenscience.org for more information about the fungal growth process); the value ascribed to this entry refers to the number of unique appearing fungi estimated on the plate; if shown, the tan colored plate was made with TV8 agar</message>
 		<message key="xmlui.mirage2.itemSummaryView.Legend.photos">Photos</message>
 		<message key="xmlui.mirage2.itemSummaryView.Note.photos">most samples handled prior to May 2015 were processed using a different protocol and pictures were not recorded; if you provided a sample prior to this date, you are welcomed to request a new kit and submit a different sample to the program</message>
+    <!-- OER -->
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ispartofseries">OER Series</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_ispartofseries">OER Series</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ispartofseries">OER Series</message>
 </catalogue>
