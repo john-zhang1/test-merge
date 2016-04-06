@@ -269,7 +269,6 @@
             <!-- Modernizr enables HTML5 elements & feature detects -->
             <script src="{concat($theme-path, 'vendor/modernizr/modernizr.js')}">&#160;</script>
             <script src="{concat($theme-path, 'scripts/modernizr.custom.js')}">&#160;</script>
-            <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="{concat($theme-path, 'scripts/leaflet.js')}">&#160;</script>
             <script src="{concat($theme-path, 'scripts/leaflet.markercluster-src.js')}">&#160;</script>
