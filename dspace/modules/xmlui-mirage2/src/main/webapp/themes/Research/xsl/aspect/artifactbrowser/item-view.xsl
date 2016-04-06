@@ -239,6 +239,9 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
+        <xsl:variable name="imgqualifier">
+           <xsl:value-of select="dim:field[@qualifier='imagestatus']/node()" />
+        </xsl:variable>
         <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
@@ -267,7 +270,14 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                            <xsl:choose>
+                                <xsl:when test="$imgqualifier='N'">
+                                    <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>/text:No Thumbnail</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
@@ -276,6 +286,9 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail-item">
+        <xsl:variable name="imgqualifier">
+           <xsl:value-of select="dim:field[@qualifier='imagestatus']/node()" />
+        </xsl:variable>
         <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
@@ -315,7 +328,14 @@
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
                             <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                            <xsl:choose>
+                                <xsl:when test="$imgqualifier='N'">
+                                    <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>/text:No Thumbnail</xsl:text>
+                                </xsl:otherwise>
+                          </xsl:choose>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>
@@ -467,7 +487,9 @@
     </xsl:template>
 
     <xsl:template name="buildgooglemap-citizensci-spatial-item">
-        <div id="citizenitemmap" style="height: 225px; width:225px;"></div>
+        <div class="col-xs-6 col-sm-12">
+            <div id="citizenitemmap" style="height: 155px; width:100%;"></div>
+        </div>
         <script><xsl:text>
             var spatiallist = [], titlelist = [], placelist = [];
         </xsl:text></script>
@@ -481,7 +503,7 @@
         <xsl:variable name="handlePlace">
            <xsl:value-of select="dim:field[@element='npdg' and @qualifier='homecity']"/>
            <xsl:text>, </xsl:text>
-           <xsl:value-of select="substring(dim:field[@element='npdg' and @qualifier='homestate'], 1, 2)"/>
+           <xsl:value-of select="substring-after(dim:field[@element='npdg' and @qualifier='homestate'], '- ')"/>
         </xsl:variable>
 
         <script><xsl:text>
@@ -719,32 +741,30 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM">
-        <!-- <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'signature'))"> -->
-            <tr>
-              <xsl:attribute name="class">
-                  <xsl:text>ds-table-row </xsl:text>
-                  <xsl:if test="(position() div 2 mod 2 = 0)">even </xsl:if>
-                  <xsl:if test="(position() div 2 mod 2 = 1)">odd </xsl:if>
-              </xsl:attribute>
-              <td class="label-cell">
-                  <xsl:value-of select="./@mdschema"/>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row </xsl:text>
+              <xsl:if test="(position() div 2 mod 2 = 0)">even </xsl:if>
+              <xsl:if test="(position() div 2 mod 2 = 1)">odd </xsl:if>
+          </xsl:attribute>
+          <td class="label-cell">
+              <xsl:value-of select="./@mdschema"/>
+              <xsl:text>.</xsl:text>
+              <xsl:value-of select="./@element"/>
+              <xsl:if test="./@qualifier">
                   <xsl:text>.</xsl:text>
-                  <xsl:value-of select="./@element"/>
-                  <xsl:if test="./@qualifier">
-                      <xsl:text>.</xsl:text>
-                      <xsl:value-of select="./@qualifier"/>
-                  </xsl:if>
-              </td>
-              <td class="word-break">
-                <xsl:copy-of select="./node()"/>
-              </td>
-              <td><xsl:value-of select="./@language"/></td>
-            </tr>
-        <!-- </xsl:if> -->
+                  <xsl:value-of select="./@qualifier"/>
+              </xsl:if>
+          </td>
+          <td class="word-break">
+            <xsl:copy-of select="./node()"/>
+          </td>
+          <td><xsl:value-of select="./@language"/></td>
+        </tr>
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-        <xsl:if test="not(contains(./@qualifier, 'provenance') or contains(./@qualifier, 'accessioned') or contains(./@qualifier, 'available') or contains(./@qualifier, 'uri') or contains(./@qualifier, 'datecollected')or contains(./@qualifier, 'spatial'))">
+       <xsl:if test="not((./@qualifier = 'provenance') or (./@qualifier = 'accessioned') or (./@qualifier = 'available') or (./@qualifier = 'uri') or (./@qualifier = 'datecollected') or (./@qualifier = 'spatial'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -759,9 +779,6 @@
               </xsl:attribute>
               <td class="label-cell">
                   <xsl:if test="./@qualifier">
-                      <xsl:if test="contains($headerQualifier, 'datecollected')">
-                          <xsl:text>Date Collected</xsl:text>
-                      </xsl:if>
                       <xsl:if test="contains($headerQualifier, 'internalcode')">
                           <xsl:text>Internal Code</xsl:text>
                       </xsl:if>
@@ -786,12 +803,29 @@
                       <xsl:if test="contains($headerQualifier, 'sampleid')">
                           <xsl:text>Sample ID</xsl:text>
                       </xsl:if>
+                      <xsl:if test="contains($headerQualifier, 'imagestatus')">
+                          <xsl:text>Image Status</xsl:text>
+                      </xsl:if>
                   </xsl:if>
               </td>
               <td class="word-break">
                 <xsl:choose>
 										<xsl:when test="contains($headerQualifier, 'homestate')">
-                        <xsl:copy-of select="substring(./node(), 5)"/>
+                        <xsl:copy-of select="substring-before(./node(), ' -')"/>
+										</xsl:when>
+                    <xsl:when test="contains($headerQualifier, 'imagestatus')">
+                        <xsl:variable name="imgstatus" select="./node()"/>
+                        <xsl:choose>
+                            <xsl:when test="$imgstatus='N'">
+                                <xsl:text>Unavailable</xsl:text>
+                            </xsl:when>
+                            <xsl:when test="$imgstatus='P'">
+                                <xsl:text>Pending</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>Available</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
 										</xsl:when>
 										<xsl:otherwise>
 												<xsl:copy-of select="./node()"/>
