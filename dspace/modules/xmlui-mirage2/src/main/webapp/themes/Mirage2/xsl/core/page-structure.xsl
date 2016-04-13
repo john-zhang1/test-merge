@@ -861,6 +861,7 @@
         </xsl:if>
 
         <xsl:call-template name="addJavascript-google-analytics" />
+        <xsl:call-template name="addJavascript-google-gtm" />
         <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script>
     </xsl:template>
 
@@ -889,6 +890,15 @@
                   ga('create', 'UA-67205385-1', 'auto');
                   ga('send', 'pageview');
             </xsl:text></script>
+    </xsl:template>
+
+    <!-- Google Tag Manager -->
+    <xsl:template name="addJavascript-google-gtm">
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWZ2RP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script><xsl:text>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-NWZ2RP');
+        </xsl:text></script>
     </xsl:template>
 
     <!--Google map for item Detail View -->
