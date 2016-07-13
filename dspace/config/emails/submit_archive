@@ -2,15 +2,14 @@
 #
 # {0}  Title of submission
 # {1}  Name of collection
-# {2}  handle 
+# {2}  handle
 #
-Subject: DSpace: Submission Approved and Archived 
+Subject: SHAREOK: Submission Approved and Archived
 
-You submitted: {0}
+Item: {0}
+Collection: {1}
 
-To collection: {1}
-
-Your submission has been accepted and archived in DSpace,
+Your submission has been accepted and archived in SHAREOK,
 and it has been assigned the following identifier:
 {2}
 
@@ -18,4 +17,4 @@ Please use this identifier when citing your submission.
 
 Many thanks!
 
-DSpace
+SHAREOK

@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wf-config>
     <workflow-map>
+        <!--<name-map collection="11244/113" workflow="default"/>-->
+        <!--<name-map collection="123456789/113" workflow="default"/>-->
+        <!--<name-map collection="default" workflow="skipWorkFlow"/>-->
         <name-map collection="default" workflow="default"/>
-        <!--<name-map collection="123456789/4" workflow="selectSingleReviewer"/>-->
+        <name-map collection="11244/10476" workflow="ouetd"/>
+	<name-map collection="11244/23528" workflow="ouetd"/>
         <!--<name-map collection="123456789/5" workflow="scoreReview"/>-->
     </workflow-map>
 
     <!--Standard workflow step-->
-    <workflow start="reviewstep" id="default">
+    <workflow start="reviewstep" id="classic">
 
         <roles>
-            <role id="reviewer" name="Reviewer" description="The people responsible for this step are able to edit the metadata of incoming submissions, and then accept or reject them." />
-            <role id="editor" name="Editor" description="The people responsible for this step are able to edit the metadata of incoming submissions, and then accept or reject them."/>
-            <role id="finaleditor" name="Final Editor" description="The people responsible for this step are able to edit the metadata of incoming submissions, but will not be able to reject them."/>
+            <role id="reviewer" name="Reviewer" scope="repository" description="The people responsible for this step are able to accept or reject incoming submissions. However, they are not able to edit the submission's metadata." />
+            <role id="editor" name="Editor" scope="repository" description="The people responsible for this step are able to edit the metadata of incoming submissions, and then accept or reject them."/>
+            <role id="finaleditor" name="Final Editor" scope="repository" description="The people responsible for this step are able to edit the metadata of incoming submissions, but will not be able to reject them."/>
         </roles>
 
         <step id="reviewstep" role="reviewer" userSelectionMethod="claimaction">
@@ -37,6 +41,51 @@
             </actions>
         </step>
     </workflow>
+
+
+    <!-- Single step workflow for Dissertations -->
+    <workflow start="ouetd-editstep" id="ouetd">
+        <roles>
+            <role id="ouetd-editor" name="OU ETD Editor" scope="repository" description="The people responsible for this step are able to edit the metadata of incoming submissions, and then accept or reject them."/>
+        </roles>
+        <step id="ouetd-editstep" role="ouetd-editor" userSelectionMethod="claimaction">
+          	<actions>
+          	  <action id="editaction"/>
+          	</actions>
+        </step>
+    </workflow>
+
+
+    <!-- Single step workflow for faculty open access publications -->
+    <workflow start="editstep" id="foap">
+      <roles>
+	       <role id="editor" name="Open Access Editors - OU" scope="repository" description="The people responsible for this step complete the entire submission workflow." />
+      </roles>
+
+      <step id="editstep" role="editor" userSelectionMethod="claimaction">
+        	<actions>
+        	  <action id="editaction"/>
+        	</actions>
+      </step>
+    </workflow>
+
+
+
+    <!-- Single step workflow for default -->
+    <workflow start="def-editstep" id="default">
+        <roles>
+            <role id="editor" name="EDITOR" scope="collection" description="The people responsible for this step complete the entire submission workflow."/>
+        </roles>
+
+        <step id="def-editstep" role="editor" userSelectionMethod="claimaction">
+          	<actions>
+          	  <action id="editaction"/>
+          	</actions>
+        </step>
+    </workflow>
+
+
+
 
     <!--Workflow where a reviewManager can select a single review who will then either accept/reject the item-->
     <workflow id="selectSingleReviewer" start="selectReviewerStep">
@@ -86,4 +135,17 @@
             </actions>
         </step>
     </workflow>
+
+    <workflow id="skipWorkFlow" start="emptyeditstep">
+        <roles>
+            <role id="emptyrole" name="SKIP WORKFLOW" scope="repository" description="The people responsible for this step are able to edit the metadata of incoming submissions, but will not be able to reject them."/>
+        </roles>
+
+        <step id="emptyeditstep" role="emptyrole" userSelectionMethod="claimaction">
+            <actions>
+                <action id="finaleditaction"/>
+            </actions>
+        </step>
+    </workflow>
+
 </wf-config>

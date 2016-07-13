@@ -14,7 +14,14 @@
  <!-- the mapping for handle "default".                                    -->
 
  <form-map>
-   <name-map collection-handle="default" form-name="traditional" />
+   <name-map collection-handle="default" form-name="openaccess" />
+   <name-map collection-handle="11244/10476" form-name="oudissertation" />
+   <name-map collection-handle="11244/23528" form-name="outhesis"/>
+   <name-map collection-handle="11244/7920" form-name="openaccess" />
+   <name-map collection-handle="11244/7929" form-name="openaccess" />
+   <name-map collection-handle="11244/10405" form-name="studentpub" />
+   <name-map collection-handle="11244/28096" form-name="citizensci" />
+   <name-map collection-handle="11244/33280" form-name="openaccess" />
  </form-map>
 
 
@@ -38,6 +45,250 @@
 
    <form name="traditional">
      <page number="1">
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>title</dc-element>-->
+         <!--<dc-qualifier>alternative</dc-qualifier>-->
+         <!--<repeatable>true</repeatable>-->
+         <!--<label>Other Titles</label>-->
+         <!--<input-type>onebox</input-type>-->
+         <!--<hint>If the item has any alternative titles, please enter them below.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>manuscript</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Manuscript Completed</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>date</dc-element>
+             <dc-qualifier>issued</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Date degree awarded</label>
+             <input-type>date</input-type>
+             <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+             <required>You must enter at least the year.</required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>thesis</dc-element>
+             <dc-qualifier>degree</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Degree Awarded</label>
+             <input-type value-pairs-name="thesis_degree">dropdown</input-type>
+             <hint></hint>
+             <required>You must select a Degree Award</required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>contributor</dc-element>
+             <dc-qualifier>author</dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Authors</label>
+             <input-type>name</input-type>
+             <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+             <required>You must enter an author</required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>contributor</dc-element>
+             <dc-qualifier>advisor</dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Advisor/Supervisor/Committee Chair</label>
+             <input-type>name</input-type>
+             <hint>Enter your primary advisor(s), not your entire committee. Do not include degrees as part of the name.</hint>
+             <required>You must enter an advisor</required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>contributor</dc-element>
+             <dc-qualifier>committeeMember</dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Committee Members</label>
+             <input-type>name</input-type>
+             <hint>Include up to 10 names. Do not include degrees as part of the name.</hint>
+             <required></required>
+         </field>
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>publisher</dc-element>-->
+         <!--<dc-qualifier></dc-qualifier>-->
+         <!--<repeatable>false</repeatable>-->
+         <!--<label>Publisher</label>-->
+         <!--<input-type>onebox</input-type>-->
+         <!--<hint>Enter the name of the publisher of the previously issued instance of this item.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>identifier</dc-element>-->
+         <!--<dc-qualifier>citation</dc-qualifier>-->
+         <!--<repeatable>false</repeatable>-->
+         <!--<label>Citation</label>-->
+         <!--<input-type>onebox</input-type>-->
+         <!--<hint>Enter the standard citation for the previously issued instance of this item.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>relation</dc-element>-->
+         <!--<dc-qualifier>ispartofseries</dc-qualifier>-->
+         <!--<repeatable>true</repeatable>-->
+         <!--<label>Series/Report No.</label>-->
+         <!--<input-type>series</input-type>-->
+         <!--<hint>Enter the series and number assigned to this item by your community.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>identifier</dc-element>-->
+         <!--<dc-qualifier></dc-qualifier>-->
+         <!--&lt;!&ndash; An input-type of qualdrop_value MUST be marked as repeatable &ndash;&gt;-->
+         <!--<repeatable>true</repeatable>-->
+         <!--<label>Identifiers</label>-->
+         <!--<input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>-->
+         <!--<hint>If the item has any identification numbers or codes associated with-->
+<!--it, please enter the types and the actual numbers or codes below.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+       <!--<field>-->
+         <!--<dc-schema>dc</dc-schema>-->
+         <!--<dc-element>type</dc-element>-->
+         <!--<dc-qualifier></dc-qualifier>-->
+         <!--<repeatable>true</repeatable>-->
+         <!--<label>Type</label>-->
+         <!--<input-type value-pairs-name="common_types">dropdown</input-type>-->
+         <!--<hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>-->
+         <!--<required></required>-->
+       <!--</field>-->
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>subject</dc-element>
+             <dc-qualifier></dc-qualifier>
+             <!-- An input-type of twobox MUST be marked as repeatable -->
+             <repeatable>true</repeatable>
+             <label>Subject Category</label>
+             <input-type>onebox</input-type>
+             <hint>Select approriate subjects.</hint>
+             <required>You must enter a subject</required>
+             <vocabulary closed="false">subjects</vocabulary>
+         </field>
+
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>group</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department/College</label>
+         <input-type value-pairs-name="ou_group">dropdown</input-type>
+         <hint></hint>
+         <required>You must select an option.</required>
+       </field>
+
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>description</dc-element>
+             <dc-qualifier>abstract</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Abstract</label>
+             <input-type>textarea</input-type>
+             <hint>Enter the abstract of the item. </hint>
+             <required>You must enter an abstract</required>
+         </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Primary Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list below, please select 'Other'.</hint>
+         <required></required>
+       </field>
+
+     </page>
+   </form>
+
+   <form name="oudissertation">
+     <page number="1">
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>manuscript</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Manuscript Completed</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date degree awarded</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>thesis</dc-element>
+         <dc-qualifier>degree</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Degree Awarded</label>
+         <input-type value-pairs-name="thesis_degree">dropdown</input-type>
+         <hint></hint>
+         <required>You must select a degree.</required>
+       </field>
+
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>contributor</dc-element>
@@ -45,9 +296,285 @@
          <repeatable>true</repeatable>
          <label>Authors</label>
          <input-type>name</input-type>
-         <hint>Enter the names of the authors of this item.</hint>
+         <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+         <required>You must enter an author</required>
+       </field>
+
+       <field>
+         <dc-schema>shareok</dc-schema>
+         <dc-element>orcid</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Author ORCID ID</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the ORCID ID corresponding to the primary author of this work.</hint>
          <required></required>
        </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>advisor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Advisor/Supervisor/Committee Chair</label>
+         <input-type>name</input-type>
+         <hint>Enter your primary advisor(s), not your entire committee. Do not include degrees as part of the name.</hint>
+         <required>You must enter an advisor</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>committeeMember</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Committee Members</label>
+         <input-type>name</input-type>
+         <hint>Include up to 10 names. Do not include degrees as part of the name.</hint>
+         <required></required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Category</label>
+         <input-type>onebox</input-type>
+         <hint>Choose 3-4 clear, accurate, descriptive subect
+             terms. Think about the keywords that you would use to
+             find material related to your dissertation topic, and
+             include the closest subject terms.</hint>
+         <required>You must enter a subject</required>
+         <vocabulary closed="false">subjects</vocabulary>
+       </field>
+
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>group</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department/College</label>
+         <input-type value-pairs-name="ou_group">dropdown</input-type>
+         <hint>Select the name of your academic unit.</hint>
+         <required>You must select an option.</required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the abstract of the item below. Within your
+         abstract, repeat keywords or phrases from your dissertation
+         title, reuse relevant keywords, and include other keywords or
+         phrases you would use to find material related to your
+         dissertation topic.</hint>
+         <required>You must enter an abstract</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Primary Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list below, please select 'Other'.</hint>
+         <required></required>
+       </field>
+
+         <field>
+             <dc-schema>shareok</dc-schema>
+             <dc-element>nativefileaccess</dc-element>
+             <dc-qualifier></dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Access to Original Documents</label>
+             <input-type value-pairs-name="nativefile_check">list</input-type>
+             <hint>Should access to original document files (non-PDF) be restricted?</hint>
+             <required></required>
+         </field>
+
+
+
+
+     </page>
+   </form>
+
+   <form name="outhesis">
+     <page number="1">
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>manuscript</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date Manuscript Completed</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date degree awarded</label>
+         <input-type>date</input-type>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>thesis</dc-element>
+         <dc-qualifier>degree</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Degree Awarded</label>
+         <input-type value-pairs-name="ou_thesis_degree">dropdown</input-type>
+         <hint></hint>
+         <required>You must select a degree.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+         <required>You must enter an author</required>
+       </field>
+
+       <field>
+         <dc-schema>shareok</dc-schema>
+         <dc-element>orcid</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Author ORCID ID</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the ORCID ID corresponding to the primary author of this work.</hint>
+         <required></required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>advisor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Advisor/Supervisor/Committee Chair</label>
+         <input-type>name</input-type>
+         <hint>Enter your primary advisor(s), not your entire committee. Do not include degrees as part of the name.</hint>
+         <required>You must enter an advisor</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>committeeMember</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Committee Members</label>
+         <input-type>name</input-type>
+         <hint>Include up to 10 names. Do not include degrees as part of the name.</hint>
+         <required></required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Category</label>
+         <input-type>onebox</input-type>
+         <hint>Choose 3-4 clear, accurate, descriptive subect
+             terms. Think about the keywords that you would use to
+             find material related to your dissertation topic, and
+             include the closest subject terms.</hint>
+         <required>You must enter a subject</required>
+         <vocabulary closed="false">subjects</vocabulary>
+       </field>
+
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>group</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department/College</label>
+         <input-type value-pairs-name="ou_group">dropdown</input-type>
+         <hint>Select the name of your academic unit.</hint>
+         <required>You must select an option.</required>
+       </field>
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the abstract of the item below. Within your
+         abstract, repeat keywords or phrases from your dissertation
+         title, reuse relevant keywords, and include other keywords or
+         phrases you would use to find material related to your
+         dissertation topic.</hint>
+         <required>You must enter an abstract</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Primary Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list below, please select 'Other'.</hint>
+         <required></required>
+       </field>
+
+         <field>
+             <dc-schema>shareok</dc-schema>
+             <dc-element>nativefileaccess</dc-element>
+             <dc-qualifier></dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Access to Original Documents</label>
+             <input-type value-pairs-name="nativefile_check">list</input-type>
+             <hint>Should access to original document files (non-PDF) be restricted?</hint>
+             <required></required>
+         </field>
+
+
+
+
+     </page>
+   </form>
+
+
+   <form name="studentpub">
+     <page number="1">
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -62,73 +589,167 @@
 
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier>alternative</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Titles</label>
-         <input-type>onebox</input-type>
-         <hint>If the item has any alternative titles, please enter them here.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
          <dc-element>date</dc-element>
          <dc-qualifier>issued</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Date of Issue</label>
+         <label>Date of Publication</label>
          <input-type>date</input-type>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
+         <hint>You can leave out the day and/or month if they aren't applicable.</hint>
          <required>You must enter at least the year.</required>
        </field>
 
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject Category</label>
+         <input-type>onebox</input-type>
+         <hint>Select approriate subjects.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>course</dc-element>
+         <dc-qualifier>dept</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Course Department</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the department code for the course.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>course</dc-element>
+         <dc-qualifier>number</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Course Number</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the course number.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>faculty</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Faculty Member</label>
+         <input-type>name</input-type>
+         <hint>Enter the OU course faculty member or sponsor.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>teacher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Teacher</label>
+         <input-type>name</input-type>
+         <hint>Enter teacher, instructor, Lecturer, or GA.</hint>
+         <required></required>
+       </field>
+
+
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>contributor</dc-element>
+	     <dc-qualifier>author</dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Author</label>
+             <input-type>name</input-type>
+             <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+             <required>You must enter a creator</required>
+         </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>hometown</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Publisher</label>
+         <label>Author Hometown</label>
          <input-type>onebox</input-type>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <hint>Enter the author's hometown. </hint>
          <required></required>
        </field>
 
        <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier>citation</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Citation</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the standard citation for the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartofseries</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Series/Report No.</label>
-         <input-type>series</input-type>
-         <hint>Enter the series and number assigned to this item by your community.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
+         <dc-schema>ou</dc-schema>
+         <dc-element>homestate</dc-element>
          <dc-qualifier></dc-qualifier>
-         <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
-         <repeatable>true</repeatable>
-         <label>Identifiers</label>
-         <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
-         <hint>If the item has any identification numbers or codes associated with
-it, please enter the types and the actual numbers or codes.</hint>
+         <repeatable>false</repeatable>
+         <label>Author Home State</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the author's home state. </hint>
          <required></required>
        </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>homecountry</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Author Home Country</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the author's home country. </hint>
+         <required></required>
+       </field>
+
+     </page>
+   </form>
+
+   <form name="openaccess">
+     <page number="1">
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>date</dc-element>
+             <dc-qualifier>issued</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Date of Publication</label>
+             <input-type>date</input-type>
+             <hint>You can leave out the day and/or month if they aren't applicable.</hint>
+             <required>You must enter at least the year.</required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>contributor</dc-element>
+	     <dc-qualifier>author</dc-qualifier>
+             <repeatable>true</repeatable>
+             <label>Author</label>
+             <input-type>name</input-type>
+             <hint>Enter the author(s) of this work. Do not include degrees as part of the name.</hint>
+             <required>You must enter a creator</required>
+         </field>
+
+       <field>
+         <dc-schema>ou</dc-schema>
+         <dc-element>group</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department/College</label>
+         <input-type value-pairs-name="ou_group">dropdown</input-type>
+         <hint></hint>
+         <required></required>
+       </field>
+
+
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -141,81 +762,254 @@ it, please enter the types and the actual numbers or codes.</hint>
          <required></required>
        </field>
 
+
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>description</dc-element>
+             <dc-qualifier>peerreview</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Peer Reviewed</label>
+             <input-type value-pairs-name="peerreview_check">list</input-type>
+             <hint>Was this work peer reviewed? </hint>
+             <required></required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>description</dc-element>
+             <dc-qualifier>peerreviewnotes</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Peer Review Notes</label>
+             <input-type>textarea</input-type>
+             <hint>Enter a brief description of the nature of peer review for this work.</hint>
+             <required></required>
+         </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>doi</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>DOI</label>
+                    <input-type>onebox</input-type>
+                    <hint>DOI</hint>
+                    <required></required>
+                </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier>citation</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Citation</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the standard citation for this item.</hint>
+         <required></required>
+       </field>
+
+
+
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartofseries</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Series/Report No.</label>
+         <input-type>series</input-type>
+         <hint>Enter the series and number assigned to this item by your community.</hint>
+         <required></required>
+       </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>subject</dc-element>
+             <dc-qualifier></dc-qualifier>
+             <!-- An input-type of twobox MUST be marked as repeatable -->
+             <repeatable>true</repeatable>
+             <label>Subject Category</label>
+             <input-type>onebox</input-type>
+             <hint>Enter subjects. </hint>
+             <required></required>
+             <vocabulary closed="false">subjects</vocabulary>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>description</dc-element>
+             <dc-qualifier>abstract</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Abstract</label>
+             <input-type>textarea</input-type>
+             <hint>Enter the abstract of the item. </hint>
+             <required></required>
+         </field>
+
+         <field>
+             <dc-schema>dc</dc-schema>
+             <dc-element>description</dc-element>
+             <dc-qualifier>sponsorship</dc-qualifier>
+             <repeatable>false</repeatable>
+             <label>Sponsor Notes</label>
+             <input-type>textarea</input-type>
+	     <hint> Enter the names of any sponsors and/or funding codes in the box. </hint>
+             <required></required>
+         </field>
+
+
+	 <field>
+           <dc-schema>dc</dc-schema>
+           <dc-element>description</dc-element>
+           <dc-qualifier></dc-qualifier>
+           <repeatable>false</repeatable>
+           <label>Description</label>
+           <input-type>textarea</input-type>
+           <hint> Record any additional notes pertaining to the resource. </hint>
+           <required></required>
+       </field>
+
+
+
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>language</dc-element>
-         <dc-qualifier>iso</dc-qualifier>
+         <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Language</label>
+         <label>Primary Language</label>
          <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-         <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
-         <required></required>
-       </field>
-     </page>
-
-     <page number="2">
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <!-- An input-type of twobox MUST be marked as repeatable -->
-         <repeatable>true</repeatable>
-         <label>Subject Keywords</label>
-         <input-type>twobox</input-type>
-         <hint>Enter appropriate subject keywords or phrases. </hint>
-         <required></required>
-         <vocabulary>srsc</vocabulary>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Abstract</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the abstract of the item. </hint>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list below, please select 'Other'.</hint>
          <required></required>
        </field>
 
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>sponsorship</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Sponsors</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter any other description or comments in this box. </hint>
-         <required></required>
-       </field>
      </page>
    </form>
 
-   <form name="one">
-     <page number="1">
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>contributor</dc-element>
-         <dc-qualifier>author</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>One: Authors</label>
-         <input-type>name</input-type>
-         <hint>Enter the names of the authors of this item.</hint>
-         <required></required>
-       </field>
+    <!-- citizen science -->
+    <form name="citizensci">
+      <page number="1">
+        <field>
+          <dc-schema>dwc</dc-schema>
+          <dc-element>npdg</dc-element>
+          <dc-qualifier>sampleid</dc-qualifier>
+          <repeatable>false</repeatable>
+          <label>Sample ID</label>
+          <input-type>onebox</input-type>
+          <hint>Enter the Sample ID of the item.</hint>
+          <required>You must enter Sample ID for this item.</required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>internalcode</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Internal Code</label>
+            <input-type>onebox</input-type>
+            <hint></hint>
+            <required></required>
+        </field>
+
+        <field>
+          <dc-schema>dwc</dc-schema>
+          <dc-element>npdg</dc-element>
+          <dc-qualifier>datecollected</dc-qualifier>
+          <repeatable>false</repeatable>
+          <label>Date Collected</label>
+          <input-type>date</input-type>
+          <hint></hint>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>homecity</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>City</label>
+            <input-type>onebox</input-type>
+            <hint></hint>
+            <required>You must select a City</required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>homestate</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>State</label>
+            <input-type value-pairs-name="state_list">dropdown</input-type>
+            <hint></hint>
+            <required>You must select a State</required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>homezip</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Zip</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the zip.</hint>
+            <required>Enter zip code</required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>spatial</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Coordinates</label>
+            <input-type>onebox</input-type>
+            <required></required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>isolatesRBM</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label># of isolates from RBM</label>
+            <input-type>onebox</input-type>
+            <hint>Enter # of isolates from RBM</hint>
+            <required></required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>isolatesTV8</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label># of isolates from TV8</label>
+            <input-type>onebox</input-type>
+            <hint>Enter # of isolates from TV8.</hint>
+            <required></required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>detail</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Collection Detail</label>
+            <input-type>textarea</input-type>
+            <hint></hint>
+            <required></required>
+        </field>
+
+        <field>
+            <dc-schema>dwc</dc-schema>
+            <dc-element>npdg</dc-element>
+            <dc-qualifier>imagestatus</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Image Status</label>
+            <input-type value-pairs-name="imageunavailable_check">list</input-type>
+            <hint></hint>
+            <required></required>
+        </field>
+
       </page>
     </form>
+
  </form-definitions>
 
 
@@ -232,8 +1026,2234 @@ it, please enter the types and the actual numbers or codes.</hint>
  <!-- element. A UI list displays the displayed-values, but the program     -->
  <!-- stores the associated stored-values in the database.                  -->
 
+
  <form-value-pairs>
-   <value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
+
+   <value-pairs value-pairs-name="peerreview_check" dc-term="description.peerreview">
+     <pair>
+       <displayed-value>Yes</displayed-value>
+       <stored-value>Yes</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>No</displayed-value>
+       <stored-value>No</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="nativefile_check" dc-term="shareok.nativefileaccess">
+     <pair>
+       <displayed-value>Restricted</displayed-value>
+       <stored-value>restricted</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="imageunavailable_check" dc-term="science.imageunavailable">
+     <pair>
+       <displayed-value>Yes</displayed-value>
+       <stored-value>yes</stored-value>
+     </pair>
+    </value-pairs>
+
+   <value-pairs value-pairs-name="thesis_degree" dc-term="degree">
+       <pair>
+           <displayed-value> </displayed-value>
+           <stored-value></stored-value>
+       </pair>
+       <pair>
+           <displayed-value>D.M.A.</displayed-value>
+           <stored-value>D.M.A.</stored-value>
+       </pair>
+       <pair>
+           <displayed-value>Ed.D.</displayed-value>
+           <stored-value>Ed.D.</stored-value>
+       </pair>
+       <pair>
+           <displayed-value>Ph.D.</displayed-value>
+           <stored-value>Ph.D.</stored-value>
+       </pair>
+       <pair>
+           <displayed-value>Dr.P.H</displayed-value>
+           <stored-value>Dr.P.H</stored-value>
+       </pair>
+   </value-pairs>
+
+<value-pairs value-pairs-name="ou_thesis_degree" dc-term="degree">
+  <pair>x<displayed-value></displayed-value><stored-value></stored-value></pair>
+  <pair><displayed-value>Master of Architecture</displayed-value><stored-value>Master of Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Arts</displayed-value><stored-value>Master of Arts</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Administrative Leadership</displayed-value><stored-value>Master of Arts in Administrative Leadership</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Applied Linguistic Anthropology</displayed-value><stored-value>Master of Arts in Applied Linguistic Anthropology</stored-value></pair>
+  <pair><displayed-value>Master of Arts in Art History</displayed-value><stored-value>Master of Arts in Art History</stored-value></pair>
+  <pair><displayed-value>Master of Arts in History of Science, Technology and Medicine</displayed-value><stored-value>Master of Arts in History of Science, Technology and Medicine</stored-value></pair>
+  <pair><displayed-value>Master of Arts in International Studies</displayed-value><stored-value>Master of Arts in International Studies</stored-value></pair>
+  <pair><displayed-value>Master of Education</displayed-value><stored-value>Master of Education</stored-value></pair>
+  <pair><displayed-value>Master of Environmental Science</displayed-value><stored-value>Master of Environmental Science</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Art</displayed-value><stored-value>Master of Fine Arts in Art</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Dance</displayed-value><stored-value>Master of Fine Arts in Dance</stored-value></pair>
+  <pair><displayed-value>Master of Fine Arts in Drama</displayed-value><stored-value>Master of Fine Arts in Drama</stored-value></pair>
+  <pair><displayed-value>Master of Human Relations</displayed-value><stored-value>Master of Human Relations</stored-value></pair>
+  <pair><displayed-value>Master of Landscape Architecture</displayed-value><stored-value>Master of Landscape Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Library &amp; Information Studies</displayed-value><stored-value>Master of Library &amp; Information Studies</stored-value></pair>
+  <pair><displayed-value>Master of Music</displayed-value><stored-value>Master of Music</stored-value></pair>
+  <pair><displayed-value>Master of Music Education</displayed-value><stored-value>Master of Music Education</stored-value></pair>
+  <pair><displayed-value>Master of Regional &amp; City Planning</displayed-value><stored-value>Master of Regional &amp; City Planning</stored-value></pair>
+  <pair><displayed-value>Master of Science</displayed-value><stored-value>Master of Science</stored-value></pair>
+  <pair><displayed-value>Master of Science in Architectural Urban Studies</displayed-value><stored-value>Master of Science in Architectural Urban Studies</stored-value></pair>
+  <pair><displayed-value>Master of Science in Architecture</displayed-value><stored-value>Master of Science in Architecture</stored-value></pair>
+  <pair><displayed-value>Master of Science in Construction Management</displayed-value><stored-value>Master of Science in Construction Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Environmental Engineering</displayed-value><stored-value>Master of Science in Environmental Engineering</stored-value></pair>
+  <pair><displayed-value>Master of Science in Environmental Sustainability</displayed-value><stored-value>Master of Science in Environmental Sustainability</stored-value></pair>
+  <pair><displayed-value>Master of Science in Interior Design</displayed-value><stored-value>Master of Science in Interior Design</stored-value></pair>
+  <pair><displayed-value>Master of Science in Knowledge Management</displayed-value><stored-value>Master of Science in Knowledge Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Meteorology</displayed-value><stored-value>Master of Science in Meteorology</stored-value></pair>
+  <pair><displayed-value>Master of Science in Natural Gas Engineering and Management</displayed-value><stored-value>Master of Science in Natural Gas Engineering and Management</stored-value></pair>
+  <pair><displayed-value>Master of Science in Telecommunications Engineering</displayed-value><stored-value>Master of Science in Telecommunications Engineering</stored-value></pair>
+  <pair><displayed-value>Master of Social Work</displayed-value><stored-value>Master of Social Work</stored-value></pair>
+</value-pairs>
+
+
+<value-pairs value-pairs-name="ou_group" dc-term="group">
+<pair><displayed-value></displayed-value> <stored-value></stored-value></pair>
+<pair><displayed-value>College of Architecture</displayed-value> <stored-value>College of Architecture</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences</displayed-value> <stored-value>College of Arts and Sciences</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Anthropology</displayed-value> <stored-value>College of Arts and Sciences::Department of Anthropology</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Biology</displayed-value> <stored-value>College of Arts and Sciences::Department of Biology</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Chemistry and Biochemistry</displayed-value> <stored-value>College of Arts and Sciences::Department of Chemistry and Biochemistry</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Communication</displayed-value> <stored-value>College of Arts and Sciences::Department of Communication</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Economics</displayed-value> <stored-value>College of Arts and Sciences::Department of Economics</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of English</displayed-value> <stored-value>College of Arts and Sciences::Department of English</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Health and Exercise Science</displayed-value> <stored-value>College of Arts and Sciences::Department of Health and Exercise Science</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of History</displayed-value> <stored-value>College of Arts and Sciences::Department of History</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of History of Science</displayed-value> <stored-value>College of Arts and Sciences::Department of History of Science</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Human Relations</displayed-value> <stored-value>College of Arts and Sciences::Department of Human Relations</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Mathematics</displayed-value> <stored-value>College of Arts and Sciences::Department of Mathematics</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Microbiology and Plant Biology</displayed-value> <stored-value>College of Arts and Sciences::Department of Microbiology and Plant Biology</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Modern Languages, Literatures, and Linguistics</displayed-value> <stored-value>College of Arts and Sciences::Department of Modern Languages, Literatures, and Linguistics</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Native American Studies</displayed-value> <stored-value>College of Arts and Sciences::Department of Native American Studies</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Philosophy</displayed-value> <stored-value>College of Arts and Sciences::Department of Philosophy</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Political Science</displayed-value> <stored-value>College of Arts and Sciences::Department of Political Science</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Psychology</displayed-value> <stored-value>College of Arts and Sciences::Department of Psychology</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Department of Sociology</displayed-value> <stored-value>College of Arts and Sciences::Department of Sociology</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::Homer L. Dodge Department of Physics and Astronomy</displayed-value> <stored-value>College of Arts and Sciences::Homer L. Dodge Department of Physics and Astronomy</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::School of Library and Information Studies</displayed-value> <stored-value>College of Arts and Sciences::School of Library and Information Studies</stored-value></pair>
+<pair><displayed-value>College of Arts and Sciences::School of Social Work</displayed-value> <stored-value>College of Arts and Sciences::School of Social Work</stored-value></pair>
+<pair><displayed-value>College of Atmospheric &amp; Geographic Sciences</displayed-value> <stored-value>College of Atmospheric &amp; Geographic Sciences</stored-value></pair>
+<pair><displayed-value>College of Atmospheric &amp; Geographic Sciences::Department of Geography and Environmental Sustainability</displayed-value> <stored-value>College of Atmospheric &amp; Geographic Sciences::Department of Geography and Environmental Sustainability</stored-value></pair>
+<pair><displayed-value>College of Atmospheric &amp; Geographic Sciences::School of Meteorology</displayed-value> <stored-value>College of Atmospheric &amp; Geographic Sciences::School of Meteorology</stored-value></pair>
+<pair><displayed-value>College of Engineering</displayed-value> <stored-value>College of Engineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::Department of Bioengineering</displayed-value> <stored-value>College of Engineering::Department of Bioengineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::Department of Engineering</displayed-value> <stored-value>College of Engineering::Department of Engineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::Department of Engineering Physics</displayed-value> <stored-value>College of Engineering::Department of Engineering Physics</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Aerospace and Mechanical Engineering</displayed-value> <stored-value>College of Engineering::School of Aerospace and Mechanical Engineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Chemical, Biological and Materials Engineering</displayed-value><stored-value>College of Engineering::School of Chemical, Biological and Materials Engineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Civil Engineering and Environmental Science</displayed-value><stored-value>College of Engineering::School of Civil Engineering and Environmental Science</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Computer Science</displayed-value> <stored-value>College of Engineering::School of Computer Science</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Electrical and Computer Engineering</displayed-value> <stored-value>College of Engineering::School of Electrical and Computer Engineering</stored-value></pair>
+<pair><displayed-value>College of Engineering::School of Industrial and Systems Engineering</displayed-value> <stored-value>College of Engineering::School of Industrial and Systems Engineering</stored-value></pair>
+<pair><displayed-value>College of International Studies</displayed-value> <stored-value>College of International Studies</stored-value></pair>
+<pair><displayed-value>College of Liberal Studies</displayed-value> <stored-value>College of Liberal Studies</stored-value></pair>
+<pair><displayed-value>Gaylord College of Journalism and Mass Communication</displayed-value> <stored-value>Gaylord College of Journalism and Mass Communication</stored-value></pair>
+<pair><displayed-value>Graduate College</displayed-value> <stored-value>Graduate College</stored-value></pair>
+<pair><displayed-value>Health Sciences Center</displayed-value> <stored-value>Health Sciences Center</stored-value></pair>
+<pair><displayed-value>Jeannine Rainbolt College of Education</displayed-value> <stored-value>Jeannine Rainbolt College of Education</stored-value></pair>
+<pair><displayed-value>Jeannine Rainbolt College of Education::Department of Educational Leadership and Policy Studies</displayed-value> <stored-value>Jeannine Rainbolt College of Education::Department of Educational Leadership and Policy Studies</stored-value></pair>
+<pair><displayed-value>Jeannine Rainbolt College of Education::Department of Educational Psychology</displayed-value> <stored-value>Jeannine Rainbolt College of Education::Department of Educational Psychology</stored-value></pair>
+<pair><displayed-value>Jeannine Rainbolt College of Education::Department of Instructional Leadership and Academic Curriculum</displayed-value> <stored-value>Jeannine Rainbolt College of Education::Department of Instructional Leadership and Academic Curriculum</stored-value></pair>
+
+<pair><displayed-value>Mewbourne College of Earth and Energy</displayed-value> <stored-value>Mewbourne College of Earth and Energy</stored-value></pair>
+<pair><displayed-value>Mewbourne College of Earth and Energy::Conoco Phillips School of Geology and Geophysics</displayed-value> <stored-value>Mewbourne College of Earth and Energy::Conoco Phillips School of Geology and Geophysics</stored-value></pair>
+<pair><displayed-value>Mewbourne College of Earth and Energy::Mewbourne School of Petroleum and Geological Engineering</displayed-value> <stored-value>Mewbourne College of Earth and Energy::Mewbourne School of Petroleum and Geological Engineering</stored-value></pair>
+<pair><displayed-value>Michael F. Price College of Business</displayed-value> <stored-value>Michael F. Price College of Business</stored-value></pair>
+<pair><displayed-value>Weitzenhoffer Family College of Fine Arts</displayed-value> <stored-value>Weitzenhoffer Family College of Fine Arts</stored-value></pair>
+<pair><displayed-value>Weitzenhoffer Family College of Fine Arts::Peggy Dow Helmerich School of Drama</displayed-value> <stored-value>Weitzenhoffer Family College of Fine Arts::Peggy Dow Helmerich School of Drama</stored-value></pair>
+<pair><displayed-value>Weitzenhoffer Family College of Fine Arts::School of Art and Art History</displayed-value> <stored-value>Weitzenhoffer Family College of Fine Arts::School of Art and Art History</stored-value></pair>
+<pair><displayed-value>Weitzenhoffer Family College of Fine Arts::School of Dance</displayed-value> <stored-value>Weitzenhoffer Family College of Fine Arts::School of Dance</stored-value></pair>
+<pair><displayed-value>Weitzenhoffer Family College of Fine Arts::School of Music</displayed-value> <stored-value>Weitzenhoffer Family College of Fine Arts::School of Music</stored-value></pair>
+<pair><displayed-value>Other</displayed-value> <stored-value>Other</stored-value></pair>
+</value-pairs>
+
+
+<!-- states with abbreviation-->
+<value-pairs value-pairs-name="state_list" dc-term="degree">
+  <pair><displayed-value> </displayed-value><stored-value></stored-value></pair>
+  <pair><displayed-value>Alabama - AL</displayed-value><stored-value>Alabama - AL</stored-value></pair>
+  <pair><displayed-value>Alaska - AK</displayed-value><stored-value>Alaska - AK</stored-value></pair>
+  <pair><displayed-value>Arizona - AZ</displayed-value><stored-value>Arizona - AZ</stored-value></pair>
+  <pair><displayed-value>Arkansas - AR</displayed-value><stored-value>Arkansas - AR</stored-value></pair>
+  <pair><displayed-value>California - CA</displayed-value><stored-value>California - CA</stored-value></pair>
+  <pair><displayed-value>Colorado - CO</displayed-value><stored-value>Colorado - CO</stored-value></pair>
+  <pair><displayed-value>Connecticut - CT</displayed-value><stored-value>Connecticut - CT</stored-value></pair>
+  <pair><displayed-value>Delaware - DE</displayed-value><stored-value>Delaware - DE</stored-value></pair>
+  <pair><displayed-value>District of Columbia - DC</displayed-value><stored-value>District of Columbia - DC</stored-value></pair>
+  <pair><displayed-value>Florida - FL</displayed-value><stored-value>Florida - FL</stored-value></pair>
+  <pair><displayed-value>Georgia - GA</displayed-value><stored-value>Georgia - GA</stored-value></pair>
+  <pair><displayed-value>Hawaii - HI</displayed-value><stored-value>Hawaii - HI</stored-value></pair>
+  <pair><displayed-value>Idaho - ID</displayed-value><stored-value>Idaho - ID</stored-value></pair>
+  <pair><displayed-value>Illinois - IL</displayed-value><stored-value>Illinois - IL</stored-value></pair>
+  <pair><displayed-value>Indiana - IN</displayed-value><stored-value>Indiana - IN</stored-value></pair>
+  <pair><displayed-value>Iowa - IA</displayed-value><stored-value>Iowa - IA</stored-value></pair>
+  <pair><displayed-value>Kansas - KS</displayed-value><stored-value>Kansas - KS</stored-value></pair>
+  <pair><displayed-value>Kentucky - KY</displayed-value><stored-value>Kentucky - KY</stored-value></pair>
+  <pair><displayed-value>Louisiana - LA</displayed-value><stored-value>Louisiana - LA</stored-value></pair>
+  <pair><displayed-value>Maine - ME</displayed-value><stored-value>Maine - ME</stored-value></pair>
+  <pair><displayed-value>Maryland - MD</displayed-value><stored-value>Maryland - MD</stored-value></pair>
+  <pair><displayed-value>Massachusetts - MA</displayed-value><stored-value>Massachusetts - MA</stored-value></pair>
+  <pair><displayed-value>Michigan - MI</displayed-value><stored-value>Michigan - MI</stored-value></pair>
+  <pair><displayed-value>Minnesota - MN</displayed-value><stored-value>Minnesota - MN</stored-value></pair>
+  <pair><displayed-value>Mississippi - MS</displayed-value><stored-value>Mississippi - MS</stored-value></pair>
+  <pair><displayed-value>Missouri - MO</displayed-value><stored-value>Missouri - MO</stored-value></pair>
+  <pair><displayed-value>Montana - MT</displayed-value><stored-value>Montana - MT</stored-value></pair>
+  <pair><displayed-value>Nebraska - NE</displayed-value><stored-value>Nebraska - NE</stored-value></pair>
+  <pair><displayed-value>Nevada - NV</displayed-value><stored-value>Nevada - NV</stored-value></pair>
+  <pair><displayed-value>New Hampshire - NH</displayed-value><stored-value>New Hampshire - NH</stored-value></pair>
+  <pair><displayed-value>New Jersey - NJ</displayed-value><stored-value>New Jersey - NJ</stored-value></pair>
+  <pair><displayed-value>New Mexico - NM</displayed-value><stored-value>New Mexico - NM</stored-value></pair>
+  <pair><displayed-value>New York - NY</displayed-value><stored-value>New York - NY</stored-value></pair>
+  <pair><displayed-value>North Carolina - NC</displayed-value><stored-value>North Carolina - NC</stored-value></pair>
+  <pair><displayed-value>North Dakota - ND</displayed-value><stored-value>North Dakota - ND</stored-value></pair>
+  <pair><displayed-value>Ohio - OH</displayed-value><stored-value>Ohio - OH</stored-value></pair>
+  <pair><displayed-value>Oklahoma - OK</displayed-value><stored-value>Oklahoma - OK</stored-value></pair>
+  <pair><displayed-value>Oregon - OR</displayed-value><stored-value>Oregon - OR</stored-value></pair>
+  <pair><displayed-value>Pennsylvania - PA</displayed-value><stored-value>Pennsylvania - PA</stored-value></pair>
+  <pair><displayed-value>Rhode Island - RI</displayed-value><stored-value>Rhode Island - RI</stored-value></pair>
+  <pair><displayed-value>South Carolina - SC</displayed-value><stored-value>South Carolina - SC</stored-value></pair>
+  <pair><displayed-value>South Dakota - SD</displayed-value><stored-value>South Dakota - SD</stored-value></pair>
+  <pair><displayed-value>Tennessee - TN</displayed-value><stored-value>Tennessee - TN</stored-value></pair>
+  <pair><displayed-value>Texas - TX</displayed-value><stored-value>Texas - TX</stored-value></pair>
+  <pair><displayed-value>Utah - UT</displayed-value><stored-value>Utah - UT</stored-value></pair>
+  <pair><displayed-value>Vermont - VT</displayed-value><stored-value>Vermont - VT</stored-value></pair>
+  <pair><displayed-value>Virginia - VA</displayed-value><stored-value>Virginia - VA</stored-value></pair>
+  <pair><displayed-value>Washington - WA</displayed-value><stored-value>Washington - WA</stored-value></pair>
+  <pair><displayed-value>West Virginia - WV</displayed-value><stored-value>West Virginia - WV</stored-value></pair>
+  <pair><displayed-value>Wisconsin - WI</displayed-value><stored-value>Wisconsin - WI</stored-value></pair>
+  <pair><displayed-value>Wyoming - WY</displayed-value><stored-value>Wyoming - WY</stored-value></pair>
+</value-pairs>
+
+     <!--<value-pairs value-pairs-name="thesis_department" dc-term="department">-->
+     <value-pairs value-pairs-name="subject_primary" dc-term="subject">
+         <pair>
+             <displayed-value> </displayed-value>
+             <stored-value></stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Agronomy.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Agronomy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Animal Culture and Nutrition.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Animal Culture and Nutrition.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Fisheries and Aquaculture.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Fisheries and Aquaculture.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Forestry and Wildlife.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Forestry and Wildlife.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, General.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Plant Culture.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Plant Culture.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Plant Pathology.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Plant Pathology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Range Management.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Range Management.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Agriculture, Soil Science.
+             </displayed-value>
+             <stored-value>
+                 Agriculture, Soil Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 American Studies.
+             </displayed-value>
+             <stored-value>
+                 American Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Anthropology, Archaeology.
+             </displayed-value>
+             <stored-value>
+                 Anthropology, Archaeology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Anthropology, Cultural.
+             </displayed-value>
+             <stored-value>
+                 Anthropology, Cultural.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Anthropology, Physical.
+             </displayed-value>
+             <stored-value>
+                 Anthropology, Physical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Applied Mechanics.
+             </displayed-value>
+             <stored-value>
+                 Applied Mechanics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Architecture.
+             </displayed-value>
+             <stored-value>
+                 Architecture.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Art History.
+             </displayed-value>
+             <stored-value>
+                 Art History.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Artificial Intelligence.
+             </displayed-value>
+             <stored-value>
+                 Artificial Intelligence.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Atmospheric Sciences.
+             </displayed-value>
+             <stored-value>
+                 Atmospheric Sciences.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biogeochemistry.
+             </displayed-value>
+             <stored-value>
+                 Biogeochemistry.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biography.
+             </displayed-value>
+             <stored-value>
+                 Biography.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Anatomy.
+             </displayed-value>
+             <stored-value>
+                 Biology, Anatomy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Animal Physiology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Animal Physiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Bioinformatics.
+             </displayed-value>
+             <stored-value>
+                 Biology, Bioinformatics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Biostatistics.
+             </displayed-value>
+             <stored-value>
+                 Biology, Biostatistics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Botany.
+             </displayed-value>
+             <stored-value>
+                 Biology, Botany.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Cell.
+             </displayed-value>
+             <stored-value>
+                 Biology, Cell.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Ecology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Ecology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Entomology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Entomology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, General.
+             </displayed-value>
+             <stored-value>
+                 Biology, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Genetics.
+             </displayed-value>
+             <stored-value>
+                 Biology, Genetics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Limnology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Limnology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Microbiology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Microbiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Molecular.
+             </displayed-value>
+             <stored-value>
+                 Biology, Molecular.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Neuroscience.
+             </displayed-value>
+             <stored-value>
+                 Biology, Neuroscience.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Physiology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Physiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Plant Physiology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Plant Physiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biology, Zoology.
+             </displayed-value>
+             <stored-value>
+                 Biology, Zoology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biophysics, General.
+             </displayed-value>
+             <stored-value>
+                 Biophysics, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Biophysics, Medical.
+             </displayed-value>
+             <stored-value>
+                 Biophysics, Medical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Black Studies.
+             </displayed-value>
+             <stored-value>
+                 Black Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Business Administration, Accounting.
+             </displayed-value>
+             <stored-value>
+                 Business Administration, Accounting.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Business Administration, Banking.
+             </displayed-value>
+             <stored-value>
+                 Business Administration, Banking.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Business Administration, General.
+             </displayed-value>
+             <stored-value>
+                 Business Administration, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Business Administration, Management.
+             </displayed-value>
+             <stored-value>
+                 Business Administration, Management.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Business Administration, Marketing.
+             </displayed-value>
+             <stored-value>
+                 Business Administration, Marketing.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Canadian Studies.
+             </displayed-value>
+             <stored-value>
+                 Canadian Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Analytical.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Analytical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Biochemistry.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Biochemistry.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, General.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Inorganic.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Inorganic.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Organic.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Organic.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Pharmaceutical.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Pharmaceutical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Physical.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Physical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Chemistry, Polymer.
+             </displayed-value>
+             <stored-value>
+                 Chemistry, Polymer.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Cinema.
+             </displayed-value>
+             <stored-value>
+                 Cinema.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Computer Science.
+             </displayed-value>
+             <stored-value>
+                 Computer Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Dance.
+             </displayed-value>
+             <stored-value>
+                 Dance.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, Agricultural.
+             </displayed-value>
+             <stored-value>
+                 Economics, Agricultural.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, Commerce-Business.
+             </displayed-value>
+             <stored-value>
+                 Economics, Commerce-Business.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, Finance.
+             </displayed-value>
+             <stored-value>
+                 Economics, Finance.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, General.
+             </displayed-value>
+             <stored-value>
+                 Economics, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, History.
+             </displayed-value>
+             <stored-value>
+                 Economics, History.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, Labor.
+             </displayed-value>
+             <stored-value>
+                 Economics, Labor.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Economics, Theory.
+             </displayed-value>
+             <stored-value>
+                 Economics, Theory.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Administration.
+             </displayed-value>
+             <stored-value>
+                 Education, Administration.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Adult and Continuing.
+             </displayed-value>
+             <stored-value>
+                 Education, Adult and Continuing.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Art.
+             </displayed-value>
+             <stored-value>
+                 Education, Art.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Bilingual and Multicultural.
+             </displayed-value>
+             <stored-value>
+                 Education, Bilingual and Multicultural.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Business.
+             </displayed-value>
+             <stored-value>
+                 Education, Business.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Community College.
+             </displayed-value>
+             <stored-value>
+                 Education, Community College.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Curriculum and Instruction.
+             </displayed-value>
+             <stored-value>
+                 Education, Curriculum and Instruction.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Early Childhood.
+             </displayed-value>
+             <stored-value>
+                 Education, Early Childhood.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Educational Psychology.
+             </displayed-value>
+             <stored-value>
+                 Education, Educational Psychology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Elementary.
+             </displayed-value>
+             <stored-value>
+                 Education, Elementary.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Finance.
+             </displayed-value>
+             <stored-value>
+                 Education, Finance.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, General.
+             </displayed-value>
+             <stored-value>
+                 Education, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Guidance and Counseling.
+             </displayed-value>
+             <stored-value>
+                 Education, Guidance and Counseling.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Health.
+             </displayed-value>
+             <stored-value>
+                 Education, Health.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Higher.
+             </displayed-value>
+             <stored-value>
+                 Education, Higher.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Higher Education Administration.
+             </displayed-value>
+             <stored-value>
+                 Education, Higher Education Administration.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, History of.
+             </displayed-value>
+             <stored-value>
+                 Education, History of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Home Economics.
+             </displayed-value>
+             <stored-value>
+                 Education, Home Economics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Industrial.
+             </displayed-value>
+             <stored-value>
+                 Education, Industrial.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Language and Literature.
+             </displayed-value>
+             <stored-value>
+                 Education, Language and Literature.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Mathematics.
+             </displayed-value>
+             <stored-value>
+                 Education, Mathematics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Music.
+             </displayed-value>
+             <stored-value>
+                 Education, Music.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Philosophy of.
+             </displayed-value>
+             <stored-value>
+                 Education, Philosophy of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Physical.
+             </displayed-value>
+             <stored-value>
+                 Education, Physical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Reading.
+             </displayed-value>
+             <stored-value>
+                 Education, Reading.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Religious.
+             </displayed-value>
+             <stored-value>
+                 Education, Religious.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Sciences.
+             </displayed-value>
+             <stored-value>
+                 Education, Sciences.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Secondary.
+             </displayed-value>
+             <stored-value>
+                 Education, Secondary.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Social Sciences.
+             </displayed-value>
+             <stored-value>
+                 Education, Social Sciences.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Sociology of.
+             </displayed-value>
+             <stored-value>
+                 Education, Sociology of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Special.
+             </displayed-value>
+             <stored-value>
+                 Education, Special.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Teacher Training.
+             </displayed-value>
+             <stored-value>
+                 Education, Teacher Training.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Technology of.
+             </displayed-value>
+             <stored-value>
+                 Education, Technology of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Tests and Measurements.
+             </displayed-value>
+             <stored-value>
+                 Education, Tests and Measurements.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Education, Vocational.
+             </displayed-value>
+             <stored-value>
+                 Education, Vocational.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Energy.
+             </displayed-value>
+             <stored-value>
+                 Energy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Aerospace.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Aerospace.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Agricultural.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Agricultural.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Biomedical.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Biomedical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Chemical.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Chemical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Civil.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Civil.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Electronics and Electrical.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Electronics and Electrical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Environmental.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Environmental.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, General.
+             </displayed-value>
+             <stored-value>
+                 Engineering, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Industrial.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Industrial.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Marine and Ocean.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Marine and Ocean.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Materials Science.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Materials Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Mechanical.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Mechanical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Metallurgy.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Metallurgy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Mining.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Mining.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Nuclear.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Nuclear.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Petroleum.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Petroleum.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Robotics.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Robotics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, Sanitary and Municipal.
+             </displayed-value>
+             <stored-value>
+                 Engineering, Sanitary and Municipal.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Engineering, System Science.
+             </displayed-value>
+             <stored-value>
+                 Engineering, System Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Environmental Sciences.
+             </displayed-value>
+             <stored-value>
+                 Environmental Sciences.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Fine Arts.
+             </displayed-value>
+             <stored-value>
+                 Fine Arts.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Folklore.
+             </displayed-value>
+             <stored-value>
+                 Folklore.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Gender Studies.
+             </displayed-value>
+             <stored-value>
+                 Gender Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geochemistry.
+             </displayed-value>
+             <stored-value>
+                 Geochemistry.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geography.
+             </displayed-value>
+             <stored-value>
+                 Geography.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geological Survey.
+             </displayed-value>
+             <stored-value>
+                 Geological Survey.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geology.
+             </displayed-value>
+             <stored-value>
+                 Geology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geophysics.
+             </displayed-value>
+             <stored-value>
+                 Geophysics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Geotechnology.
+             </displayed-value>
+             <stored-value>
+                 Geotechnology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Gerontology.
+             </displayed-value>
+             <stored-value>
+                 Gerontology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Audiology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Audiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Education.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Education.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, General.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Health Care Management.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Health Care Management.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Immunology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Immunology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Medicine and Surgery.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Medicine and Surgery.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Mental Health.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Mental Health.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Nursing.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Nursing.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Nutrition.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Nutrition.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Obstetrics and Gynecology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Obstetrics and Gynecology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Occupational Health and Safety.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Occupational Health and Safety.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Pathology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Pathology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Pharmacology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Pharmacology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Pharmacy.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Pharmacy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Public Health.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Public Health.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Radiology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Radiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Recreation.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Recreation.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Rehabilitation and Therapy.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Rehabilitation and Therapy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Health Sciences, Speech Pathology.
+             </displayed-value>
+             <stored-value>
+                 Health Sciences, Speech Pathology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Hispanic American Studies.
+             </displayed-value>
+             <stored-value>
+                 Hispanic American Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, African.
+             </displayed-value>
+             <stored-value>
+                 History, African.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Ancient.
+             </displayed-value>
+             <stored-value>
+                 History, Ancient.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Asia, Australia and Oceania.
+             </displayed-value>
+             <stored-value>
+                 History, Asia, Australia and Oceania.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Black.
+             </displayed-value>
+             <stored-value>
+                 History, Black.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Canadian.
+             </displayed-value>
+             <stored-value>
+                 History, Canadian.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Church.
+             </displayed-value>
+             <stored-value>
+                 History, Church.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, European.
+             </displayed-value>
+             <stored-value>
+                 History, European.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, General.
+             </displayed-value>
+             <stored-value>
+                 History, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Medieval.
+             </displayed-value>
+             <stored-value>
+                 History, Medieval.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, Modern.
+             </displayed-value>
+             <stored-value>
+                 History, Modern.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History, United States.
+             </displayed-value>
+             <stored-value>
+                 History, United States.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 History of Science.
+             </displayed-value>
+             <stored-value>
+                 History of Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Home Economics.
+             </displayed-value>
+             <stored-value>
+                 Home Economics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Hydrology.
+             </displayed-value>
+             <stored-value>
+                 Hydrology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Information Science.
+             </displayed-value>
+             <stored-value>
+                 Information Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Journalism.
+             </displayed-value>
+             <stored-value>
+                 Journalism.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Language, General.
+             </displayed-value>
+             <stored-value>
+                 Language, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Language, Linguistics.
+             </displayed-value>
+             <stored-value>
+                 Language, Linguistics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Language, Modern.
+             </displayed-value>
+             <stored-value>
+                 Language, Modern.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Language, Rhetoric and Composition.
+             </displayed-value>
+             <stored-value>
+                 Language, Rhetoric and Composition.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Law.
+             </displayed-value>
+             <stored-value>
+                 Law.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Library Science.
+             </displayed-value>
+             <stored-value>
+                 Library Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, African.
+             </displayed-value>
+             <stored-value>
+                 Literature, African.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, American.
+             </displayed-value>
+             <stored-value>
+                 Literature, American.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Caribbean.
+             </displayed-value>
+             <stored-value>
+                 Literature, Caribbean.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Classical.
+             </displayed-value>
+             <stored-value>
+                 Literature, Classical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Comparative.
+             </displayed-value>
+             <stored-value>
+                 Literature, Comparative.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, English.
+             </displayed-value>
+             <stored-value>
+                 Literature, English.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, General.
+             </displayed-value>
+             <stored-value>
+                 Literature, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Germanic.
+             </displayed-value>
+             <stored-value>
+                 Literature, Germanic.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Latin American.
+             </displayed-value>
+             <stored-value>
+                 Literature, Latin American.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Medieval.
+             </displayed-value>
+             <stored-value>
+                 Literature, Medieval.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Middle Eastern.
+             </displayed-value>
+             <stored-value>
+                 Literature, Middle Eastern.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Modern.
+             </displayed-value>
+             <stored-value>
+                 Literature, Modern.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Literature, Romance.
+             </displayed-value>
+             <stored-value>
+                 Literature, Romance.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Mass Communications.
+             </displayed-value>
+             <stored-value>
+                 Mass Communications.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Mathematics.
+             </displayed-value>
+             <stored-value>
+                 Mathematics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Military Studies.
+             </displayed-value>
+             <stored-value>
+                 Military Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Mineralogy.
+             </displayed-value>
+             <stored-value>
+                 Mineralogy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Music.
+             </displayed-value>
+             <stored-value>
+                 Music.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Native American Studies.
+             </displayed-value>
+             <stored-value>
+                 Native American Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Operations Research.
+             </displayed-value>
+             <stored-value>
+                 Operations Research.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Paleoecology.
+             </displayed-value>
+             <stored-value>
+                 Paleoecology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Paleontology.
+             </displayed-value>
+             <stored-value>
+                 Paleontology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Philosophy.
+             </displayed-value>
+             <stored-value>
+                 Philosophy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physical Geography.
+             </displayed-value>
+             <stored-value>
+                 Physical Geography.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physical Oceanography.
+             </displayed-value>
+             <stored-value>
+                 Physical Oceanography.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Acoustics.
+             </displayed-value>
+             <stored-value>
+                 Physics, Acoustics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Astronomy and Astrophysics.
+             </displayed-value>
+             <stored-value>
+                 Physics, Astronomy and Astrophysics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Atmospheric Science.
+             </displayed-value>
+             <stored-value>
+                 Physics, Atmospheric Science.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Atomic.
+             </displayed-value>
+             <stored-value>
+                 Physics, Atomic.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Condensed Matter.
+             </displayed-value>
+             <stored-value>
+                 Physics, Condensed Matter.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Electricity and Magnetism.
+             </displayed-value>
+             <stored-value>
+                 Physics, Electricity and Magnetism.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Elementary Particles and High Energy.
+             </displayed-value>
+             <stored-value>
+                 Physics, Elementary Particles and High Energy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Fluid and Plasma.
+             </displayed-value>
+             <stored-value>
+                 Physics, Fluid and Plasma.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, General.
+             </displayed-value>
+             <stored-value>
+                 Physics, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Molecular.
+             </displayed-value>
+             <stored-value>
+                 Physics, Molecular.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Nuclear.
+             </displayed-value>
+             <stored-value>
+                 Physics, Nuclear.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Optics.
+             </displayed-value>
+             <stored-value>
+                 Physics, Optics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Physics, Radiation.
+             </displayed-value>
+             <stored-value>
+                 Physics, Radiation.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Plastics Technology.
+             </displayed-value>
+             <stored-value>
+                 Plastics Technology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Political Science, General.
+             </displayed-value>
+             <stored-value>
+                 Political Science, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Political Science, International Law and Relations.
+             </displayed-value>
+             <stored-value>
+                 Political Science, International Law and Relations.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Political Science, Public Administration.
+             </displayed-value>
+             <stored-value>
+                 Political Science, Public Administration.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Behavioral.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Behavioral.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Clinical.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Clinical.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Cognitive.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Cognitive.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Developmental.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Developmental.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Experimental.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Experimental.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, General.
+             </displayed-value>
+             <stored-value>
+                 Psychology, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Industrial.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Industrial.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Personality.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Personality.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Physiological.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Physiological.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Psychobiology.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Psychobiology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Psychometrics.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Psychometrics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Psychology, Social.
+             </displayed-value>
+             <stored-value>
+                 Psychology, Social.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Recreation.
+             </displayed-value>
+             <stored-value>
+                 Recreation.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Religion, Clergy.
+             </displayed-value>
+             <stored-value>
+                 Religion, Clergy.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Religion, General.
+             </displayed-value>
+             <stored-value>
+                 Religion, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Religion, History of.
+             </displayed-value>
+             <stored-value>
+                 Religion, History of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Religion, Philosophy of.
+             </displayed-value>
+             <stored-value>
+                 Religion, Philosophy of.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Remote Sensing.
+             </displayed-value>
+             <stored-value>
+                 Remote Sensing.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Social Work.
+             </displayed-value>
+             <stored-value>
+                 Social Work.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Criminology and Penology.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Criminology and Penology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Demography.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Demography.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Ethnic and Racial Studies.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Ethnic and Racial Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, General.
+             </displayed-value>
+             <stored-value>
+                 Sociology, General.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Individual and Family Studies.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Individual and Family Studies.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Industrial and Labor Relations.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Industrial and Labor Relations.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Organizational.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Organizational.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Public and Social Welfare.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Public and Social Welfare.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Social Structure and Development.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Social Structure and Development.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Sociology, Theory and Methods.
+             </displayed-value>
+             <stored-value>
+                 Sociology, Theory and Methods.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Speech Communication.
+             </displayed-value>
+             <stored-value>
+                 Speech Communication.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Statistics.
+             </displayed-value>
+             <stored-value>
+                 Statistics.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Subject No Longer Used.
+             </displayed-value>
+             <stored-value>
+                 Subject No Longer Used.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Textile Technology.
+             </displayed-value>
+             <stored-value>
+                 Textile Technology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Theater.
+             </displayed-value>
+             <stored-value>
+                 Theater.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Theology.
+             </displayed-value>
+             <stored-value>
+                 Theology.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Transportation.
+             </displayed-value>
+             <stored-value>
+                 Transportation.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Urban and Regional Planning.
+             </displayed-value>
+             <stored-value>
+                 Urban and Regional Planning.
+             </stored-value>
+         </pair>
+         <pair>
+             <displayed-value>
+                 Women's Studies.
+             </displayed-value>
+             <stored-value>
+                 Women's Studies.
+             </stored-value>
+         </pair>
+     </value-pairs>
+
+     <value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
      <pair>
        <displayed-value>ISSN</displayed-value>
        <stored-value>issn</stored-value>
@@ -401,6 +3421,6 @@ it, please enter the types and the actual numbers or codes.</hint>
      </pair>
    </value-pairs>
 
- </form-value-pairs>
+    </form-value-pairs>
 
 </input-forms>
