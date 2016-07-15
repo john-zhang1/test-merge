@@ -1,0 +1,21 @@
+# Item Archived email message
+#
+# {0}  Submitter Name
+# {1}  Item Title
+# {2}  Collection
+# {3}  Item Handle
+#
+Subject: SHAREOK: submission from {0} approved
+
+Submitter: {0}
+Item: {1}
+Collection: {2}
+
+The submission has been accepted and archived in SHAREOK. It has been
+assigned the following identifier:
+
+{3}
+
+Thanks!
+
+SHAREOK

@@ -1,0 +1,19 @@
+# Rejection email message
+#
+# {0}  Title of submission
+# {1}  Name of collection
+# {2}  Name of the submitter
+# {3}  Reason for the rejection
+# {4}  Link to 'My DSpace' page
+#
+Subject: SHAREOK: submission from {2} rejected
+
+Submitter: {2}
+Item: {0}
+Collection: {1}
+
+The submission was rejected with with the following explanation:
+
+{3}
+
+SHAREOK
