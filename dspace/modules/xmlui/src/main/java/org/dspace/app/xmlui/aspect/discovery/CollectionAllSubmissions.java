@@ -104,7 +104,7 @@ public class CollectionAllSubmissions extends AbstractRecentSubmissionTransforme
                     coordinates.add(dcv.value);
                 }
             }
-            cities.add(homecity + ", " + homestate.substring(0, 2));
+            cities.add(homecity + ", " + homestate.substring(homestate.length() - 2));
         }
         String filename = "/srv/shareok/dspace/webapps/xmlui/themes/Research/scripts/points.js";
         WriteFile(titles, handles, coordinates, cities, filename);

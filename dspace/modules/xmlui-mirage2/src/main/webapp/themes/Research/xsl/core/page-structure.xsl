@@ -778,7 +778,7 @@
                       <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
                       <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                   </div>
-                  <xsl:call-template name="show-google-analytics" />
+                  <!-- <xsl:call-template name="show-google-analytics" /> -->
               </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
