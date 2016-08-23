@@ -104,6 +104,7 @@
 
 
     <xsl:template match="dim:dim" mode="itemSummaryView-DIM">
+        <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
         <div class="item-summary-view-metadata">
             <xsl:call-template name="itemSummaryView-DIM-title"/>
             <div class="row">
@@ -121,6 +122,16 @@
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="dim:field[@element='identifier' and @qualifier='doi']">
+                            <xsl:variable name="doi" select="dim:field[@element='identifier' and @qualifier='doi']/node()"/>
+                            <div class='altmetric-embed' data-badge-type='donut' data-condensed='true' data-badge-details='right' data-doi="{$doi}"></div>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:variable name="handle" select="substring-after(ancestor::mets:METS/@OBJID, 'handle/')" />
+                            <div class='altmetric-embed' data-badge-type='donut' data-condensed='true' data-badge-details='right' data-handle="{$handle}"></div>
+                        </xsl:otherwise>
+                  </xsl:choose>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
