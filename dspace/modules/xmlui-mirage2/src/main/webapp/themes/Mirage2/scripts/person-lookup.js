@@ -88,9 +88,15 @@ function AuthorLookup(url, authorityInput, collectionID) {
             if (authorityInput.indexOf('value_') != -1) { // edit item
                 initialInput = $('textarea[name=' + authorityInput + ']').val();
             } else {   // submission
-                var lastName = $('input[name=' + authorityInput + '_last]');
-                if (lastName.size()) { // author input type
-                    initialInput = (lastName.val() + " " + $('input[name=' + authorityInput + '_first]').val()).trim();
+                var $lastName = $('input[name=' + authorityInput + '_last]');
+                var lastName = $lastName.val().replace(/(^,)|(,$)/g, "").trim();
+                var firstName = $('input[name=' + authorityInput + '_first]').val().trim();
+                if ($lastName.size()) { // author input type
+                    if (lastName !== "" && firstName !== "") {
+                        initialInput = lastName + ", " + firstName;
+                    } else {
+                        initialInput = lastName + firstName;
+                    }
                 } else { // other input types
                     initialInput = $('input[name=' + authorityInput + ']').val();
                 }

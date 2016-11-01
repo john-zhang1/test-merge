@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import org.dspace.utils.DSpace;
 import org.w3c.dom.Document;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,23 @@ public class Orcid extends RestSource {
     }
 
     public List<Bio> queryBio(String name, int start, int rows) {
-        Document bioDocument = restConnector.get("search/orcid-bio?q=" + URLEncoder.encode("\"" + name + "\"") + "&start=" + start + "&rows=" + rows);
+        Document bioDocument = null;
+        try {
+            if (name.contains(",")) {
+                int comma = name.indexOf(',');
+                String lastName = name.substring(0, comma);
+                String firstName = name.substring(comma + 1).trim();
+                bioDocument = restConnector.get("search/orcid-bio?q=" +
+                        URLEncoder.encode("given-names:" + "\"" + firstName + "\"" +
+                                " AND family-name:" + "\"" + lastName + "\"", "UTF-8") +
+                        "&start=" + start + "&rows=" + rows);
+            } else {
+                bioDocument = restConnector.get("search/orcid-bio?q=" +
+                        URLEncoder.encode("\"" + name + "\"", "UTF-8") + "&start=" + start + "&rows=" + rows);
+            }
+        } catch (UnsupportedEncodingException wontHappen) {
+            // won't happen
+        }
         XMLtoBio converter = new XMLtoBio();
         return converter.convert(bioDocument);
     }
