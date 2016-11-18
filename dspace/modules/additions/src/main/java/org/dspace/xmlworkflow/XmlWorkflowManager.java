@@ -948,6 +948,7 @@ public class XmlWorkflowManager {
                 case 1 :
                     email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_approver"));
                     email.addRecipient(counselorEmail);
+		    email.addRecipient("libir@ou.edu");
                     email.addArgument(submitter);
                     email.addArgument(title);
                     email.addArgument(coll.getMetadata("name"));
