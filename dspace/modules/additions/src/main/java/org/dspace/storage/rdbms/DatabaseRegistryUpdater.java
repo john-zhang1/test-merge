@@ -64,11 +64,15 @@ public class DatabaseRegistryUpdater implements FlywayCallback
 
             // Load updates to Metadata schema registries (if any)
             log.info("Updating Metadata Registries based on metadata type configs in " + base);
-            MetadataImporter.loadRegistry(base + "dublin-core-types.xml", true);
             MetadataImporter.loadRegistry(base + "dcterms-types.xml", true);
-            MetadataImporter.loadRegistry(base + "eperson-types.xml", true);
-            MetadataImporter.loadRegistry(base + "sword-metadata.xml", true);
+            MetadataImporter.loadRegistry(base + "dublin-core-types.xml", true);
             MetadataImporter.loadRegistry(base + "dwc-types.xml", true);
+            MetadataImporter.loadRegistry(base + "eperson-types.xml", true);
+            MetadataImporter.loadRegistry(base + "osu-types.xml", true);
+            MetadataImporter.loadRegistry(base + "ou-types.xml", true);
+            MetadataImporter.loadRegistry(base + "shareok-types.xml", true);
+            MetadataImporter.loadRegistry(base + "sword-metadata.xml", true);
+            MetadataImporter.loadRegistry(base + "workflow-types.xml", true);
 
             // Check if XML Workflow is enabled in workflow.cfg
             if (ConfigurationManager.getProperty("workflow", "workflow.framework").equals("xmlworkflow"))
