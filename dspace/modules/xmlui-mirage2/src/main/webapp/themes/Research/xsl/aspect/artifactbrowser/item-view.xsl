@@ -764,7 +764,7 @@
     </xsl:template>
 
     <xsl:template match="dim:field" mode="itemDetailView-DIM-citizen">
-       <xsl:if test="not((./@qualifier = 'provenance') or (./@qualifier = 'accessioned') or (./@qualifier = 'available') or (./@qualifier = 'uri' and ./@element='relation') or (./@qualifier = 'datecollected') or (./@qualifier = 'spatial'))">
+       <xsl:if test="not((./@qualifier = 'provenance') or (./@qualifier = 'accessioned') or (./@qualifier = 'available') or (./@qualifier = 'uri' and ./@element='identifier') or (./@qualifier = 'datecollected') or (./@qualifier = 'spatial'))">
           <xsl:variable name="headerQualifier">
               <xsl:value-of select="./@qualifier"/>
           </xsl:variable>
@@ -806,7 +806,7 @@
                       <xsl:if test="contains($headerQualifier, 'imagestatus')">
                           <xsl:text>Image Status</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'uri’) and contains($headerElement, 'relation’) ">
+                      <xsl:if test="contains($headerQualifier, 'uri') and contains($headerElement, 'relation') ">
                           <xsl:text>Taxonomy</xsl:text>
                       </xsl:if>
                   </xsl:if>
