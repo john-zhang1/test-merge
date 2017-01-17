@@ -323,13 +323,13 @@
       </step>
 
       <!-- Creative Commons license -->
-      <step>
+      <!--<step>
         <heading>submit.progressbar.CClicense</heading>
         <processing-class>org.dspace.submit.step.CCLicenseStep</processing-class>
         <jspui-binding>org.dspace.app.webui.submit.step.JSPCCLicenseStep</jspui-binding>
 		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.CCLicenseStep</xmlui-binding>
 		<workflow-editable>false</workflow-editable>
-      </step>
+      </step>-->
 
       <!-- Sign off on the License-->
       <step>
@@ -396,13 +396,13 @@
       </step>
 
       <!-- Creative Commons license -->
-      <step>
+      <!--<step>
         <heading>submit.progressbar.CClicense</heading>
         <processing-class>org.dspace.submit.step.CCLicenseStep</processing-class>
         <jspui-binding>org.dspace.app.webui.submit.step.JSPCCLicenseStep</jspui-binding>
 		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.CCLicenseStep</xmlui-binding>
 		<workflow-editable>false</workflow-editable>
-      </step>
+      </step>-->
 
       <!-- Sign off on the License-->
       <step>
