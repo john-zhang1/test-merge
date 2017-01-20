@@ -806,9 +806,15 @@
                       <xsl:if test="contains($headerQualifier, 'imagestatus')">
                           <xsl:text>Image Status</xsl:text>
                       </xsl:if>
-                      <xsl:if test="contains($headerQualifier, 'uri') and contains($headerElement, 'relation') ">
+                      <xsl:if test="contains($headerQualifier, 'wiki')">
                           <xsl:text>Taxonomy</xsl:text>
                       </xsl:if>
+                  </xsl:if>
+              </td>
+              <td class="word-break">
+                  <xsl:if test="contains($headerQualifier, 'wiki')">
+                      <xsl:variable name="relation" select="substring-after(./node(), 'wiki/')"/>
+                      <xsl:value-of select="$relation"/>
                   </xsl:if>
               </td>
               <td class="word-break">
@@ -831,10 +837,21 @@
                         </xsl:choose>
 										</xsl:when>
 										<xsl:otherwise>
-												<xsl:copy-of select="./node()"/>
+                        <xsl:choose>
+                            <xsl:when test="contains($headerQualifier, 'wiki')">
+                                <a>
+                                  <xsl:attribute name="href">
+                                      <xsl:value-of select="./node()"/>
+                                  </xsl:attribute>
+                                  <xsl:copy-of select="./node()"/>
+                                </a>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:copy-of select="./node()"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
 										</xsl:otherwise>
 								</xsl:choose>
-
               </td>
             </tr>
         </xsl:if>
