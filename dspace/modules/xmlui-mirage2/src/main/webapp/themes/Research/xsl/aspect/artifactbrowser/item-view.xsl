@@ -236,6 +236,17 @@
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.photos</i18n:text>
           </td>
         </tr>
+        <tr>
+          <xsl:attribute name="class">
+              <xsl:text>ds-table-row even</xsl:text>
+          </xsl:attribute>
+          <td class="label-cell">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Legend.taxonomy</i18n:text>
+          </td>
+          <td class="word-break">
+              <i18n:text>xmlui.mirage2.itemSummaryView.Note.taxonomy</i18n:text>
+          </td>
+        </tr>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
