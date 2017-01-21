@@ -188,7 +188,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.collectiondetail</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.collectiondetail</i18n:text>
           </td>
         </tr>
@@ -199,7 +199,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.internalcode</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.internalcode</i18n:text>
           </td>
         </tr>
@@ -210,7 +210,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.isolatesfromrbm</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.isolatesfromrbm</i18n:text>
           </td>
         </tr>
@@ -221,7 +221,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.isolatesfromtv8</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.isolatesfromtv8</i18n:text>
           </td>
         </tr>
@@ -232,7 +232,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.photos</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.photos</i18n:text>
           </td>
         </tr>
@@ -243,7 +243,7 @@
           <td class="label-cell">
               <i18n:text>xmlui.mirage2.itemSummaryView.Legend.taxonomy</i18n:text>
           </td>
-          <td class="word-break">
+          <td>
               <i18n:text>xmlui.mirage2.itemSummaryView.Note.taxonomy</i18n:text>
           </td>
         </tr>
