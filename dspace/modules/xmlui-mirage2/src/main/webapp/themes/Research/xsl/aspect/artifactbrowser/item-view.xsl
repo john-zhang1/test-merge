@@ -822,13 +822,13 @@
                       </xsl:if>
                   </xsl:if>
               </td>
-              <td class="word-break">
+              <td>
                   <xsl:if test="contains($headerQualifier, 'wiki')">
                       <xsl:variable name="relation" select="substring-after(./node(), 'wiki/')"/>
                       <xsl:value-of select="$relation"/>
                   </xsl:if>
               </td>
-              <td class="word-break">
+              <td>
                 <xsl:choose>
 										<xsl:when test="contains($headerQualifier, 'homestate')">
                         <xsl:copy-of select="substring-before(./node(), ' -')"/>
