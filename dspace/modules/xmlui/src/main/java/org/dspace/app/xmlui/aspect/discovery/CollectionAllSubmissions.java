@@ -60,7 +60,7 @@ public class CollectionAllSubmissions extends AbstractRecentSubmissionTransforme
             return;
         }
 
-        getSubmittedAllItems(collection);
+        //getSubmittedAllItems(collection);
 
         //Only attempt to render our result if we have one.
         if (queryResults == null) {
@@ -69,7 +69,7 @@ public class CollectionAllSubmissions extends AbstractRecentSubmissionTransforme
 
         if (0 < queryResults.getDspaceObjects().size()) {
             // Build the data file
-            getMetadataValue(queryResults);
+            //getMetadataValue(queryResults);
         }
     }
 

@@ -144,7 +144,7 @@
                 <!-- <property name="metadataSortField" value="dc.date.accessioned" /> -->
                 <property name="metadataSortField" value="dc.date.issued" />
                 <property name="type" value="date"/>
-                <property name="max" value="20"/>
+                <property name="max" value="1"/>
                 <!-- If enabled the collection home page will not display metadata but show a pageable list of recent submissions -->
                 <property name="useAsHomePage" value="false"/>
             </bean>
