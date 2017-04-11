@@ -272,7 +272,7 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="{concat($theme-path, 'scripts/leaflet.js')}">&#160;</script>
             <script src="{concat($theme-path, 'scripts/leaflet.markercluster-src.js')}">&#160;</script>
-            <script src="{concat($theme-path, 'scripts/points.js')}">&#160;</script>
+            <!-- <script src="{concat($theme-path, 'scripts/points.js')}">&#160;</script> -->
 
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
@@ -1027,9 +1027,9 @@
           <div id="citizenscimap" style="width: 100%; height: 300px;"></div>
 
           <script><xsl:text>
-              var locations = [];
+              <!-- var locations = []; -->
 
-              if(spatiallist.length > 0){
+              <!-- if(spatiallist.length = 0){
                 for(var i=0; i!=spatiallist.length; i++){
                   var loc = [];
                   var latlng = spatiallist[i].split(",");
@@ -1044,7 +1044,23 @@
               else{
                 var scimap = document.getElementById('citizenscimap');
                 scimap.setAttribute("style", "height: 0px");
-              }
+              } -->
+
+              $.getJSON('https://cc.lib.ou.edu/api/data_store/data/citizen_science/location/?page_size=3190&amp;format=json', function(data) {
+                  var locations = [], titlelist=[], urllist=[];
+                  $.each(data.results, function(index, element) {
+                      var loc = [];
+                      var latlng = element.coordinates.split(",");
+                      loc.push(element.place);
+                      loc.push(parseFloat(latlng[0].trim()));
+                      loc.push(parseFloat(latlng[1].trim()));
+                      locations.push(loc);
+                      titlelist.push(element.title);
+                      urllist.push(element.url);
+
+                  });
+                  makemap(locations, titlelist, urllist);
+              });
 
 
               var map;
