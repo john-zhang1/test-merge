@@ -1046,7 +1046,7 @@
                 scimap.setAttribute("style", "height: 0px");
               } -->
 
-              $.getJSON('https://cc.lib.ou.edu/api/data_store/data/citizen_science/location/?page_size=3190&amp;format=json', function(data) {
+              $.getJSON('https://cc.lib.ou.edu/api/data_store/data/citizen_science/location/.json?page_size=0', function(data) {
                   var locations = [], titlelist=[], urllist=[];
                   $.each(data.results, function(index, element) {
                       var loc = [];
