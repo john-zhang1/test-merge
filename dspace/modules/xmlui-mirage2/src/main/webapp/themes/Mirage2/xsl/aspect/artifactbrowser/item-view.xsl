@@ -131,7 +131,25 @@
                             <xsl:variable name="handle" select="substring-after(ancestor::mets:METS/@OBJID, 'handle/')" />
                             <div class='altmetric-embed' data-badge-type='donut' data-condensed='true' data-badge-details='right' data-handle="{$handle}"></div>
                         </xsl:otherwise>
-                  </xsl:choose>
+                    </xsl:choose>
+                    <xsl:variable name="sagePub" select="dim:field[@element='description'][@qualifier='peerreviewnotes']" />
+                    <xsl:if test="contains($sagePub, 'sagepub')">
+                        <br/>
+                        <span>
+                            <xsl:for-each select="dim:field[@element='identifier' and @qualifier='doi']">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:text>http://dx.doi.org/</xsl:text>
+                                        <xsl:copy-of select="./node()"/>
+                                    </xsl:attribute>
+                                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-peerreviewnotes-sage</i18n:text>
+                                </a>
+                                <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='doi']) != 0">
+                                    <br/>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </span>
+                    </xsl:if>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>

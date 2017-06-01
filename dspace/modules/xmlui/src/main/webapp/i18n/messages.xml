@@ -2278,6 +2278,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Subject</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-relation-uri">Relation URI</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-peerreviewnotes-sage">See DOI for License</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-file">Files</message>
