@@ -21,16 +21,11 @@ $("#aspect_submission_StepTransformer_field_dwc_npdg_homezip").blur(function() {
 });
 
 function getCoordinate(zip){
-  geocoder = new google.maps.Geocoder();
-
-  geocoder.geocode({ 'address': zip }, function (results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-          var geo=results[0].geometry.location;
-          var loc = [];
-          loc.push(results[0].formatted_address);
-          var text = geo.lat() + ', ' + geo.lng()
-          $("#aspect_submission_StepTransformer_field_dwc_npdg_spatial").val(text);
-      }
+  $.getJSON('https://cc.lib.ou.edu/api/data_store/data/citizen_science/zipcodes/.json?query={"filter":{"zip":\"' + zip + '\"}}', function(data) {
+    $.each(data.results, function(index, element) {
+       var text = element.latitude + ', ' + element.longitude;
+       $("#aspect_submission_StepTransformer_field_dwc_npdg_spatial").val(text);
+    });
   });
 }
 
