@@ -176,7 +176,7 @@
                     </xsl:if>
                 </xsl:attribute>
             </meta>
-
+	    <meta name="google-site-verification" content="u8F7W3J1GMXMy-e3ZMKdjZVVFGWzgVGlgGhjZd_wI0s" />
             <!-- Add stylesheets -->
 
             <!--TODO figure out a way to include these in the concat & minify-->
@@ -312,7 +312,7 @@
                 </script>
                 <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
             </xsl:if>
-
+            <xsl:call-template name="addJavascript-google-analytics" />
         </head>
     </xsl:template>
 
@@ -773,7 +773,6 @@
                         <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
-                    <!-- <xsl:call-template name="show-google-analytics" /> -->
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
@@ -860,7 +859,7 @@
             <xsl:call-template name="choiceLookupPopUpSetup"/>
         </xsl:if>
 
-        <xsl:call-template name="addJavascript-google-analytics" />
+        <!-- <xsl:call-template name="addJavascript-google-analytics" /> -->
         <script src="{concat($theme-path, 'scripts/page.js')}">&#160;</script>
     </xsl:template>
 
@@ -877,18 +876,6 @@
                 ga('send', 'pageview');
             </xsl:text></script>
         </xsl:if>
-    </xsl:template>
-
-    <xsl:template name="show-google-analytics">
-            <script><xsl:text>
-                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-                  ga('create', 'UA-67205385-1', 'auto');
-                  ga('send', 'pageview');
-            </xsl:text></script>
     </xsl:template>
 
     <!--Google map for item Detail View -->
