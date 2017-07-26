@@ -617,6 +617,10 @@
             </xsl:for-each>
         </xsl:variable>
 
+        <xsl:variable name="sageType"
+                      select="document($externalMetadataURL)//dim:field[@element='description'][@qualifier='peerreviewnotes']"
+                />
+
         <xsl:if test="$ccLicenseName and $ccLicenseUri and contains($ccLicenseUri, 'creativecommons')">
             <div about="{$handleUri}" class="row">
             <div class="col-sm-3 col-xs-12">
@@ -628,6 +632,7 @@
                     <xsl:call-template name="cc-logo">
                         <xsl:with-param name="ccLicenseName" select="$ccLicenseName"/>
                         <xsl:with-param name="ccLicenseUri" select="$ccLicenseUri"/>
+                        <xsl:with-param name="sageType" select="$sageType"/>
                     </xsl:call-template>
                 </a>
             </div> <div class="col-sm-8">
@@ -643,6 +648,7 @@
     <xsl:template name="cc-logo">
         <xsl:param name="ccLicenseName"/>
         <xsl:param name="ccLicenseUri"/>
+        <xsl:param name="sageType"/>
         <xsl:variable name="ccLogo">
              <xsl:choose>
                   <xsl:when test="starts-with($ccLicenseUri,
@@ -682,14 +688,16 @@
                   </xsl:otherwise>
              </xsl:choose>
         </xsl:variable>
-        <img class="img-responsive">
-             <xsl:attribute name="src">
-                <xsl:value-of select="concat($theme-path,'/images/creativecommons/', $ccLogo)"/>
-             </xsl:attribute>
-             <xsl:attribute name="alt">
-                 <xsl:value-of select="$ccLicenseName"/>
-             </xsl:attribute>
-        </img>
+        <xsl:if test="not(contains($sageType, 'sagepub'))">
+            <img class="img-responsive">
+                 <xsl:attribute name="src">
+                    <xsl:value-of select="concat($theme-path,'/images/creativecommons/', $ccLogo)"/>
+                 </xsl:attribute>
+                 <xsl:attribute name="alt">
+                     <xsl:value-of select="$ccLicenseName"/>
+                 </xsl:attribute>
+            </img>
+        </xsl:if>
     </xsl:template>
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
