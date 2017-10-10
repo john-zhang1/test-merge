@@ -768,7 +768,23 @@
               </xsl:if>
           </td>
           <td class="word-break">
-            <xsl:copy-of select="./node()"/>
+            <xsl:choose>
+                <xsl:when test="@mdschema='dc' and @element='identifier' and @qualifier='uri' and contains(.,'http:')">
+                    <xsl:variable name="handleuri">
+                        <xsl:text>https</xsl:text>
+                        <xsl:value-of select="substring-after(./node(), 'http')" />
+                    </xsl:variable>
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:copy-of select='$handleuri'/>
+                        </xsl:attribute>
+                        <xsl:copy-of select='$handleuri'/>
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:copy-of select="./node()"/>
+                </xsl:otherwise>
+            </xsl:choose>
           </td>
           <td><xsl:value-of select="./@language"/></td>
         </tr>

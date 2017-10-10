@@ -300,11 +300,22 @@
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
                 <span>
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
+                        <xsl:variable name="handleuri">
+                            <xsl:choose>
+                                <xsl:when test="not(contains(./node(),'https'))">
+                                    <xsl:text>https</xsl:text>
+                                    <xsl:value-of select="substring-after(./node(), 'http')" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="./node()" />
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:copy-of select="./node()"/>
+                                <xsl:copy-of select="$handleuri"/>
                             </xsl:attribute>
-                            <xsl:copy-of select="./node()"/>
+                            <xsl:copy-of select="$handleuri"/>
                         </a>
                         <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
                             <br/>
@@ -581,6 +592,18 @@
                                 <xsl:copy-of select='node()'/>
                             </xsl:attribute>
                             <xsl:copy-of select='node()'/>
+                        </a>
+                    </xsl:when>
+                    <xsl:when test="@mdschema='dc' and @element='identifier' and @qualifier='uri' and contains(.,'http:')">
+                        <xsl:variable name="handleuri">
+                            <xsl:text>https</xsl:text>
+                            <xsl:value-of select="substring-after(./node(), 'http')" />
+                        </xsl:variable>
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:copy-of select='$handleuri'/>
+                            </xsl:attribute>
+                            <xsl:copy-of select='$handleuri'/>
                         </a>
                     </xsl:when>
                     <xsl:otherwise>
