@@ -21,3 +21,13 @@
     color: white;
     background: hotpink;
 }
+
+#aspect_submission_StepTransformer_div_submit-license-standard-text > :first-child:before {
+    font-weight: bold;
+    content: "Distribution license: ";
+}
+
+#aspect_submission_StepTransformer_div_submit-license-standard-text {
+    margin-left: 2em
+}
+
