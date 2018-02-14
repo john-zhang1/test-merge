@@ -222,7 +222,7 @@
                     <img alt="Thumbnail">
                         <xsl:attribute name="data-src">
                             <xsl:text>holder.js/100%x</xsl:text>
-                            <xsl:value-of select="$thumbnail.maxheight"/>
+                            <xsl:value-of select="80"/>
                             <xsl:text>/text:No Thumbnail</xsl:text>
                         </xsl:attribute>
                     </img>
@@ -675,7 +675,7 @@
                                 <img alt="Thumbnail">
                                     <xsl:attribute name="data-src">
                                         <xsl:text>holder.js/100%x</xsl:text>
-                                        <xsl:value-of select="$thumbnail.maxheight"/>
+                                        <xsl:value-of select="80"/>
                                         <xsl:text>/text:No Thumbnail</xsl:text>
                                     </xsl:attribute>
                                 </img>
