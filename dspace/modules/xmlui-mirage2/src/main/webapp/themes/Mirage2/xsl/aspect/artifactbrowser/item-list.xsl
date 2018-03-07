@@ -208,7 +208,7 @@
                         <img alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
                             <xsl:attribute name="data-src">
                                 <xsl:text>holder.js/100%x</xsl:text>
-                                <xsl:value-of select="$thumbnail.maxheight"/>
+                                <xsl:value-of select="80"/>
                                 <xsl:choose>
                                     <xsl:when test="$imgqualifier='N'">
                                         <xsl:text>/text:Photo Unavailable; Processed Prior to May 2015</xsl:text>
